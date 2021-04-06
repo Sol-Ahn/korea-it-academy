@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>능력단위평가 화면구현</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .left_menu {
+        width: 70px;
+        height: 100%;
+        background-color: lightgray;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      .left_menu ul {
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      .left_menu li {
+        margin: 20px 0;
+        font-size: 0;
+      }
+
+      .left_menu a:link,
+      a:visited {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .left_menu img {
+        width: 40px;
+        height: 40px;
+      }
+
+      header {
+        margin-left: 70px;
+        height: 500px;
+        background-image: url("img/header_img.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+
+      .main_menu {
+        width: 100%;
+        height: 50px;
+        margin-left: 70px;
+        text-align: center;
+        box-sizing: border-box;
+        display: inline-block;
+        border-bottom: 3px solid #c3c3c3;
+      }
+
+      .main_menu ul {
+        display: inline-block;
+        text-align: center;
+      }
+
+      .main_menu li {
+        width: 200px;
+        height: 50px;
+        float: left;
+        padding: 10px 20px;
+        box-sizing: border-box;
+      }
+
+      .main_menu a {
+        width: 100%;
+        color: black;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 32px;
+      }
+
+      section {
+        height: 700px;
+        margin-left: 70px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 32px;
+      }
+
+      table {
+        width: 600px;
+        border-collapse: collapse;
+        box-sizing: border-box;
+        margin: 0 auto;
+        margin-top: 40px;
+      }
+
+      tr,
+      td {
+        height: 50px;
+        box-sizing: border-box;
+        padding: 5px 10px;
+      }
+
+      td {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: right;
+        position: relative;
+      }
+
+      input,
+      select {
+        width: 100%;
+        height: 40px;
+        outline: none;
+        line-height: 32px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        width: 100%;
+        font-size: 16px;
+      }
+
+      button {
+        width: 100px;
+        height: 40px;
+        background-color: #075ecf;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      .content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px 10px;
+      }
+
+      .btn_ask {
+        float: left;
+      }
+
+      .btn_reset {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="left_menu">
+      <ul>
+        <li>
+          <a href="#" title="홈으로 이동"
+            ><img src="./img/home.png" alt="홈 아이콘"
+          /></a>
+        </li>
+        <li>
+          <a href="#" title="제품소개 페이지로 이동"
+            ><img src="./img/cup.png" alt="제품소개 아이콘"
+          /></a>
+        </li>
+        <li>
+          <a href="#" title="광고 페이지로 이동"
+            ><img src="./img/tv.png" alt="광고 아이콘"
+          /></a>
+        </li>
+        <li>
+          <a href="#" title="갤러리 페이지로 이동"
+            ><img src="./img/picture.png" alt="갤러리 아이콘"
+          /></a>
+        </li>
+        <li>
+          <a href="#" title="고객문의 페이지로 이동"
+            ><img src="./img/headphone.png" alt="고객문의 아이콘"
+          /></a>
+        </li>
+      </ul>
+    </nav>
+    <header></header>
+    <nav class="main_menu">
+      <ul>
+        <li><a href="#" title="홈으로 이동">HOME</a></li>
+        <li><a href="#" title="제품소개 페이지로 이동">COFFEE</a></li>
+        <li><a href="#" title="광고 페이지로 이동">CF</a></li>
+        <li><a href="#" title="갤러리 페이지로 이동">PRINT</a></li>
+        <li><a href="#" title="고객문의 페이지로 이동">문의하기</a></li>
+      </ul>
+    </nav>
+    <section>
+      <h1>제품 문의하기</h1>
+      <form action="" method="post">
+        <table>
+          <tr>
+            <td class="title"><label for="title">제목</label></td>
+            <td colspan="3">
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="제목을 입력해주세요"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="writer"><label for="writer">작성자</label></td>
+            <td colspan="3">
+              <input
+                type="text"
+                name="writer"
+                id="writer"
+                placeholder="작성하신분 성함을 입력해주세요"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="email"><label for="email">답변받을 이메일</label></td>
+            <td>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="이메일 주소"
+                required
+              />
+            </td>
+            <td>@</td>
+            <td>
+              <select id="mail">
+                <option value="gmail">gmail.com</option>
+                <option value="naver">naver.com</option>
+                <option value="hanmail">hanmail.net</option>
+                <option value="input">직접입력</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="content" class="content">문의내용</label></td>
+            <td colspan="3" name="content">
+              <textarea
+                id="content"
+                cols="30"
+                rows="10"
+                placeholder="문의 내용을 입력해주세요"
+                required
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3"><button class="btn_ask">문의하기</button></td>
+            <td><button class="btn_reset" type="reset">초기화</button></td>
+          </tr>
+        </table>
+      </form>
+    </section>
+  </body>
+</html>
