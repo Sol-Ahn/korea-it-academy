@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var today = new Date();
+      var tag = "<h3>" + (today.getMonth() + 1) + "월 달력</h3>";
+      tag +=
+        "<table><tr><th>Sun</th><th>Mon</th><th>Thu</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+
+      var month = today.getMonth(); // 현재 월 정보 저장
+
+      var start = new Date(); // 시작 날짜
+      start.setHours(0);
+      start.setMinutes(0);
+      start.setSeconds(0);
+      start.setDate(1);
+
+      var end = new Date(); // 마지막 날짜
+      end.setMonth(end.getMonth() + 1); // 다음 달로 변경
+      end.setHours(0);
+      end.setMinutes(0);
+      end.setSeconds(0);
+      end.setDate(0); // 이전 달의 마지막 날짜
+
+      start.setDate(start.getDate() - start.getDay()); // 달력 첫 칸 날짜
+      end.setDate(end.getDate() + 6 - end.getDay()); // 달력 마지막 칸 날짜
+
+      var week = (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 7); // 달력 주 수
+      for (let i = 0; i < week; i++) {
+        tag += "<tr>";
+        for (let j = 0; j < 7; j++) {
+          if (month != start.getMonth())
+            tag += "<td class='disabled'>" + start.getDate() + "</td>";
+          else tag += "<td>" + start.getDate() + "</td>";
+          start.setDate(start.getDate() + 1);
+        }
+        tag += "</tr>";
+      }
+      tag += "</table>";
+      document.write(tag);
+    </script>
+    <style>
+      h3 {
+        text-align: center;
+      }
+      table {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        width: 50px;
+        font-size: 1em;
+      }
+      td {
+        height: 50px;
+        text-align: right;
+        vertical-align: top;
+        padding: 5px;
+      }
+      th:nth-child(1),
+      td:nth-child(1) {
+        color: red;
+      }
+      th:nth-child(7),
+      td:nth-child(7) {
+        color: blue;
+      }
+      .disabled {
+        color: lightgray !important;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
