@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 숫자 하나를 입력받아 입력받은 숫자만큼 안녕하세요를 출력하기
+      var num = Number(prompt("숫자 하나 입력"));
+      // var i = 0;
+      // while (i < num) {
+      //   document.write("안녕하세요", "<br>");
+      //   i++;
+      // }
+
+      for (var i = 0; i < num; i++) {
+        document.write("안녕하세요", "<br>");
+      }
+
+      // while (input) {
+      //   document.write("안녕", input, "<br>");
+      //   input--;
+      // }
+
+      var input = Number(prompt("숫자 입력"));
+
+      for (; input > 0; input--) {
+        document.write("안녕", input, "<br>");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

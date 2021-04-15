@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 1~45까지 로또 번호 랜덤 생성
+      function createRandomNum() {
+        return Math.floor(Math.random() * 45) + 1;
+      }
+      console.log(createRandomNum());
+
+      function createLotto() {
+        // 배열 생성
+        var arr = [];
+        // var arr2 = new Array();
+        // 반복문: 배열에 저장된 값의 개수가 7이 될 때까지
+        while (arr.length != 7) {
+          // 숫자를 랜덤으로 뽑아서 배열에 해당 숫자가 있는지 체크
+          var n = createRandomNum();
+          if (arr.indexOf(n) != -1) {
+            // 숫자가 중복되면 저장하지 않고 다음 반복으로 넘어감
+            continue;
+          } else {
+            // 숫자가 중복되지 않으면 배열 저장
+            arr.push(n);
+          }
+          // 배열 반환
+        }
+        return arr;
+      }
+
+      for (var i = 0; i < 5; i++) {
+        document.write(createLotto(), "<br>");
+      }
+
+      // 숫자를 정렬하려면 정렬 알고리즘 사용
+    </script>
+  </head>
+  <body></body>
+</html>

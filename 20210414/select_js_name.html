@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <!-- 로그인 폼 -->
+    <form name="frm">
+      <label for="id">아이디</label>
+      <input type="text" name="id" placeholder="아이디를 입력하세요" /><br />
+      <label for="password">비밀번호</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="비밀번호를 입력하세요"
+      />
+      <br />
+      <button type="button" onclick="loginCheck()">로그인</button>
+    </form>
+    <script>
+      function loginCheck() {
+        var id = document.getElementsByName("id")[0];
+        // var password = document.getElementsByName("password")[0];
+        var password = document.frm.password;
+        console.log(id.value + " : " + password.value);
+        if (id.value.length == 0 || password.value.length == "")
+          alert("아이디와 비밀번호를 반드시 입력하세요");
+      }
+      loginCheck();
+    </script>
+  </body>
+</html>

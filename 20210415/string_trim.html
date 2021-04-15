@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var str1 = "He   llo               ";
+      var str2 = "                 He    llo";
+      var str3 = "          Hel  lo            ";
+
+      // trim()은 좌우 공백을 모두 제거하는 함수(중간에 있는 공백 X)
+      document.write(str1.length, " ", str1, "<br>");
+      str1 = str1.trim();
+      document.write(str1.length, " ", str1, "<br>");
+      document.write(str2.length, " ", str2, "<br>");
+      str2 = str2.trim();
+      document.write(str2.length, " ", str2, "<br>");
+      document.write(str3.length, " ", str3, "<br>");
+      str3 = str3.trim();
+      document.write(str3.length, " ", str3, "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>

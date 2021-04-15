@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var str = "A&B&C&D&E&F";
+
+      // 문자열을 특정 문자열 기준으로 자르기
+      var arr = str.split("&"); // 원본을 훼손하지 않음
+      for (i = 0; i < arr.length; i++) {
+        document.write(arr[i], "<br>");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

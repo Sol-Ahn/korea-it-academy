@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>접속기기 정보 이용</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 사용자 정보를 모두 소문자로 변환 후 추출
+      var info = navigator.userAgent.toLowerCase();
+      // 나올 수 있는 값: windows, macintosh, iphone, android
+      // 해당 값이 있으면 관련 홈페이지로 이동하는 링크 출력
+      /* 
+      windows => ms homepage
+      macintosh => apple mac homepage
+      iphone => apple iphone homepage
+      android => google homepage
+       */
+
+      // document.write(info);
+
+      var device = info
+        .substring(info.indexOf("(") + 1, info.indexOf(")"))
+        .split(" ")[0];
+      // document.write(device);
+
+      switch (device) {
+        case "windows":
+          document.write(
+            "<a href='https://www.microsoft.com/ko-kr'>ms homepage</a>"
+          );
+          break;
+        case "macintosh":
+          document.write(
+            "<a href='https://www.apple.com/kr/mac/'>apple mac homepage</a>"
+          );
+          break;
+        case "iphone":
+          document.write(
+            "<a href='https://www.apple.com/kr/iphone/'>apple iphone homepage</a>"
+          );
+          break;
+        case "android":
+          document.write(
+            "<a href='https://www.google.co.kr/'>google homepage</a>"
+          );
+          break;
+        default:
+          "wrong device";
+      }
+
+      document.write("<hr>");
+
+      if (info.indexOf("windows") != -1)
+        document.write(
+          "<a href='https://www.microsoft.com/ko-kr'>ms homepage</a>"
+        );
+      else if (info.indexOf("macintosh") != -1)
+        document.write(
+          "<a href='https://www.apple.com/kr/mac/'>apple mac homepage</a>"
+        );
+      else if (info.indexOf("iphone") != -1)
+        document.write(
+          "<a href='https://www.apple.com/kr/iphone/'>apple iphone homepage</a>"
+        );
+      else if (info.indexOf("android") != -1)
+        document.write(
+          "<a href='https://www.google.co.kr/'>google homepage</a>"
+        );
+    </script>
+  </head>
+  <body></body>
+</html>

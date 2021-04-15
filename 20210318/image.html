@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>이미지</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+  <img src="" alt=""> 
+  <!--src: 이미지 파일 경로(상대경로, 절대경로, 웹주소), alt: 엑박일 때 뜨는 글자 내용-->
+  <!--*상대경로일 때: 현재 html 파일을 기준으로 해당 이미지까지의 경로-->
+  <img src="img/cat1.jpg" alt="" width="300" height=""> <!--width에 맞추는 것이 좋음-->
+  <img src="img/sub/cat2.png" alt="">
+  <img src="cat3.jpg" alt=""> <!--같은 폴더에 있을 때는 파일명만 설정-->
+  <img src="../dog.jpg" alt=""> <!-- .. : 상위 폴더로 이동-->
+  <!-- URL-->
+  <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png" alt="">
+  <img src="/20210318/img/sub/cat2.png" alt=""> <!--*****URL root 폴더를 기준으로 경로를 잡음!-->
+  <hr>
+  <!--절대경로일 때: 실제 컴퓨터에서 파일이 있는 위치 ~> 더이상 사용 X-->
+  <img src="file:///c:/workspace/20210318/cat3.jpg" alt="절대경로로 잡은 이미지">
+</body>
+</html>

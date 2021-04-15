@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 숫자 하나를 입력받으면 해당 숫자의 팩토리얼값 출력
+      // var num = Number(prompt("숫자 입력"));
+      // var i = 1;
+      // var result = 1;
+      // while (i <= num) {
+      //   result *= i;
+      //   i++;
+      // }
+      // document.write(result);
+
+      var n,
+        result = 1;
+      n = Number(prompt("계산할 값 입력"));
+
+      while (n > 1) {
+        result *= n;
+        n--;
+      }
+      document.write(result);
+
+      // -------------------------------------
+
+      var i = 1;
+      var num = Number(prompt("숫자 입력"));
+      while (i < num) {
+        document.write(i + "*");
+        i++;
+      }
+      document.write(num);
+    </script>
+  </head>
+  <body></body>
+</html>

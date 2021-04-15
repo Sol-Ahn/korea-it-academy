@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = () => {
+        var btn = document.getElementsByTagName("button")[0];
+        // onclick: 마우스 클릭 이벤트
+        btn.onclick = () => {
+          // 아이디와 패스워드값이 전부 입력되어 있는지 체크
+          // 전부 입력되어 있으면 값이 정상이라는 경고창 발생
+          // 전부 입력되어 있지 않으면 아이디와 비밀번호를 입력하라는 경고창 발생
+          var id = document.getElementById("id");
+          var password = document.getElementById("password");
+          // 공백도 문자로 인식하기 때문에 value값으로 접근하려면 trim() 적용
+          // if (id.value.trim() === "" || password.value.trim() === "") {
+          //   alert("아이디와 비밀번호를 입력하세요");
+          // } else {
+          //   alert("값이 정상입니다");
+          // }
+          if (
+            id.value.trim().length == 0 ||
+            password.value.trim().length == 0
+          ) {
+            alert("아이디와 비밀번호를 입력하세요");
+          } else {
+            alert("값이 정상입니다");
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <!-- 로그인 -->
+    <input type="text" id="id" /><br />
+    <input type="password" id="password" /><br />
+    <button>로그인</button>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  width: 100px;
+  height: 60px;
+  background-color: gray;
+  border: 1px solid black;
+}
+
+#t1 {
+  transform: translate(100px, 100px);
+}
+
+#t2 {
+  background-image: url("/20210401/img/profile.png");
+  background-size: 100%;
+  transform: translate(200px, 100px), rotateX(40deg);
+  /* -webkit-transform: rotateX(40deg), translate(200px, 100px); */
+}
+
+#t3 {
+  background-image: url("/20210401/img/profile.png");
+  background-size: 100%;
+  transform: rotateY(40deg), translate(400px, 100px);
+  /* -webkit-transform: rotateY(40deg), translate(400px, 100px); */
+}
+
+#t4 {
+  background-image: url("/20210401/img/profile.png");
+  background-size: 100%;
+  transform: rotateZ(40deg), translate(600px, 100px);
+  /* -webkit-transform: rotateZ(40deg), translate(600px, 100px); */
+}

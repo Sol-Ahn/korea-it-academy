@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>문자열 함수 문제</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 사용자로부터 영문 이름을 입력받은 뒤 전부 대문자로 변환해서 출력
+      var name_en = prompt("영문 이름을 입력하세요");
+      name_en = name_en.toUpperCase();
+      document.write(name_en, "<br>");
+
+      // 주민등록번호를 입력받아 000000-2****** 형태로 출력
+      var rrn = prompt("주민등록번호를 입력하세요(- 포함)");
+      document.write(rrn.substring(0, rrn.length - 6), "******", "<br>");
+
+      var primaryNum = prompt("주민등록번호를 입력");
+      primaryNum = primaryNum.substring(0, primaryNum.length - 6);
+      document.write(primaryNum + "******");
+    </script>
+  </head>
+  <body></body>
+</html>

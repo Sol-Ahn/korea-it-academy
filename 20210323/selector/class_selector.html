@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>클래스 선택자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* 
+      1. table, th, td 선택자를 이용해서 선택
+      여백, 테두리 설정 
+       */
+      table {
+        /* 테이블 테두리 선을 하나로 설정 */
+        border-collapse: collapse;
+      }
+
+      /* 그룹 선택자 */
+      th,
+      td {
+        padding: 1px;
+        border: 1px solid black;
+      }
+
+      /* 
+      클래스 선택자
+      미리 css로 디자인을 만든 후에 해당 디자인이 필요한 여러 종류의 태그에게 디자인을 적용하는 방식    
+      .클래스속성값{
+        css디자인
+      }
+       */
+      .red {
+        color: red;
+      }
+
+      .under {
+        text-decoration: underline;
+      }
+      #blue {
+        color: blue;
+      }
+      /* 아이디는 클래스보다 디자인이 우선적으로 적용됨 */
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>국회의원은 국가이익을 우선하여 양심에 따라 직무를 행한다.</td>
+          <td id="blue" class="red under">이순신</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>
+            헌법재판소에서 법률의 위헌결정, 탄핵의 결정, 정당해산의 결정 또는
+            헌법소원에 관한 인용결정을 할 때에는 재판관 6인 이상의 찬성이 있어야
+            한다.
+          </td>
+          <td class="under">이인로</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>
+            대통령은 필요하다고 인정할 때에는 외교·국방·통일 기타 국가안위에
+            관한 중요정책을 국민투표에 붙일 수 있다.
+          </td>
+          <td class="under">이중섭</td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td>
+            국회의원과 정부는 법률안을 제출할 수 있다. 정기회의 회기는 100일을,
+            임시회의 회기는 30일을 초과할 수 없다.
+          </td>
+          <td>지석영</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td>
+            모든 국민은 인간다운 생활을 할 권리를 가진다. 정당은 법률이 정하는
+            바에 의하여 국가의 보호를 받으며, 국가는 법률이 정하는 바에 의하여
+            정당운영에 필요한 자금을 보조할 수 있다.
+          </td>
+          <td class="red">이인로</td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td>
+            대통령은 조국의 평화적 통일을 위한 성실한 의무를 진다. 언론·출판에
+            대한 허가나 검열과 집회·결사에 대한 허가는 인정되지 아니한다.
+          </td>
+          <td class="under">오세재</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

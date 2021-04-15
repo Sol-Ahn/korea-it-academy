@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>게시판</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      caption {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 0;
+      }
+      table {
+        width: 800px;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 5px;
+      }
+      tr {
+        border-top: 1px solid lightgrey;
+      }
+      th {
+        background-color: #d3d3d3d7;
+      }
+      td {
+        text-align: center;
+      }
+      .title {
+        width: 40%;
+      }
+      .new {
+        border-radius: 25px;
+        font-size: 12px;
+        padding: 1px 3px;
+        color: white;
+        background-color: turquoise;
+      }
+      button {
+        width: 40px;
+        height: 40px;
+        background-color: #d3d3d3d7;
+        border-radius: 5px;
+        border: none;
+      }
+      .pages {
+        text-align: right;
+        padding-right: 100px;
+      }
+      .active {
+        background-color: blue;
+        color: white;
+      }
+
+      .write {
+        text-align: right;
+      }
+
+      .btn_write {
+        color: white;
+        width: 80px;
+        background-color: blue;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        게시판
+      </caption>
+      <tr>
+        <th>No.</th>
+        <th class="title">title</th>
+        <th>count</th>
+        <th>date</th>
+        <th>좋아요</th>
+        <th>싫어요</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td class="title">제목 <span class="new">N</span></td>
+        <td>0</td>
+        <td>2010-11-19</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="title">제목</td>
+        <td>2</td>
+        <td>2010-11-19</td>
+        <td>40</td>
+        <td>42</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="title">제목</td>
+        <td>345</td>
+        <td>2010-11-19</td>
+        <td>112</td>
+        <td>42</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="title">제목</td>
+        <td>456</td>
+        <td>2010-11-19</td>
+        <td>44</td>
+        <td>457</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="title">제목</td>
+        <td>324</td>
+        <td>2010-11-19</td>
+        <td>75</td>
+        <td>75</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="title">제목</td>
+        <td>22</td>
+        <td>2010-11-19</td>
+        <td>4</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td class="pages" colspan="3">
+          <button><</button>
+          <button>1</button>
+          <button class="active">2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>></button>
+        </td>
+        <td class="write" colspan="3">
+          <button class="btn_write">글쓰기</button>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

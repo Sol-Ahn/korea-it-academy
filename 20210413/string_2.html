@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var str = "hello world test korea";
+      // 문자열을 부분 추출하는 함수: substr(X), substring
+      document.write(str.substr(4, 10), "<br>"); // index 4 ~ 10글자
+      document.write(str.substring(4, 10), "<br>"); // index 4 ~ index 9
+      document.write(str.substring(4), "<br>"); // index 4 ~ 전체
+      // 소문자로 변환
+      document.write(str.toLowerCase(), "<br>");
+      // 대문자로 변환
+      document.write(str.toUpperCase(), "<br>");
+
+      var str2 = "가";
+      document.write(str2.charCodeAt(0), "<br>");
+      document.write(String.fromCharCode(65), "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>

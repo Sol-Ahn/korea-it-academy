@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>kakao</h1>
+    <div class="container">
+    <h3>카카오계정 정보를 입력해 주세요</h3>
+    <ul>
+    <form action="" method="post">
+          <li><label for="id">카카오계정 이메일
+          </label></li>
+          <li><input type="text" name="id" id="id" placeholder="아이디입력"><span>@kakao.com</span></li>
+          <ul>
+            <li>입력한 카카오메일로 카카오계정에 로그인할 수 있습니다.</li>
+            <li>한번 만든 카카오메일은 변경할 수 없으니, 오타가 없도록 신중히 확인해 주세요.</li>
+            <li>생성한 카카오메일로 카카오계정과 관련한 알림을 받아볼 수 있습니다.</li>
+          </ul>
+          <li><label for="passwd">비밀번호</label></li>
+            <li><input type="password" name="password" id="password" placeholder="비밀번호(8~32자리)" minlength="8" maxlength="32"></li>
+            <li><input type="password" id="password_confirm" placeholder="비밀번호 재입력" minlength="8" maxlength="32"></li>
+          <li><label for="nickname">닉네임</label></li>
+        <li><input type="text" name="nickname" id="nickname" placeholder="닉네임을 입력해 주세요." maxlength="20"><span>0/20</span></li>
+            <label for="tel">전화번호</label>
+            <select name="telcode" id="telcode">
+              <option value="default">+82</option>
+              <option value="1">+1</option>
+              <option value="84">+84</option>
+              <option value="55">+55</option>
+            </select>
+            <input type="number" id="phoneNumber" placeholder="전화번호">
+          <button type="button">인증번호 전송</button>
+          <button>다음</button>
+      </form>
+    </ul>
+    </div>
+  </div>
+  </body>
+  </html>
+  

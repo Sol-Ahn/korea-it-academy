@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var num = 1, // table에 넣을 숫자
+        table = "<table>";
+
+      for (i = 0; i < 5; i++) {
+        table += "<tr>";
+        // 빈 셀을 만드는 반복문
+        for (j = 0; j < 5 - i - 1; j++) {
+          table += "<td></td>";
+        }
+        // 숫자가 들어간 셀을 만드는 반복문
+        for (k = 0; k <= i; k++) {
+          table += "<td>" + num + "</td>";
+          num++;
+        }
+        table += "</tr>";
+      }
+      table += "</table>";
+      document.write(table);
+    </script>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        padding: 10px;
+        font-size: 32px;
+        vertical-align: middle;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

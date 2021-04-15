@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>함수 복습</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // return 유무, 함수 실행 시 필요한 데이터 유무
+      // return: 일을 시킨 사람에게 결과 전달
+      //         결과가 이미 나왔기 때문에 더이상 함수 진행 필요 X
+      // 매개변수 O, return O
+      function sum(a, b) {
+        // 일을 실행하는 영역
+        return a + b;
+      }
+
+      var sum = (a, b) => {
+        a + b;
+      };
+
+      var result = sum(10, 30);
+      document.write(result);
+
+      // 매개변수 X, return O
+      function inputNumber() {
+        var result = Number(prompt("숫자 입력"));
+        return result;
+      }
+
+      // 매개변수 O, return X
+      function printResult(result) {
+        document.write("결과값: " + result);
+      }
+
+      // 매개변수 X, return X
+      function init() {
+        var n1 = inputNumber();
+        var n2 = inputNumber();
+        var result = sum(n1, n2);
+        printResult(result);
+      }
+      init();
+    </script>
+  </head>
+  <body></body>
+</html>

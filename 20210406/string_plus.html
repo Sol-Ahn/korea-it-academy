@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>문자열 처리</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 정수 2개를 저장할 변수와 문자열을 저장할 변수 1개 선언
+      var [n1, n2, msg] = [100, 150, "hello world"];
+      document.write(msg + n1, "<br>");
+      document.write(msg + n2, "<br>");
+      document.write(msg + n1 + n2, "<br>"); // hello world100150
+      document.write(n1 + n2 + msg, "<br>"); // 250hello world
+      // 계산은 하나씩 순서대로 진행됨.
+    </script>
+  </head>
+  <body></body>
+</html>

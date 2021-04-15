@@ -1,0 +1,10 @@
+- CSS(Cascading Style Sheets)
+html문서를 표현하는 디자인 부분을 담당하는 언어
+
+선택자(selector): 디자인을 적용할 태그를 선택하는 방법
+
+1) font: 크기, 글꼴, 색상, bold, italic, underline
+2) box modeling: 배경, 테두리, 여백(margin, padding, content), 그림자 
+3) layout: box modeling, width-height, display, float, 좌표, position
+4) animation
+

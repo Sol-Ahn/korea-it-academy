@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    input{
+      width: 0px;
+    }
+    
+    input:checked+label{
+      background-image: url("img/radio_check.png");
+    }
+
+    label{
+      padding-left: 30px;
+      background-image: url("img/radio_none_check.png");
+      background-position: 5px center;
+      background-repeat: no-repeat;
+      background-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <input type="radio" name="n" id="n1"><label for="n1">예</label><br>
+  <input type="radio" name="n" id="n2" checked><label for="n2">아니오</label>
+</body>
+</html>

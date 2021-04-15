@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>배경 이미지</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      div {
+        width: 1000px;
+        height: 700px;
+        border: 20px dashed black;
+        padding: 50px;
+        background-image: url("/20210325/img/spring.jpg");
+        /* 
+          no-repeat: 반복 X 
+          repeat-x: 가로방향으로 반복
+          repeat-y: 세로 방향으로 반복
+          repeat: 가로세로 반복, default
+         */
+        background-repeat: no-repeat;
+        /* 
+          배경이미지 사이즈는 "가로 세로 픽셀, %"로 줄 수 있음 
+          cover: 가로 세로 중 작은 비율로 계산해서 전부 채움, 이미지가 잘림
+          contain: 가로 세로 중 큰 비율로 계산해서 전부 채움, 이미지가 영역 전체를 채우지 못함
+        */
+        background-size: 500px;
+        /* 
+          배경 이미지 위치를 잡을 때 px, % 단위로 좌표 설정
+          키워드를 이용해서 top center bottom right left 설정 
+         */
+        background-position: top left;
+        /* 
+          border-box, padding-box, content-box
+         */
+        background-clip: content-box;
+      }
+      .clip_next {
+        background-image: url("img/spring.jpg");
+        font-size: 32px;
+        font-weight: bold;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <hr />
+    <div class="clip_next">글자 투명화 테스트</div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>float/clear</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+      }
+      .box1 {
+        background-color: blueviolet;
+      }
+      .box2 {
+        background-color: brown;
+      }
+      .box3 {
+        background-color: bisque;
+        width: 1000px;
+        height: 200px;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+      .clear {
+        clear: both;
+      }
+      .container {
+        width: 1200px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- div box 3개 작성-->
+    <div class="container">
+      <div class="box1 left"></div>
+      <div class="box2 right"></div>
+    </div>
+    <div class="box3 clear"></div>
+  </body>
+</html>

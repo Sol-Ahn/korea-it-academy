@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        height: 8000px;
+      }
+
+      #pop {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        position: fixed;
+        top: 40px;
+        right: 20px;
+        padding: 10px;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        var body = document.getElementsByTagName("body")[0];
+        // 이벤트 객체는 이벤트가 발생했을 때의 정보를 담고 있음
+        body.onclick = (event) => {
+          var pop = document.getElementById("pop");
+          var x = event.clientX;
+          var y = event.clientY;
+          pop.innerHTML = "x 좌표 : " + x + "<br> y 좌표 : " + y;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <!-- 마우스 좌표값 -->
+    <div id="pop"></div>
+  </body>
+</html>

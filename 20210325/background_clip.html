@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .box {
+        width: 400px;
+        height: 400px;
+        padding: 50px;
+        border: 20px dashed black;
+        background-color: coral;
+        /* 
+        배경(색상, 이미지)을 어느 영역까지 채울 것인가? 
+        border-box: 테두리까지 채움
+        padding-box: padding 영역까지 채움
+        content-box: content 영역까지 채움
+        */
+        background-clip: content-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

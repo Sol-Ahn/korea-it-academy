@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>popup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0px;
+        height: 0px;
+      }
+      .popup {
+        width: 300px;
+        height: 350px;
+        top: 100px;
+        left: 100px;
+        position: absolute;
+      }
+
+      .menu {
+        font-size: 16px;
+        width: 150px;
+        height: 50px;
+        line-height: 16px;
+        padding: 17px 0;
+        color: white;
+        background-color: blue;
+        text-decoration: none;
+        text-align: center;
+        box-sizing: border-box;
+        display: inline-block;
+      }
+      .img {
+        width: 300px;
+        height: 300px;
+      }
+      .pop_nav {
+        position: absolute;
+        bottom: 0px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="popup">
+      <a href="#"><img src="/dog.jpg" class="img" /></a>
+      <div class="pop_nav">
+        <a href="#" class="menu">다시보지않기</a
+        ><a href="#" class="menu">닫기</a>
+      </div>
+    </div>
+  </body>
+</html>

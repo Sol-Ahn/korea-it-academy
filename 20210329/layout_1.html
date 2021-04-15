@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        width: 1200px;
+        background-color: lightsalmon;
+        margin: 0 auto;
+        padding: 30px 0;
+      }
+      .header_container {
+        width: 100%;
+        display: inline-block;
+      }
+      .logo {
+        font-family: "Dancing Script", cursive;
+        float: left;
+        padding-left: 20px;
+        font-size: 36px;
+        line-height: 32px;
+        text-shadow: 2px 2px 10px darkolivegreen;
+      }
+      .txt_search {
+        width: 300px;
+        border-radius: 5px;
+        font-size: 20px;
+        box-sizing: border-box;
+        padding: 4px 0 4px 36px;
+        background-image: url(/20210329/search_icon.png);
+        background-repeat: no-repeat;
+        background-size: 30px;
+        background-position: 4px center;
+      }
+      .btn_search {
+        width: 70px;
+        background-color: lime;
+        color: #084708;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        border: none;
+        box-sizing: border-box;
+        margin-left: 10px;
+      }
+
+      .txt_search,
+      .btn_search {
+        float: right;
+        height: 32px;
+      }
+      nav {
+        min-width: 1200px;
+        background-color: lightsteelblue;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 0;
+      }
+      button {
+        float: right;
+      }
+      input {
+        float: right;
+      }
+      ul {
+        width: 1000px;
+        list-style-type: none;
+        display: inline-block;
+      }
+      li {
+        width: 200px;
+        float: left;
+      }
+      /* 하이퍼링크가 걸려있는 상태, 마우스가 올라갔을 때(행오버), 클릭했을 때 */
+      a:link,
+      a:visited {
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        padding: 20px 0;
+        display: inline-block;
+        width: 200px;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+      /* 마우스가 올라갔을 때 */
+      a:hover {
+        background-color: #622997;
+        color: white;
+        /* border-bottom: 3px solid white; */
+      }
+      /* 클릭하면 깜빡거리는 효과 */
+      a:active {
+        background-color: lightslategrey;
+      }
+      section {
+        width: 1200px;
+        float: left;
+      }
+      .content_thumbnail {
+        width: 150px;
+        height: 300px;
+        display: inline-block;
+        margin-left: 30px;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      h2 {
+        padding: 10px 5px;
+      }
+      h3 {
+        padding: 3px 5px;
+        height: 50px;
+        box-sizing: border-box;
+      }
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      footer {
+        width: 1200px;
+        height: 200px;
+        background-color: lightsteelblue;
+        margin: 0 auto;
+        clear: both;
+      }
+      .container {
+        width: 1600px;
+        margin: 0 auto;
+      }
+      .banner_area {
+        width: 200px;
+        height: 600px;
+        float: left;
+        box-sizing: border-box;
+        margin-top: 30px;
+      }
+      /* 이미지 사이즈 */
+      .banner_1:link,
+      .banner_1:hover,
+      .banner_1:visited {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        padding: 0px;
+      }
+      .banner_img {
+        width: 100%;
+        height: 100%;
+      }
+      .banner_2:link,
+      .banner_2:hover,
+      .banner_2:visited {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header_container">
+        <span class="logo">Logo</span>
+        <button class="btn_search">검색</button>
+        <input
+          type="text"
+          class="txt_search"
+          id="search"
+          placeholder="검색어를 입력하세요"
+        />
+      </div>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#" title="메뉴1 페이지 이동">메뉴1</a></li>
+        <li><a href="#" title="메뉴2 페이지 이동">메뉴2</a></li>
+        <li><a href="#" title="메뉴3 페이지 이동">메뉴3</a></li>
+        <li><a href="#" title="메뉴4 페이지 이동">메뉴4</a></li>
+        <li><a href="#" title="메뉴5 페이지 이동">메뉴5</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <aside class="banner_area">
+        <a href="#" title="OO회사 OO제품 광고 페이지 이동" class="banner_1">
+          <img
+            src="/20210318/img/pasta.jpg"
+            alt="OO회사 OO제품 광고 이미지"
+            class="banner_img"
+          />
+        </a>
+      </aside>
+      <section>
+        <article>
+          <h2>article 제목</h2>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+        </article>
+        <article>
+          <h2>article 제목</h2>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+          <div class="content_thumbnail">
+            <img src="/20210318/cat3.jpg" alt="" />
+            <h3>오늘의 기사</h3>
+            <p>오늘의 기사 내용입니다.</p>
+          </div>
+        </article>
+      </section>
+      <aside class="banner_area">
+        <a href="#" title="OO회사 OO제품 광고 페이지 이동" class="banner_2">
+          <img
+            src="/20210318/img/pasta.jpg"
+            alt="OO회사 OO제품 광고 이미지"
+            class="banner_img"
+          /> </a
+        ><a href="#" title="OO회사 OO제품 광고 페이지 이동" class="banner_2">
+          <img
+            src="/20210318/img/pasta.jpg"
+            alt="OO회사 OO제품 광고 이미지"
+            class="banner_img"
+          /> </a
+        ><a href="#" title="OO회사 OO제품 광고 페이지 이동" class="banner_2">
+          <img
+            src="/20210318/img/pasta.jpg"
+            alt="OO회사 OO제품 광고 이미지"
+            class="banner_img"
+          />
+        </a>
+      </aside>
+    </div>
+    <footer>
+      <div class="footer_container">
+        <p>
+          회사명 : OOOOO <br />
+          대표 : OOO <br />
+          사업자번호 : OOO-OOOO-OOOOO <br />
+          통신판매업신고번호 : OOO-OOOO-OOOO <br />
+        </p>
+        <!-- 문자: sms -->
+        <p class="footer_p">
+          고객센터 연락처 :
+          <a
+            href="tel:000-0000-0000"
+            title="고객센터에 전화"
+            class="footer_link"
+          >
+            OOO-OOOO-OOOO</a
+          >
+        </p>
+        <p class="footer_p">
+          담당자 이메일 :
+          <a
+            href="mailto:OOOOO@gmail.com"
+            title="담당자에게 메일 전송"
+            class="footer_link"
+            >OOOOO@gmail.com</a
+          >
+        </p>
+      </div>
+      <div>
+        <ul>
+          <li>이용약관</li>
+          <li>운영정책</li>
+          <li>개인정보처리방침</li>
+          <li>고객센터</li>
+        </ul>
+      </div>
+    </footer>
+    <style>
+      .footer_container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+      .footer_p {
+        width: 50%;
+        line-height: 32px;
+        float: left;
+      }
+      .footer_link:link,
+      .footer_link:visited {
+        padding: 0px;
+        font-weight: normal;
+      }
+      .footer_link:hover {
+        text-decoration: underline;
+        background-color: navy;
+        color: white;
+      }
+    </style>
+  </body>
+</html>

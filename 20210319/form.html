@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <!-- form 태그: 사용자로부터 직접 입력을 받아서 서버로 데이터를 전송 -->
+    <!-- action: 입력한 데이터를 전송할 서버페이지 url -->
+    <form action="" method="get">
+      <!-- label 태그가 감싸고 있는 input 태그를 선택하는 효과,
+        for에 있는 속성값을 이용하여 input 태그의 속성 중 일치하는 id 속성값에 해당하는 태그를 선택 
+      -->
+      <label for="id"> 아이디:</label>
+      <input
+        type="text"
+        id="id"
+        name="id"
+        placeholder="아이디를 입력해주세요"
+        autofocus
+        required
+      /><br />
+      <!-- 
+      value: input 태그에 미리 입력할 내용, 기본값 
+      placeholder: 입력할 내용의 힌트, 내용을 입력하면 힌트는 사라짐  cf.안드로이드에서는 hint 속성
+      autofocus: 해당 태그에 입력가능한 상태로 설정
+      required: 서버로 전송시 꼭 입력해야 하는 태그로 설정
+      readonly: 읽기 전용, 수정 및 데이터 입력 불가능, 서버 전송 O
+      maxlength: 최대로 입력가능한 글자 개수
+      minlength: 최소로 입력해야 하는 글자 개수
+      disabled: 해당 input 태그 비활성화, 서버 전송 X
+    -->
+
+      암호:
+      <input
+        type="password"
+        name="pass"
+        required
+        maxlength="10"
+        minlength="5"
+      /><br />
+      <input type="text" name="test" value="텍스트 데이터" disabled /><br />
+      <!-- 
+        checkbox, radio button 
+        checked: 미리 체크 설정
+      -->
+      <!-- name 속성이 없으면 서버로 전송되지 않음! -->
+      <label><input type="checkbox" name="hobby" value="game" checked /> 게임 </label
+      ><br />
+      <label><input type="checkbox" name="hobby" value="cook" /> 요리 </label
+      ><br />
+      <label><input type="checkbox" name="hobby" value="book" /> 독서 </label
+      ><br />
+      <input type="submit" value="로그인" />
+    </form>
+  </body>
+</html>

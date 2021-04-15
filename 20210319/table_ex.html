@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>table example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      table{
+        border-collapse: collapse;
+      }
+      td{
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    - 테이블 구성 태그
+      <table></table> : 테이블영역
+      <tr></tr> : 테이블의 행 영역(줄 영역)
+      <td></td> : 테이블의 열 영역(열 영역) === 한칸 === 셀
+  -->
+    <h2>3행 4열 테이블</h2>
+    <table border="1">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8<br />1</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+      </tr>
+    </table>
+    <hr />
+    <table>
+      <!-- 좌상단을 기준으로 (0 , 0)-->
+      <h2>5행 5열 테이블 - 합치기</h2>
+      <tr>
+        <td colspan="2">1</td> <!--가로 2칸짜리 셀--> 
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td rowspan="2">7</td> <!--세로 2칸짜리 셀-->
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>17</td>
+        <td>18</td>
+        <td colspan="2" rowspan="2">19</td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+      </tr>
+    </table>
+  </body>
+</html>

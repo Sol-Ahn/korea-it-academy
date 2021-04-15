@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 코드: 제품, 사람, 학생들에 대한 고유번호 체계
+      /*  
+      제조사 번호 - 물품 종류 - 고유 코드
+      물품 종류: 1-식품, 2-전자제품, 3-의약품, 4-생활용품
+      
+      제품코드를 입력받아 해당 물품의 종류를 출력, 1-4에 해당하는 값이 아니면 코드 오류
+      ex) 입: SM01010-3-RE244
+          출: 입력한 물품은 의약품입니다.
+      */
+
+      var code = prompt("제품코드를 입력하세요");
+
+      function checkCode(codeNo) {
+        var category = codeNo.substring(
+          codeNo.indexOf("-") + 1,
+          codeNo.lastIndexOf("-")
+        );
+        // var category = codeNo.substring(
+        //   codeNo.indexOf("-") + 1,
+        //   codeNo.indexOf("-") + 2
+        // );
+        switch (category) {
+          case "1":
+            document.write("입력한 물품은 식품입니다.");
+            break;
+          case "2":
+            document.write("입력한 물품은 전자제품입니다.");
+            break;
+          case "3":
+            document.write("입력한 물품은 의약품입니다.");
+            break;
+          case "4":
+            document.write("입력한 물품은 생활용품입니다.");
+            break;
+          default:
+            document.write("코드 오류");
+        }
+      }
+
+      checkCode(code);
+    </script>
+  </head>
+  <body></body>
+</html>

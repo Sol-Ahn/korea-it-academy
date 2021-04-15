@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 숫자 하나를 입력받은 후 입력한 숫자의 구구단을 출력
+      // var num = Number(prompt("숫자 입력"));
+      // var i = 1;
+      // while (i < 10) {
+      //   document.write(num, "*", i, "=", num * i, "<br>");
+      //   i++;
+      // }
+
+      // -------------------------------------------------
+      var num = 3;
+      var i = 1;
+      var table = "<table>";
+      while (i < 10) {
+        table +=
+          "<tr><td>" +
+          num +
+          "</td><td>*</td><td>" +
+          i +
+          "</td><td>=</td><td>" +
+          num * i +
+          "</td></tr>";
+        i++;
+      }
+      table += "</table>";
+      document.write(table);
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        border-collapse: collapse;
+        text-align: center;
+        display: inline-block;
+      }
+
+      td {
+        border: 1px solid black;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
