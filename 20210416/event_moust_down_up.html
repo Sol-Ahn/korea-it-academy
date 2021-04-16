@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        height: 5000px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var btn = document.getElementById("btn");
+        var content = document.getElementById("content");
+
+        // 마우스 버튼을 눌렀을 때
+        // 왼쪽: 0 , 중간: 1, 오른쪽: 2
+        btn.onmousedown = function (e) {
+          content.innerHTML = "마우스 버튼: " + e.button;
+        };
+        btn.onmouseup = function () {
+          console.log("마우스 버튼이 올라갔습니다.");
+        };
+        // var body = document.getElementsByTagName("body")[0];
+        // body.onmousedown = function (e) {
+        //   if (e.button == 2) {
+        //     alert("오른쪽 클릭은 사용할 수 없습니다.");
+        //   }
+        // };
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn">버튼</button>
+    <p id="content"></p>
+  </body>
+</html>
