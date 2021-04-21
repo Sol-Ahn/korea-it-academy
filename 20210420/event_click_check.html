@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>click_check</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      /* function checkList() {
+        var checkbox = document.getElementsByName("hobby");
+        for (var i = 0; i < checkbox.length; i++) {
+          console.log(checkbox[i].value + " , " + checkbox[i].checked);
+          document.getElementById("txt").readOnly = true;
+        }
+      } */
+
+      checkList = () => {
+        var checkbox = document.getElementsByName("hobby");
+        for (var i = 0; i < checkbox.length; i++) {
+          if (checkbox[i].checked)
+            console.log(checkbox[i].value + " , " + checkbox[i].checked);
+        }
+
+        // 방법1
+        /*  
+        var count = 0;
+        for (var i = 0; i < checkbox.length; i++) {
+          if (checkbox[i].checked == true) count++;
+        }
+        if (count === 0) alert("취미는 반드시 1개 이상 선택하세요.");
+        */
+
+        // 방법 2
+        var result = false;
+        for (var i = 0; i < checkbox.length; i++)
+          result = result || checkbox[i].checked;
+        if (!result) alert("취미는 반드시 1개 이상 선택하세요.");
+      };
+
+      window.onload = () => {
+        var btn = document.getElementById("btn");
+        btn.onclick = checkList;
+        console.log(document.getElementById("txt").required);
+        document.getElementById("txt").readOnly = true;
+      };
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" name="hobby" value="게임" />게임<br />
+    <input type="checkbox" name="hobby" value="등산" />등산<br />
+    <input type="checkbox" name="hobby" value="낚시" />낚시<br />
+    <input type="checkbox" name="hobby" value="요리" />요리<br />
+    <input type="text" id="txt" required /><br />
+    <button id="btn">실행</button>
+  </body>
+</html>

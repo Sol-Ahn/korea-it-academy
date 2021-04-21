@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <script>
+      function makeRequest() {
+        httpRequest = new XMLHttpRequest();
+
+        if (!httpRequest) {
+          alert("XMLHttp 인스턴스 생성 불가");
+          return false;
+        }
+
+        httpRequest.onreadystatechange = alertContents;
+        httpRequest.open("GET", "http://nam2626.dothome.co.kr/ajax_xml.php");
+        httpRequest.send();
+      }
+
+      function alertContents() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          // 응답 완료
+          if (httpRequest.status === 200) {
+            // status code: 200
+            console.log(httpRequest.responseText);
+            var result = httpRequest.responseText;
+            var xmlParser = new DOMParser();
+            var xmlDoc = xmlParser.parseFromString(result, "text/xml");
+            allPrintXml(xmlDoc);
+            printMenu(xmlDoc);
+            /* var txt =
+              xmlDoc.getElementsByTagName("question")[0].childNodes[0]
+                .nodeValue +
+              "<br>" +
+              xmlDoc.getElementsByTagName("answer")[0].childNodes[0].nodeValue;
+            document.getElementById("view").innerHTML = txt; */
+          } else {
+            alert("request에 문제 발생");
+          }
+        }
+      }
+
+      function allPrintXml(xmlDoc) {
+        var root = xmlDoc.getElementsByTagName("root")[0];
+        // console.log("root: " + root.childNodes.length);
+        for (var i = 0; i < root.childNodes.length; i++) {
+          console.log(root.childNodes[i].nodeName);
+          for (var j = 0; j < root.childNodes[i].childNodes.length; j++) {
+            console.log(
+              "  " +
+                root.childNodes[i].childNodes[j].nodeName +
+                " : " +
+                root.childNodes[i].childNodes[j].childNodes[0].nodeValue
+            );
+          }
+        }
+        /* var quiz = xmlDoc.getElementsByTagName("quiz");
+        var question = xmlDoc.getElementsByTagName("question");
+        console.log("quiz tag 개수: " + quiz.length);
+        console.log("question tag 개수: " + question.length);
+        console.log("question tag 값: " + question[0].childNodes[0].nodeValue);
+        console.log("question tag 값: " + question[1].childNodes[0].nodeValue); */
+      }
+
+      // -----------------------------
+      function printMenu(xmlDoc) {
+        var question = xmlDoc.getElementsByTagName("question");
+        var answer = xmlDoc.getElementsByTagName("answer");
+
+        for (var i = 0; i < question.length; i++) {
+          document.getElementById("view").innerHTML +=
+            i +
+            1 +
+            "번 문제 : " +
+            question[i].childNodes[0].nodeValue +
+            "<br>" +
+            "답 : " +
+            answer[i].childNodes[0].nodeValue +
+            "<br>";
+        }
+      }
+      // -----------------------------
+
+      window.onload = function () {
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+          makeRequest();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn">버튼</button>
+    <div id="view"></div>
+  </body>
+</html>

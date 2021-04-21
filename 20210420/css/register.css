@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.container {
+  width: 700px;
+  padding: 30px;
+  margin: 40px auto;
+  border: 1px solid lightgray;
+}
+
+form ul {
+  list-style-type: none;
+}
+
+form li {
+  padding: 6px 0;
+}
+
+form > ul > ul {
+  padding-left: 40px;
+  list-style-type: disc;
+  color: gray;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 80%;
+  font-size: 20px;
+}
+
+button {
+  outline: none;
+  margin-top: 15px;
+}
+
+.sub_txt {
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+  display: inline-block;
+  text-align: right;
+  width: 20%;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+.border_left {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 2px solid #b3b3b3;
+}
+
+.border_bottom {
+  border-bottom: 2px solid #b3b3b3;
+}
+
+select {
+  width: 100px;
+  font-size: 18px;
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+}
+
+.btn_send_no {
+  background-color: white;
+  width: 300px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #b3b3b3;
+}
+
+.btn_send_no:hover {
+  background-color: #dbd4d4;
+  border-color: gray;
+}
+
+input[type="radio"] {
+  width: 0;
+  height: 0;
+}
+
+input[type="radio"] + label {
+  font-weight: normal;
+  padding: 30px;
+  background-image: url("/20210405/img/radio_none_check.png");
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  background-size: 16px;
+}
+
+input[type="radio"]:checked + label {
+  background-image: url("/20210405/img/radio_check.png");
+}
+
+.btn_next {
+  width: 100%;
+  height: 50px;
+  background-color: #dbd4d4;
+  border-radius: 10px;
+  border: none;
+}
+
+.btn_next:hover {
+  background-color: #f1f107;
+}
+
+.true {
+  color: blue;
+  font-weight: bold;
+}
+.false {
+  color: red;
+  font-weight: bold;
+}

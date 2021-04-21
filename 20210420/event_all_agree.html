@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = () => {
+        var all = document.getElementById("all");
+        var label = document.getElementsByTagName("label")[0];
+        var checkbox = document.getElementsByName("agree");
+        all.onclick = label.onclick = () => {
+          for (var i = 0; i < checkbox.length; i++) {
+            checkbox[i].checked = all.checked;
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" id="all" />
+    <label for="all">전체 약관 동의</label>
+    <hr />
+    <input type="checkbox" name="agree" value="a1" />약관1 동의 <br />
+    <input type="checkbox" name="agree" value="a2" />약관2 동의 <br />
+    <input type="checkbox" name="agree" value="a3" />약관3 동의 <br />
+    <input type="checkbox" name="agree" value="a4" />약관4 동의 <br />
+    <input type="checkbox" name="agree" value="a5" />약관5 동의 <br />
+  </body>
+</html>

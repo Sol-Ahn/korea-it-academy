@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>변수 유효 스코프</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      /*   window.onload = function () {
+        // var로 선언한 변수는 함수가 끝날 때까지 살아 있음!
+        var num = 10;
+        if (true) {
+          var num1 = 20;
+          document.write(num1, "<br>");
+        }
+        document.write(num, "<-- window onload <br>");
+        document.write(num1, "<-- if <br>");
+      }; */
+
+      window.onload = function () {
+        // let은 {블록 단위}로 변수를 할당하고 소멸함
+        let num = 10;
+        if (true) {
+          let num1 = 20;
+          document.write(num1, "<br>");
+        }
+        document.write(num, "<-- window onload <br>");
+        document.write(num1, "<-- if <br>"); // 에러 발생, num1은 if가 끝난 후 해제됨
+      };
+    </script>
+  </head>
+  <body></body>
+</html>
