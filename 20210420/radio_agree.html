@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      /* agreeCheck = () => {
+        var agree = document.getElementsByName("agree");
+        for (var i = 0; i < agree.length; i++) {
+          if (agree[i].checked == true && agree[i].value === "no") {
+            alert("가입하시려면 약관 동의를 수락해주세요.");
+            return false;
+          }
+        }
+      };
+
+      window.onload = () => {
+        var btn = document.getElementsByTagName("button")[0];
+        btn.onclick = agreeCheck;
+      }; */
+
+      window.onload = () => {
+        var agree = document.getElementsByName("agree");
+        var frm = document.frm;
+        frm.onsubmit = (e) => {
+          for (var i = 0; i < agree.length; i++) {
+            if (agree[i].checked && agree[i].value === "no") {
+              alert("가입하시려면 약관 동의를 수락해주세요.");
+              return false;
+            }
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <form action="" method="POST" name="frm">
+      <input type="radio" name="agree" value="yes" />예<br />
+      <input type="radio" name="agree" value="no" checked />아니오<br />
+      <button>제출</button>
+    </form>
+  </body>
+</html>

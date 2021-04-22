@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>keyboard event</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = function () {
+        var txt = document.getElementById("txt");
+        var area = document.getElementById("area");
+
+        txt.onkeydown = function (e) {
+          console.log("현재 누른 키보드 키: " + e.keyCode);
+        };
+
+        txt.onkeypress = function (e) {
+          console.log("현재 누르고 있는 키보드 키: " + e.keyCode);
+        };
+        txt.onkeyup = function (e) {
+          area.innerHTML = "입력한 키보드 키: " + e.keyCode;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt" />
+    <div id="area"></div>
+  </body>
+</html>

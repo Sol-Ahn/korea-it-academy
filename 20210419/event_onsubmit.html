@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = function () {
+        var id = document.getElementById("id");
+        var passwd = document.getElementById("passwd");
+        var frm = document.frm;
+        frm.onsubmit = function (e) {
+          // alert(id.value + " " + passwd.value);
+          if (id.value.trim().length == 0 || passwd.value.trim().length == 0) {
+            alert("아이디와 비밀번호를 입력하세요");
+            e.preventDefault();
+            // return false;
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <form action="" method="POST" name="frm">
+      <input type="text" id="id" /><br />
+      <input type="password" id="passwd" /><br />
+      <button>로그인</button>
+      <!-- button 태그에 type 속성을 작성하지 않으면 기본값으로 type='submit' 지정 -->
+    </form>
+  </body>
+</html>

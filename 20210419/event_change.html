@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = function (e) {
+        var sel = document.getElementById("sel");
+        var txt = document.getElementById("txt");
+        // alert(sel.value);
+
+        sel.onchange = function () {
+          // 현재 select가 선택된 값을 콘솔에 출력
+          console.log(this.value);
+        };
+        txt.onchange = function () {
+          console.log(this.value);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <select id="sel">
+      <option value="1">data1</option>
+      <option value="2">data2</option>
+      <option value="3">data3</option>
+      <option value="4">data4</option>
+    </select>
+    <input type="text" id="txt" />
+  </body>
+</html>

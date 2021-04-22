@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = () => {
+        /* var txt1 = document.getElementById("txt1");
+        var txt2 = document.getElementById("txt2");
+        var passwd = document.getElementById("passwd");
+        var area = document.getElementById("area"); */
+
+        var input = document.getElementsByTagName("input");
+        var area = document.getElementById("area");
+        var button = document.getElementsByTagName("button")[0];
+        for (var i = 0; i < input.length; i++) {
+          input[i].onfocus = function () {
+            this.style.backgroundColor = "violet";
+          };
+          input[i].onblur = function () {
+            this.style.backgroundColor = "white";
+          };
+        }
+        area.onfocus = button.onfocus = function () {
+          this.style.backgroundColor = "violet";
+        };
+        area.onblur = button.onblur = function () {
+          this.style.backgroundColor = "white";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt1" />
+    <input type="text" id="txt2" />
+    <input type="password" id="passwd" />
+    <textarea id="area" cols="30" rows="10"></textarea>
+    <button>버튼</button>
+  </body>
+</html>

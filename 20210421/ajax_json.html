@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function makeRequest() {
+        httpRequest = new XMLHttpRequest();
+
+        if (!httpRequest) {
+          alert("XMLHttp 인스턴스 생성 불가");
+          return false;
+        }
+        httpRequest.onreadystatechange = alertContents;
+        var txt = document.getElementById("txt").value;
+        httpRequest.open(
+          "GET",
+          "http://nam2626.dothome.co.kr/papago.php?txt=" + txt
+        );
+        httpRequest.send();
+      }
+
+      function alertContents() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          if (httpRequest.status === 200) {
+            // console.log(httpRequest.responseText);
+            var result = httpRequest.responseText;
+            result = result.split("<br>")[1]; // server code preprocessing
+            var json_result = JSON.parse(result);
+            document.getElementById("view").innerHTML =
+              json_result.message.result.translatedText;
+            // console.log(json_result.message);
+            // console.log(json_result.message.result);
+          } else {
+            alert("request에 문제 발생");
+          }
+        }
+      }
+
+      window.onload = function () {
+        document.getElementById("time").innerHTML = new Date();
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+          makeRequest();
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="time"></div>
+    <!-- real time page loaded-->
+    <textarea id="txt"></textarea><br />
+    <button id="btn">버튼</button>
+    <div id="view"></div>
+  </body>
+</html>
