@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script></script>
+    <style>
+      a[download] {
+        color: tomato;
+      }
+      /* ^ : 입력의 시작 부분에 대응되는 정규표현식*/
+      a[href^="http"] {
+        text-decoration: none;
+      }
+
+      /* $ : 입력의 끝 부분에 대응되는 정규표현식 */
+      a[href$="jpg"] {
+        background-image: url(/resources/img/picture.png);
+        background-position: 0 center;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        padding-left: 25px;
+      }
+
+      /* *: 표현식이 0회 이상 연속으로 반복되는 부분과 대응되는 정규표현식 */
+      a[href*="lib"] {
+        font-weight: bold;
+      }
+
+      a[target="_blank"] {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="http://www.google.co.kr" target="_blank">Go to google</a><br />
+    <a href="/resources/img/dog.jpg" download> attached files download</a><br />
+    <a href="/resources/lib/jquery-3.6.0.min.js" download>jQuery download</a>
+  </body>
+</html>

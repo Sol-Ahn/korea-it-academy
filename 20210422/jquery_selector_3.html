@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $(".txt3").prevUntil(".title").css({ color: "orange" });
+        $(".txt3").nextUntil(".txt6").css({ color: "green" });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1 class="title">선택자</h1>
+      <p>내용1</p>
+      <p>내용2</p>
+      <p class="txt3">내용3</p>
+      <p>내용4</p>
+      <p>내용5</p>
+      <p class="txt6">내용6</p>
+    </div>
+  </body>
+</html>

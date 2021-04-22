@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("section").children().css({ border: "1px solid blue" });
+        $("section").children("div").css({ border: "1px dashed black" });
+        $(".txt2").closest("h3").css({ border: "5px solid red" });
+      });
+    </script>
+  </head>
+  <body>
+    <h1 class="title">선택</h1>
+    <section>
+      <div>
+        <p class="txt1">내용</p>
+      </div>
+      <h3>
+        <h3>
+          <p class="txt2">내용</p>
+        </h3>
+      </h3>
+    </section>
+  </body>
+</html>

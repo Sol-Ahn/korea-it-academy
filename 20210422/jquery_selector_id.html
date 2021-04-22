@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#id").val("아이디를 입력하세요.");
+        $("button").click(function () {
+          // val function => value
+          var passwd = $("#password").val();
+          // html function => innerHTML
+          $("#result").html("입력하신 비밀번호는 " + passwd + "입니다.");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="id" />
+    <input type="password" id="password" />
+    <button>로그인</button>
+    <hr />
+    <div id="result"></div>
+  </body>
+</html>
