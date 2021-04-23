@@ -3,116 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/javascript/css/kakao_signup.css" />
     <title>Kakao Signup</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      *:focus {
-        outline: none;
-      }
-      html {
-        font-weight: 300;
-        font-size: 16px;
-        text-rendering: optimizeLegibility;
-      }
-
-      h1,
-      h2 {
-        font-weight: 500;
-      }
-
-      h1 {
-        text-align: center;
-        margin: 40px 0;
-      }
-
-      h2 {
-        margin-bottom: 50px;
-      }
-
-      .signup-box {
-        width: 80%;
-        height: auto;
-        padding: 60px;
-        margin: 0 auto;
-        border: 1px solid lightgray;
-      }
-
-      .signup-box form ul {
-        list-style: none;
-      }
-
-      .signup-box form ul li {
-        margin: 10px 0;
-      }
-
-      .signup-box form ul ul {
-        list-style: disc;
-        color: #858585;
-        padding-left: 20px;
-      }
-
-      label {
-        font-weight: 500;
-        font-size: 80%;
-      }
-
-      input {
-        border: none;
-        width: 70%;
-        height: 40px;
-        font-size: 100%;
-      }
-
-      select {
-        width: 15%;
-        height: 40px;
-        font-size: 100%;
-        border: none;
-      }
-
-      .border_left {
-        margin-left: 5px;
-        padding-left: 5px;
-        border-left: 2px solid lightgray;
-      }
-
-      .border_bottom {
-        border-bottom: 2px solid lightgray;
-      }
-
-      .id_txt {
-        text-align: right;
-        font-size: 110%;
-        font-weight: bold;
-        color: gray;
-      }
-
-      .nickname_txt {
-        text-align: right;
-        font-size: 80%;
-        width: 20%;
-        padding-right: 10px;
-        color: gray;
-      }
-    </style>
+    <script src="/javascript/kakao_signup.js"></script>
   </head>
   <body>
     <h1>Kakao</h1>
     <div class="signup-box">
       <h2>카카오계정 정보를 입력해 주세요</h2>
-      <form action="" method="post">
+      <form action="" method="post" name="form">
         <ul>
           <li>
             <label for="">카카오계정 이메일</label>
           </li>
-          <li class="border-bottom">
+          <li class="id-input border-bottom">
             <input type="text" name="id" id="id" placeholder="아이디 입력" />
-            <span class="id_txt">@kakao.com</span>
+            <span class="id-txt">@kakao.com</span>
           </li>
           <ul>
             <li>입력한 카카오메일로 카카오계정에 로그인할 수 있습니다.</li>
@@ -124,6 +30,9 @@
               생성한 카카오메일로 카카오계정과 관련한 알림을 받아볼 수 있습니다.
             </li>
           </ul>
+          <li>
+            <div id="id-validation"></div>
+          </li>
           <li><label for="">비밀번호</label></li>
           <li class="border-bottom">
             <input
@@ -136,20 +45,26 @@
           <li class="border-bottom">
             <input
               type="password"
-              name="passwd_confirm"
-              id="passwd_confirm"
+              name="passwd-confirm"
+              id="passwd-confirm"
               placeholder="비밀번호 재입력"
             />
           </li>
+          <li>
+            <div id="passwd-validation"></div>
+          </li>
           <li><label for="">닉네임</label></li>
-          <li class="border-bottom">
+          <li class="nickname-input border-bottom">
             <input
               type="text"
               name="nickname"
               id="nickname"
               placeholder="닉네임을 입력해 주세요."
             />
-            <span class="nickname_txt">0/20</span>
+            <span class="nickname-txt">0/20</span>
+          </li>
+          <li>
+            <div id="nickname-validation"></div>
           </li>
           <li><label for="">전화번호</label></li>
           <li class="border-bottom">
@@ -160,26 +75,34 @@
               <option value="55">+55</option>
             </select>
             <input
-              class="border_left"
+              class="border-left"
               type="text"
               name="tel"
               id="tel"
               placeholder="전화번호"
             />
           </li>
-          <li><button type="button">인증번호 전송</button></li>
-          <li><span>약관동의</span></li>
           <li>
+            <div id="tel-validation"></div>
+          </li>
+          <li class="align-right">
+            <button type="button" class="btn-send-no">인증번호 전송</button>
+          </li>
+          <li><span>약관동의</span></li>
+          <li class="radio-box">
             <input type="radio" name="agree" id="agree" value="yes" /><label
-              for=""
+              for="agree"
               >예</label
             >
-            <input type="radio" name="agree" id="disagree" value="no" /><label
-              for=""
-              >아니오</label
-            >
+            <input
+              type="radio"
+              name="agree"
+              id="disagree"
+              value="no"
+              checked
+            /><label for="disagree">아니오</label>
           </li>
-          <li><button type="submit">다음</button></li>
+          <li><button type="submit" class="btn-next">다음</button></li>
         </ul>
       </form>
     </div>
