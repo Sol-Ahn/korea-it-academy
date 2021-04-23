@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .bold {
+        font-weight: bold;
+      }
+
+      .size {
+        font-size: 20px;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        console.log($("p").attr("class")); // check applied class
+        $("p").addClass("bold"); // add class
+        $("p").removeClass("size"); // delete class
+        console.log($("p").hasClass("underline")); // check selected element has or has not the class
+        $("p").toggleClass("size"); // If selected element already has the class, it delete. If not, add the class
+      });
+    </script>
+  </head>
+  <body>
+    <p class="size underline">내용</p>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        // read a value applied to input tag
+        console.log($("#txt").val()); // based on screen value
+        console.log($("#txt").attr("value")); // based on tag's value
+        $("#btn").click(function () {
+          console.log("------click event------");
+          console.log($("#txt").val());
+          console.log($("#txt").attr("value"));
+          $("#txt").val("click event executed");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt" value="value" /><button id="btn">실행</button>
+  </body>
+</html>

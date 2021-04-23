@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      p {
+        background-color: cornflowerblue;
+        font-size: 20px;
+        color: white;
+      }
+
+      .black {
+        background-color: black;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        console.log($("p").css("background-color"));
+        $("p").css({ "background-color": "red" });
+        $("p").css({
+          "background-color": "red",
+          "font-weight": "bold",
+          "text-decoration": "underline",
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p class="black">내용</p>
+    <div class="black">내용</div>
+  </body>
+</html>
