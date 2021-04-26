@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Search Ex 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        console.log($(".pop p:hidden").html());
+        $("form input:checked").each(function (index, obj) {
+          console.log($(this).val());
+        });
+        $("input").each(function () {
+          console.log($(this).val() + " - " + $(this).is(":checked"));
+        });
+        $("p").each(function (index, obj) {
+          console.log($(obj).html() + " - " + $(obj).is(":hidden"));
+        });
+        // $("p").each(function () {
+        //   console.log($(this).html() + " - " + $(this).is(":hidden"));
+        // });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="pop">
+      <p>내용1</p>
+      <p style="display: none">내용2-none</p>
+      <p>내용3</p>
+    </div>
+    <div class="pop">
+      <p>내용1</p>
+      <p style="visibility: hidden">내용2-hidden</p>
+      <p>내용3</p>
+    </div>
+    <hr />
+    <form action="">
+      <input type="checkbox" value="c1" />체크 1 <br />
+      <input type="checkbox" value="c2" checked />체크 2 <br />
+      <input type="checkbox" value="c3" />체크 3 <br />
+      <input type="radio" name="radio" value="r1" checked />라디오 1 <br />
+      <input type="radio" name="radio" value="r2" />라디오 2 <br />
+      <input type="radio" name="radio" value="r3" />라디오 3 <br />
+    </form>
+  </body>
+</html>
