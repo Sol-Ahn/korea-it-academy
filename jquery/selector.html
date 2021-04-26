@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery selectors</title>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#wrap1 > h1").css({
+          "background-color": "yellowgreen",
+          "text-decoration": "underline",
+        });
+        $("#wrap1 p").css({ color: "violet" });
+        $("#wrap1 *").css({ border: "1px solid orange" });
+
+        $("#wrap2 .txt+p").css({ "background-color": "lightblue" });
+        $("#wrap2 .txt").next().next().css({ "background-color": "coral" });
+        $("#wrap2 .txt").prev().css({ "background-color": "green" });
+        $("#wrap2 .txt").nextAll().css({ "text-decoration": "underline" });
+        $("#wrap2 .txt").prevAll().css({ "text-decoration": "line-through" });
+        $("#wrap3 .title").siblings().css({ color: "red" });
+
+        $("#wrap4 .content3").prevUntil(".title").css({ color: "yellow" });
+        $("#wrap4 .content3").nextUntil(".title").css({ color: "beige" });
+
+        $("#wrap5 .txt1").parent().css({ border: "2px solid green" });
+        $("#wrap5 .txt1").parent().parent().css({ border: "2px solid red" });
+        $("#wrap5 .txt2").parent().css({ border: "2px solid blue" });
+        $("#wrap5 .txt2").parents("div").css({ border: "5px dotted black" });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap1">
+      <h1>child element selector</h1>
+      <p>content-1</p>
+      <section>
+        <h1>descendant selector</h1>
+        <p>content-2</p>
+      </section>
+    </div>
+    <div id="wrap2">
+      <h1>adjacent sibling selector</h1>
+      <p>content-1</p>
+      <p class="txt">content-2</p>
+      <p>content-3</p>
+      <div>content-4</div>
+    </div>
+    <hr />
+    <div id="wrap3">
+      <h1>adjacent sibling selector</h1>
+      <p>content-1</p>
+      <p class="title">content-2</p>
+      <p>content-3</p>
+      <div>content-4</div>
+    </div>
+    <div id="wrap4">
+      <h1 class="title">selector</h1>
+      <p>content-1</p>
+      <p>content-2</p>
+      <p class="content3">content-3</p>
+      <p>content-4</p>
+      <p>content-5</p>
+      <p class="content6">content-6</p>
+    </div>
+    <div id="wrap5">
+      <h1 class="title">select</h1>
+      <section>
+        <div>
+          <p class="txt1">txt</p>
+        </div>
+        <h3>
+          <h3>
+            <p class="txt2">txt</p>
+          </h3>
+        </h3>
+      </section>
+    </div>
+  </body>
+</html>
