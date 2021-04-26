@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout/setInterval function</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        border-collapse: collapse;
+      }
+
+      td {
+        border: 2px solid black;
+        width: 400px;
+        vertical-align: top;
+      }
+
+      button {
+        font-size: 120%;
+        font-weight: bold;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: orangered;
+        margin: 10px;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        const timeoutID = setTimeout(() => {
+          const time_view = document.getElementById("timeout_view");
+          const date = new Date();
+          time_view.innerHTML = date;
+        }, 4000);
+
+        let count = 0;
+        const intervalID = setInterval(() => {
+          const interval_view = document.getElementById("interval_view");
+          count++;
+          interval_view.innerHTML += `interval: ${count}번째 실행<br>`;
+        }, 2000);
+
+        const btn_time = document.getElementById("timeout");
+        btn_time.onclick = () => {
+          console.log("timeoutID : " + timeoutID);
+          clearTimeout(timeoutID);
+        };
+
+        const btn_interval = document.getElementById("interval");
+        btn_interval.onclick = () => {
+          console.log("interevalID : " + intervalID);
+          clearInterval(intervalID);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button id="timeout">timeout pause</button>
+    <button id="interval">interval pause</button>
+    <hr />
+    <table>
+      <tr>
+        <td id="timeout_view"></td>
+        <td id="interval_view"></td>
+      </tr>
+    </table>
+  </body>
+</html>
