@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      }
+      /* 상하좌우 동일하게 넣는 경우 */
+      .box1 {
+        padding: 30px;
+      }
+      /* (상하) (좌우) 넣는 경우 */
+      .box2 {
+        margin: 20px 40px;
+      }
+      /* 상 (좌우) 하 넣는 경우*/
+      .box3 {
+        padding: 10px 20px 30px;
+      }
+      /* 상 우 하 좌 넣는 경우 */
+      .box4 {
+        padding: 10px 20px 30px 40px;
+      }
+      p {
+        /* margin을 하나씩 주는 방법 */
+        border: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-left: 5px;
+        padding-right: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <hr />
+    <div class="box2"></div>
+    <hr />
+    <div class="box3"></div>
+    <hr />
+    <div class="box4"></div>
+    <hr />
+
+    <p>block <span>태그</span> 영역</p>
+  </body>
+</html>

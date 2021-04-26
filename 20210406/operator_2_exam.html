@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var address1 = "서울시 ";
+      var address2 = "마포구 ";
+      var address3 = "노고산동 ";
+      var address4 = "89-2 ";
+
+      document.write(address1, "<br>");
+      address1 += address2;
+      document.write(address1, "<br>");
+      address1 += address3;
+      document.write(address1, "<br>");
+      address1 += address4;
+      document.write(address1, "<br>");
+
+      document.write("<hr>");
+
+      // tag 조립 3행 3열
+      var table = "<table>";
+      table += "<tr>";
+      table += "<td>1</td><td>2</td><td>3</td>";
+      table += "</tr>";
+      table += "<tr>";
+      table += "<td>4</td><td>5</td><td>6</td>";
+      table += "</tr>";
+      table += "<tr>";
+      table += "<td>7</td><td>8</td><td>9</td>";
+      table += "</tr>";
+      table += "</table>";
+      document.write(table);
+      console.log(table);
+    </script>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        border: 1px solid black;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

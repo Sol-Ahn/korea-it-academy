@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>date(날짜/시간) 객체</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 오늘의 날짜 정보 획득
+      // 객체 생성(메모리 할당)
+      var today = new Date();
+      document.write(today, "<br>");
+      document.write("년도 : ", today.getFullYear(), "<br>");
+      document.write("월 : ", today.getMonth(), "<br>");
+      document.write("일 : ", today.getDate(), "<br>");
+      document.write("요일 : ", today.getDay(), "<hr>");
+
+      // 2021-04-11 날짜 지정
+      var yday = new Date(2021, 3, 11);
+      document.write(yday, "<br>");
+      document.write("년도 : ", yday.getFullYear(), "<br>");
+      document.write("월 : ", yday.getMonth(), "<br>");
+      document.write("일 : ", yday.getDate(), "<br>");
+      document.write("요일 : ", yday.getDay(), "<hr>");
+
+      today = new Date(2021, 3, 12);
+      document.write(today.getTime(), "<br>");
+      document.write(yday.getTime(), "<br>");
+      document.write(today - yday, "<br>");
+      // 일 단위로 변환 ; 밀리초 * 초 * 분 * 시
+      document.write((today - yday) / (1000 * 60 * 60 * 24));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Interval/Timeout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = () => {
+        var count = 0;
+        var intervalID = setInterval(() => {
+          var interval_view = document.getElementById("interval_view");
+          count++;
+          interval_view.innerHTML += "interval - " + count + "번째 실행<br>";
+        }, 2000);
+
+        var timeoutID = setTimeout(() => {
+          var time_view = document.getElementById("time_view");
+          var date = new Date();
+          time_view.innerHTML = date;
+        }, 5000);
+
+        var btn_interval = document.getElementById("interval");
+        btn_interval.onclick = () => {
+          console.log("intervalID : " + intervalID);
+          clearInterval(intervalID);
+        };
+        var btn_time = document.getElementById("time");
+        btn_time.onclick = () => {
+          console.log("timeoutID : " + timeoutID);
+          clearTimeout(timeoutID);
+        };
+      };
+    </script>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      td {
+        border: 2px solid black;
+        width: 500px;
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="interval">interval 정지</button>
+    <button id="time">timeout 정지</button>
+    <hr />
+    <table>
+      <tr>
+        <td id="interval_view"></td>
+        <td id="time_view"></td>
+      </tr>
+    </table>
+  </body>
+</html>

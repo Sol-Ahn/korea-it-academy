@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 숫자 0을 입력할 때까지 계속 입력받고, 입력받은 숫자들의 총합 출력
+      var num = -1;
+      var total = 0;
+      while (num != 0) {
+        num = Number(prompt("숫자 입력, 0 입력시 종료"));
+        document.write(num, "<br>");
+        total += num;
+      }
+      document.write(total);
+    </script>
+  </head>
+  <body></body>
+</html>

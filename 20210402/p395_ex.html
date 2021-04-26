@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>CSS3 transform속성 연습</title>
+    <style>
+      div {
+        width: 100px;
+        height: 60px;
+        padding: 10px;
+        margin: 30px;
+        background-color: gray;
+        border: 1px solid black;
+        display: inline-block;
+      }
+
+      #t1 {
+        /*(10,10)이동*/
+        -webkit-transform: translate(10px, 10px); /* Safari, Opera */
+        transform: translate(10px, 10px); /* 표준 */
+      }
+      #t2 {
+        /*45도 회전*/
+        -webkit-transform: rotate(45deg); /* Safari, Opera */
+        transform: rotate(45deg); /* 표준 */
+      }
+      #t3 {
+        /*가로1배,세로 0.5배 축소*/
+        -webkit-transform: scale(1, 0.5); /* Safari, Opera */
+        transform: scale(1, 0.5); /* 표준 */
+      }
+      #t4 {
+        /*x축 20도,y축 10도 왜곡*/
+        -webkit-transform: skew(20deg, 10deg); /* Safari, Opera */
+        transform: skew(20deg, 10deg); /* 표준 */
+      }
+    </style>
+  </head>
+  <body>
+    <div>원래 사각형</div>
+    <div id="t1">(10,10)이동</div>
+    <div id="t2">45도 회전</div>
+    <div id="t3">가로1배,세로 0.5배</div>
+    <div id="t4">x축 20도,y축 10도</div>
+  </body>
+</html>
+
+<!-- 
+  브라우저 접두사 => 표준화되기 이전에 사용
+  -webkit- : 크롬, 사파리, 엣지, 웨일
+  -moz- : 파이어폭스(모지라 엔진)
+  -ms- : 익스
+  -o- : 오페라
+-->

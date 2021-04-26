@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>글꼴 꾸미기</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap");
+
+      /*
+      폰트 색상
+      rgb(0~255, 0~255, 0255)
+      */
+      .color {
+        color: red;
+      }
+
+      /* 기울임꼴 */
+      .italic {
+        font-style: italic;
+      }
+
+      /*
+      밑줄
+      줄 색깔은 글꼴 색깔
+      텍스트 선 긋기: underline, overline, line-through, none
+       */
+      .line {
+        text-decoration: overline;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+      /*
+      폰트
+      첫 번째 메인 폰트, 서브 폰트(사용자 컴퓨터에 메인 폰트가 없을 때)
+      */
+      .font {
+        /* font-family: "궁서1", "바탕"; */
+        font-family: "East Sea Dokdo", cursive;
+      }
+      @font-face {
+        font-family: "jua";
+        src: url("/20210323/font/resource/Jua-Regular.ttf");
+      }
+
+      @font-face {
+        font-family: "gaegu";
+        src: url("/20210323/font/resource/Gaegu-Bold.ttf");
+      }
+      .new_font {
+        font-family: "jua", "gaegu";
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#">하이퍼링크</a>
+    <p class="line">
+      국회의원은 국회에서 직무상 행한 발언과 표결에 관하여 국회외에서 책임을
+      지지 아니한다.
+    </p>
+
+    <p class="color">
+      형사피의자 또는 형사피고인으로서 구금되었던 자가 법률이 정하는
+      불기소처분을 받거나 무죄판결을 받은 때에는 법률이 정하는 바에 의하여
+      국가에 정당한 보상을 청구할 수 있다.
+    </p>
+
+    <p class="bold">
+      전직대통령의 신분과 예우에 관하여는 법률로 정한다. 공무원은 국민전체에
+      대한 봉사자이며, 국민에 대하여 책임을 진다.
+    </p>
+
+    <p class="italic">
+      언론·출판에 대한 허가나 검열과 집회·결사에 대한 허가는 인정되지 아니한다.
+    </p>
+
+    <p class="new_font">
+      국회는 법률에 저촉되지 아니하는 범위안에서 의사와 내부규율에 관한 규칙을
+      제정할 수 있다.
+    </p>
+  </body>
+</html>

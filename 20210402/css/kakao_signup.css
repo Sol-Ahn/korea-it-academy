@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px auto;
+}
+.container {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 50px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+h5 {
+  margin-bottom: 15px;
+}
+
+input {
+  padding-bottom: 5px;
+  font-size: 20px;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+}
+input::placeholder {
+  font-size: 16px;
+}
+
+.id {
+  width: 500px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.id_input {
+  border-bottom: 1px solid lightgray;
+}
+
+.id-input > span {
+  font-size: 14px;
+  display: inline-block;
+}
+
+.id ul {
+  margin: 10px;
+  padding-left: 30px;
+}
+
+.id li {
+  font-size: 12px;
+}
+
+.passwd {
+  width: 500px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.pw_input {
+  border-bottom: 1px solid lightgray;
+}
+
+.pw_confirm {
+  border-bottom: 1px solid lightgray;
+}
+
+.nickname {
+  width: 500px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.nickname_input {
+  border-bottom: 1px solid lightgray;
+}
+
+.nickname_input > span {
+  font-size: 14px;
+}
+
+.phoneNumber {
+  width: 500px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.submit {
+  width: 500px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.submit button {
+  width: 150px;
+  padding: 5px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+}
+
+.next {
+  width: 500px;
+}
+
+.next button {
+  width: 100%;
+  height: 50px;
+  line-height: 30px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}

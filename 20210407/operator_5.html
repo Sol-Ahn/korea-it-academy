@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      /* 
+    논리연산자
+    &&(and)  ||(or)  !(not)
+    */
+      var n1 = 10;
+      var n2 = 20;
+      var result;
+      result = n1 >= 10 && n2 <= 20;
+      document.write(result, "<br>");
+      result = n1 < 10 && n2 >= 20;
+      document.write(result, "<hr>");
+      result = n1 >= 10 || n2 <= 20;
+      document.write(result, "<br>");
+      result = n1 < 10 || n2 >= 20;
+      document.write(result, "<hr>");
+      document.write(!result, "<br>");
+      // 0이 아닌 숫자는 논리값으로 비교했을 때 전부 true
+      document.write(!1, "<br>");
+      document.write(!-100, "<br>");
+      document.write(!0, "<br>"); // 0이 아니면 true
+    </script>
+  </head>
+  <body></body>
+</html>

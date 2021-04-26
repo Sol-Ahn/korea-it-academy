@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>기본으로 지정된 이벤트 처리 취소</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = function () {
+        var a = document.getElementsByTagName("a");
+        for (var i = 0; i < a.length; i++) {
+          a[i].onclick = function (e) {
+            if (this.id == "google") {
+              // e.preventDefault(); => 기존의 이벤트 기능 제거
+              return false;
+            }
+          };
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <a href="https://www.google.com" id="google">구글로 이동</a><br />
+    <a href="https://www.naver.com" id="naver">네이버로 이동</a>
+  </body>
+</html>

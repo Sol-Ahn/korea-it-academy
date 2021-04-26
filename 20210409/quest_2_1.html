@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <script>
+    var money,
+      ea = 50000,
+      sw = true;
+
+    money = Number(prompt("금액 입력"));
+
+    while (ea > 5) {
+      document.write(ea + "원 : ", Math.floor(money / ea), "개<br>");
+      money %= ea;
+      // console.log((money %= ea));
+      if (sw) ea /= 5;
+      else ea /= 2;
+      console.log((ea /= 5));
+      console.log((ea /= 2));
+      sw = !sw;
+    }
+  </script>
+  <body></body>
+</html>

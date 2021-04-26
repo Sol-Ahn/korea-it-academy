@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>google</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/20210330/css/google_layout.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .nav_container {
+        width: 100%;
+        display: inline-block;
+      }
+      ul {
+        list-style-type: none;
+      }
+
+      li > a {
+        text-decoration: none;
+        
+      }
+      .nav_container li{
+        font-size: 20px;
+        float: right; 
+      }
+      .nav_container img{
+        width: 40px;
+        height: 40px;
+      }
+      
+      .nav_container button{
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #1f33e7;
+        color: white;
+        box-sizing: border-box;
+        float: right;
+      }
+      .logo{
+        width: 300px;
+        height: 100px;
+      }
+      #search {
+        width: 400px;
+        border-radius: 20px;
+        font-size: 20px;
+        box-sizing: border-box;
+        padding: 3px 0 3px 30px;
+        background-image: url(/20210329/search_icon.png);
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: 6px center;
+      }
+      form img{
+        width: 20px;
+        height: 20px;
+        background-color: white;
+      }
+      .main{
+        margin: 0 auto;
+      }
+      article > button{
+        margin-top: 20px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav_container">
+        <ul>
+          <li><a href="#" title="gmail 페이지로 이동" class="Gmail">Gmail</a></li>
+          <li><a href="#" title="이미지 검색 페이지로 이동" class="Image">이미지</a></li>
+          <li>
+            <a><img src="/20210330/img/grid.png" alt="" title="google 앱" /></a>
+          </li>
+          <li><button>로그인</button></li>
+        </ul>
+      </div>
+    </nav>
+    <section>
+      <div class="main">
+        <img src="/20210330/img/googlelogo.png" alt="" class="logo"/>
+        <article>
+          <form action="" method="get">
+            <input type="text" placeholder="" name="search" id="search" />
+            <button>
+              <img
+              src="/20210330/img/keyboard.png"
+              alt="화상 키보드 실행 아이콘"
+              />
+            </button>
+            <button>
+              <img src="/20210330/img/mic.png" alt="음성인식 검색 실행 아이콘" />
+            </button>
+          </form>
+          <button>Google 검색</button>
+          <button>I'm Feeling Lucky</button>
+        </article>
+      </section>
+    </div>
+    <footer>
+      <p><span>대한민국</span></p>
+      <hr />
+      <p class="footer_p">
+        <ul>        
+        <li><a href="#" title="google 정보 페이지로 이동">Google 정보</a></li>
+        <li><a href="#" title="광고 페이지로 이동"">광고</a></li>
+        <li><a href="#" title="비즈니스 페이지로 이동">비즈니스</a></li>
+        <li><a href="#" title="검색의 원리 페이지로 이동">검색의 원리</a></li>
+      </ul>
+        <ul>
+        <li><a href="#" title="개인정보처리방침">개인정보처리방침</a></li>
+        <li><a href="#" title="약관">약관</a></li>
+        <li><a href="#" title="설정">설정</a></li>
+      </ul>
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      nav {
+        margin: 30px auto;
+      }
+      #main_menu {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        list-style: none;
+        font-size: 0;
+      }
+      #main_menu li {
+        width: 200px;
+        border: 1px solid black;
+        padding: 20px 40px;
+        text-align: center;
+      }
+      #main_menu a:link,
+      #main_menu a:visited {
+        width: 100%;
+        font-size: 24px;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+      #sub_menu_container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        position: absolute;
+        top: 104px;
+      }
+
+      .sub_menu {
+        list-style: none;
+        border: 1px solid black;
+      }
+
+      .sub_menu li {
+        width: 200px;
+        border: 1px solid black;
+        padding: 20px 40px;
+        text-align: center;
+      }
+
+      .sub_menu a:link,
+      .sub_menu a:visited {
+        width: 100%;
+        text-decoration: none;
+        color: pink;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="menu">
+      <ul id="main_menu">
+        <li>
+          <a href="#">About</a>
+          <ul class="sub_menu">
+            <li><a href="#">메뉴 1-1</a></li>
+            <li><a href="#">메뉴 1-2</a></li>
+            <li><a href="#">메뉴 1-3</a></li>
+            <li><a href="#">메뉴 1-4</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Product</a>
+          <ul class="sub_menu">
+            <li><a href="#">메뉴 2-1</a></li>
+            <li><a href="#">메뉴 2-2</a></li>
+            <li><a href="#">메뉴 2-3</a></li>
+            <li><a href="#">메뉴 2-4</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">QnA</a>
+          <ul class="sub_menu">
+            <li><a href="#">메뉴 3-1</a></li>
+            <li><a href="#">메뉴 3-2</a></li>
+            <li><a href="#">메뉴 3-3</a></li>
+            <li><a href="#">메뉴 3-4</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+          <ul class="sub_menu">
+            <li><a href="#">메뉴 4-1</a></li>
+            <li><a href="#">메뉴 4-2</a></li>
+            <li><a href="#">메뉴 4-3</a></li>
+            <li><a href="#">메뉴 4-4</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>

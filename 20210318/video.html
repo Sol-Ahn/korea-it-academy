@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>동영상</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+  <!--
+    controls: 동영상 컨트롤러 표시
+    loop: 반복재생
+    autoplay: 자동재생 => 브라우저 보안 정책에 따라 적용 여부 다름
+    poster: 동영상 썸네일 이미지
+  -->
+  <video src="resource/Storm.mp4" poster="cat3.jpg" controls loop></video>
+  <video width="600">
+    <!-- 브라우저 종류에 따라서 지원되는 포맷으로 재생 -->
+    <source src="resource/Storm.mp4" type="video/mp4">
+    <source src="resource/Storm.ogv" type="video/ogv">
+  </video>
+
+  <hr>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/wQ12qs3bmOg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe src='https://tv.naver.com/embed/19045976?autoPlay=false' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' WIDTH='544' HEIGHT='306' allow='autoplay' allowfullscreen></iframe>
+
+</body>
+</html>
+

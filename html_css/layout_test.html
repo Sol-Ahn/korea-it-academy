@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .left_menu {
+        width: 60px;
+        height: 1040px;
+        box-sizing: border-box;
+        background-color: #e8e8e8;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      .left_menu li {
+        width: 100%;
+        height: 40px;
+        margin-top: 50px;
+        text-align: center;
+      }
+      .left_menu img {
+        width: 40px;
+        transition-duration: 0.5s;
+        transition-property: all;
+      }
+      .left_menu img:hover {
+        width: 50px;
+      }
+      header {
+        width: 1860px;
+        height: 500px;
+        box-sizing: border-box;
+        margin-left: 60px;
+        background-image: url("img/coffee-beans-917613_1920.jpg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+      .main_menu {
+        width: 1860px;
+        height: 50px;
+        box-sizing: border-box;
+        margin-left: 60px;
+        text-align: center;
+      }
+      ul {
+        list-style: none;
+      }
+      .main_menu ul {
+        display: inline-block;
+      }
+      .main_menu li {
+        width: 220px;
+        height: 50px;
+        float: left;
+      }
+      .main_menu li a:link,
+      .main_menu li a:visited {
+        font-size: 24px;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        line-height: 24px;
+        padding: 13px 0;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+      }
+      section {
+        width: 1860px;
+        height: 1040px;
+        box-sizing: border-box;
+        margin-left: 60px;
+      }
+      .product_info {
+        background-image: url("./img/coffee-beans-917613_1920.jpg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+      }
+      .product_info_detail {
+        width: 500px;
+        background-color: #ff000067;
+        color: white;
+        position: relative;
+        top: 100px;
+        left: 200px;
+        padding: 30px;
+      }
+      .product_info_detail {
+        font-size: 20px;
+      }
+      .cf_section {
+        text-align: center;
+        padding-top: 98px;
+        background-color: beige;
+      }
+      .print_section {
+        text-align: center;
+      }
+      .print_section h2 {
+        font-size: 42px;
+        padding: 70px 0;
+      }
+      .print_section img {
+        width: 400px;
+        height: 600px;
+        margin: 0 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="left_menu">
+      <ul>
+        <li>
+          <a href="#"
+            ><img
+              src="./img/home-icon-silhouette.png"
+              alt="HOME 아이콘 이미지"
+              title="홈으로 이동"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="./img/hot-coffee-rounded-cup-on-a-plate-from-side-view.png"
+              alt="COFFEE 아이콘 이미지"
+              title="소개 페이지로 이동"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="./img/video.png"
+              alt="CF 아이콘 이미지"
+              title="광고 페이지로 이동"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="./img/photo-camera.png"
+              alt="SHOT 아이콘 이미지"
+              title="제품사진 페이지으로 이동"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="./img/question-mark.png"
+              alt="QnA 아이콘 이미지"
+              title="고객문의 페이지로 이동"
+            />
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <header></header>
+    <nav class="main_menu">
+      <ul>
+        <li><a href="#" title="메인페이지로 이동">HOME</a></li>
+        <li><a href="#" title="제품소개 페이지로 이동">COFFEE</a></li>
+        <li><a href="#" title="CF영상 페이지로 이동">CF</a></li>
+        <li><a href="#" title="PRINT 페이지로 이동">PRINT</a></li>
+        <li><a href="#" title="QnA 페이지로 이동">QnA</a></li>
+      </ul>
+    </nav>
+    <section class="product_info">
+      <article class="product_info_detail">
+        <h2>Lorem Ipsum</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+          eget velit varius, varius odio eget, iaculis elit. Quisque at nunc ac
+          sem tincidunt elementum. Phasellus eget odio semper, cursus urna ut,
+          eleifend orci. Vivamus tempus venenatis ipsum. Pellentesque vulputate
+          tellus in dapibus dictum. Praesent non malesuada sapien, id volutpat
+          turpis. Vivamus quis felis aliquet, consectetur libero id, mattis
+          quam. Vivamus vel diam molestie, blandit purus faucibus, auctor risus.
+          Maecenas hendrerit vulputate tincidunt. In elementum augue id molestie
+          fringilla. Sed sagittis non urna a euismod. Mauris tortor diam,
+          ullamcorper ac aliquam sit amet, fringilla eu diam.
+        </p>
+      </article>
+    </section>
+    <section class="cf_section">
+      <iframe
+        width="1700"
+        height="800"
+        src="https://www.youtube.com/embed/PAVFyvPT5G8"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </section>
+    <section class="print_section">
+      <article class="print_section">
+        <h2>PRINT</h2>
+        <div>
+          <a href="#" title="월페이퍼 원본 이미지 페이지로 이동"
+            ><img src="./img/coffee-beans-917613_1920.jpg" alt=""
+          /></a>
+          <a href="#" title="월페이퍼 원본 이미지 페이지로 이동"
+            ><img src="./img/coffee-beans-917613_1920.jpg" alt=""
+          /></a>
+          <a href="#" title="월페이퍼 원본 이미지 페이지로 이동"
+            ><img src="./img/coffee-beans-917613_1920.jpg" alt=""
+          /></a>
+        </div>
+      </article>
+    </section>
+  </body>
+</html>

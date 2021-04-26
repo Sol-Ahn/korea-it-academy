@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var str =
+        "대통령은 국무회의의 의장이 되고, 국무총리는 부의장이 된다. 법률이 정하는 주요방위산업체에 종사하는 근로자의 단체행동권은 법률이 정하는 바에 의하여 이를 제한하거나 인정하지 아니할 수 있다. 법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 국회는 국정을 감사하거나 특정한 국정사안에 대하여 조사할 수 있으며, 이에 필요한 서류의 제출 또는 증인의 출석과 증언이나 의견의 진술을 요구할 수 있다.";
+      // String.charAt(): 문자열에서 위치에 해당하는 한 글자를 뽑음. 위치는 0부터 시작
+      document.write(str.charAt(5), " ", str.charAt(6), "<br>");
+      // 문자열 검색; 검색 결과가 없으면 -1, 있으면 해당 인덱스 리턴
+      document.write(str.indexOf("국무"), "<br>");
+      document.write(str.indexOf("안녕", 10), "<br>");
+      document.write(str.lastIndexOf("국무"), "<br>");
+      document.write(str.lastIndexOf("안녕", 10), "<br>");
+      // 문자열 개수
+      document.write("문자열 길이: ", str.length, "<br>");
+      // 문자열 바꾸기
+      document.write(str.replace("국", "곡"), "<br>");
+      document.write(str, "<br>"); // 바꾼 결과가 반영되지 않음!
+      // 문자열 바꾼 뒤 저장
+      str = str.replace("국", "곡");
+      document.write(str, "<br>");
+      // 저장된 내용 전체를 변경
+      str = str.replaceAll("국", "곡");
+      document.write(str, "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>

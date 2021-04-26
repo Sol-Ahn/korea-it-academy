@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>fade</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#in").click(function () {
+          $("#img").fadeIn(1000);
+        });
+        $("#out").click(function () {
+          $("#img").fadeOut(1000);
+        });
+        $("#to").click(function () {
+          $("#img").fadeTo(1000, 0.3);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="in">fadeIn</button>
+    <button id="out">fadeOut</button>
+    <button id="to">fadeTo</button>
+    <hr />
+    <img src="/resources/img/coffee-1572738_640.png" id="img" />
+    <img src="/resources/img/coffee-1572741_640.png" />
+  </body>
+</html>

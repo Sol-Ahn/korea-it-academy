@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>암호 입력 체크</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .true {
+        color: blue;
+        font-weight: bold;
+      }
+      .false {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <script>
+    window.onload = function () {
+      var pass1 = document.getElementById("pass1");
+      var pass2 = document.getElementById("pass2");
+      var result = document.getElementById("result");
+
+      pass1.onkeyup = function () {
+        if (pass1.value.length < 8 || pass1.value.length > 16) {
+          result.innerHTML = "암호는 8~16자리를 입력해야 합니다.";
+          result.className = "false";
+          return;
+        }
+
+        var pattern = /[0-9]/;
+        var flag = pattern.test(pass1.value);
+
+        if (!flag) {
+          result.innerHTML = "암호에 숫자를 입력하세요.";
+          result.className = "false";
+          return;
+        }
+
+        pattern = /[!@#$%^&*()_\+\=\-\[\]\"\']/;
+        flag = pattern.test(pass1.value);
+
+        if (!flag) {
+          result.innerHTML = "암호에 특수문자를 1개 이상 입력하세요.";
+          result.className = "false";
+          return;
+        }
+
+        pattern = /[a-zA-Z]/;
+        flag = pattern.test(pass1.value);
+
+        if (!flag) {
+          result.innerHTML = "암호에 알파벳을 입력하세요.";
+          result.className = "false";
+          return;
+        }
+
+        pattern = /[\s]/;
+        if (pattern.test(pass1.value)) {
+          result.innerHTML = "암호에 공백을 입력할 수 없습니다.";
+          result.className = "false";
+          return;
+        }
+
+        if (pass1.value !== pass2.value) {
+          result.innerHTML = "입력한 비밀번호가 일치하지 않습니다.";
+          result.className = "false";
+          return;
+        }
+
+        result.innerHTML = "암호를 정상적으로 입력하셨습니다.";
+        result.className = "true";
+      };
+
+      pass2.onkeyup = pass1.onkeyup;
+    };
+  </script>
+  <body>
+    <input type="password" id="pass1" /> <br />
+    <input type="password" id="pass2" /> <br />
+    <div id="result"></div>
+  </body>
+</html>

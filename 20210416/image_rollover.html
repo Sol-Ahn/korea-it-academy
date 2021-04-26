@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      window.onload = function () {
+        var img = document.getElementsByTagName("img")[0];
+
+        // rollover 이벤트를 적용할 때는 이미지 크기 맞춰주기
+        img.onmouseover = function () {
+          this.src = "/tv.png";
+        };
+
+        img.onmouseout = function () {
+          this.src = "/headphone.png";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <!-- 
+      onmouseover일 때, 다른 이미지로 변경 
+      onmouseout일 때, 원본 이미지로 변경
+    -->
+    <img src="/headphone.png" />
+  </body>
+</html>

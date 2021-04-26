@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Search Ex 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("input:text").css({ "background-color": "red", outline: "none" });
+        $("input:password").css({
+          "background-color": "blue",
+          outline: "none",
+        });
+        $("a[target]").css({ "text-decoration": "none" });
+        $("a[href*=google]").css({ color: "green" }); // contain
+        $("a[href$=net]").css({ "font-weight": "bold" }); // end
+        $("a[href^=https]").css({ border: "1px solid black" }); // start
+        $("input[id=id]").attr({ placeholder: "아이디" });
+      });
+    </script>
+    <!-- <style>
+      input[type="text"] {
+        background-color: red;
+      }
+      input::placeholder {
+        color: darkgray;
+      }
+    </style> -->
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="id" placeholder="아이디를 입력하세요." /><br />
+      <input
+        type="password"
+        id="passwd"
+        placeholder="비밀번호를 입력하세요."
+      /><br />
+    </form>
+    <a href="https://www.naver.com" target="_blank">Naver</a>
+    <a href="https://www.daum.net">Daum</a>
+    <a href="https://www.google.com">Google</a>
+  </body>
+</html>

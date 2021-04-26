@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var row = 0,
+        col = 0,
+        n = 1;
+      var table = "<table>";
+      while (row < 5) {
+        // tr
+        table += "<tr>";
+        col = 0;
+        while (col < 5) {
+          // td
+          table += "<td>" + n + "</td>";
+          col++;
+          n++;
+        }
+        row++;
+        table += "</tr>";
+      }
+      table += "</table>";
+      document.write(table);
+    </script>
+    <style>
+      table {
+        border-collapse: collapse;
+        text-align: center;
+      }
+      td {
+        border: 1px solid black;
+        padding: 20px;
+        font-size: 32px;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>append/prepend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("ul").append("<li>마지막 요소-1</li>");
+        $("ul").append("<li>마지막 요소-2</li>");
+        $("ul").append("<li>마지막 요소-3</li>");
+        $("<li>마지막 요소-4</li>").appendTo("ul");
+        $("ul").prepend("<li>첫 번째 요소-1</li>");
+        $("ul").prepend("<li>첫 번째 요소-2</li>");
+        $("ul").prepend("<li>첫 번째 요소-3</li>");
+        $("<li>첫 번째 요소-4</li>").prependTo("ul");
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>목록</li>
+    </ul>
+  </body>
+</html>

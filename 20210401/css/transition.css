@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a:link,
+a:visited {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-size: 80px;
+  background-image: url("/20210401/img/youtube.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid black;
+  transition-duration: 0.5s;
+  transition-property: all;
+}
+
+a:hover {
+  background-color: #ebe6e6fa;
+  border-radius: 40px;
+  background-size: 70px;
+  background-image: url("/20210401/img/messenger.png");
+}
+
+#box {
+  width: 150px;
+  height: 150px;
+  background-size: 100px;
+  background-image: url("/20210401/img/home.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  animation-name: ani2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  /* infinite: 반복횟수 무한대 */
+  animation-direction: alternate-reverse;
+}
+
+/* @keyframes 애니메이션명{} */
+@keyframes ani1 {
+  from {
+    background-image: url("/20210401/img/home.png");
+  }
+  to {
+    background-image: url("/20210401/img/profile.png");
+  }
+}
+
+@keyframes ani2 {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: 885px;
+  }
+  100% {
+    margin-left: 1845px;
+  }
+}

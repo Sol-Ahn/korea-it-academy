@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var today = new Date("2021-04-12");
+      today.setDate(31); // 날짜 데이터 중 일자 변경 => 다음 달로
+      document.write(today, "<br>");
+      today.setDate(0); // 날짜 데이터 중 일자 변경 => 현재 달에서 이전 달로
+      document.write(today, "<br>");
+      today.setDate(-1); // 날짜 데이터 중 일자 변경 => 현재 달에서 이전 달로
+      document.write(today, "<br>");
+
+      // today에 저장된 값을 기준으로 어제 날짜로 이동하는 코드
+      var today = new Date("2021-04-12");
+      today.setDate(today.getDate() - 1);
+      document.write(today, "<br>");
+      today.setTime(today.getTime() - 1000 * 60 * 60 * 24);
+      document.write(today);
+    </script>
+  </head>
+  <body></body>
+</html>

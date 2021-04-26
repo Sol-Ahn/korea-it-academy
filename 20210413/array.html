@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var arr = new Array();
+      // var arr = [];
+      // 데이터가 추가된 순서대로 index 번호 생성
+
+      arr.push(1);
+      arr.push(5);
+      arr.push(2);
+      arr.push(7);
+      arr.push(4);
+      arr.push(3);
+
+      // for (i in arr) {
+      //   document.write(arr[i], "<br>");
+      // }
+
+      document.write("<h2>배열 요소 검색</h2>");
+      document.write("5에 해당하는 인덱스: ", arr.indexOf(5));
+      document.write("<h2>배열 요소 삭제</h2>");
+      document.write(arr.splice(arr.indexOf(5), 1), " : 추출한 배열", "<br>");
+
+      PrintArray(arr);
+
+      function PrintArray(arr) {
+        for (i = 0; i < arr.length; i++) {
+          document.write(arr[i], " ");
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

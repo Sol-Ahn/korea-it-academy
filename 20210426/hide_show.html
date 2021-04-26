@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>hide/show</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#hide").click(function () {
+          $("#img").hide(2000, function () {
+            alert("hide image");
+          });
+        });
+
+        $("#show").click(function () {
+          $("#img").show(2000, function () {
+            alert("show image");
+          });
+        });
+        $("#toggle").click(function () {
+          $("#img").toggle(2000, function () {
+            alert("toggle image");
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="toggle">toggle</button>
+    <hr />
+    <img src="/resources/img/coffee-1572738_640.png" id="img" />
+    <img src="/resources/img/coffee-1572741_640.png" />
+  </body>
+</html>

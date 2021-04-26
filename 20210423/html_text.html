@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>HTML text</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        console.log($("#div3").html());
+        console.log($("#div3").text());
+        $("#div1").html("<h2>title</h2>"); // === innerHTML
+        $("#div2").text("<h2>title</h2>");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3">
+      <p>#div3 문단 내용</p>
+      <p>#div3 문단 내용</p>
+    </div>
+  </body>
+</html>

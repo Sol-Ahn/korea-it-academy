@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+      .box1 {
+        background-color: blue;
+      }
+      .box2 {
+        background-color: red;
+      }
+      .border {
+        border: 10px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="box1"
+      onmouseover="changeBackGround()"
+      onclick="removeBorder()"
+    ></div>
+    <script>
+      function changeBackGround() {
+        var box = document.getElementsByClassName("box1")[0];
+        // box.style = 태그의 style 속성에 적용한 값들을 읽어 옴.
+        // console.log(box.style.backgroundColor);
+        console.log(box.className);
+        box.className = "box2";
+        // console.log(box.style.backgroundColor);
+        console.log(box.className);
+        box.className += " border";
+      }
+
+      function removeBorder() {
+        var box = document.getElementsByTagName("div")[0];
+        console.log(box.className);
+        // box.className = box.className.substring(0, box.className.indexOf(" "));
+        // box.className = box.className.replace("border", "");
+        // class가 3개 이상인 경우 trim()을 사용하면 문제가 됨!
+        // box.className = box.className.trim();
+        var arr = box.className.split(" ");
+        console.log(arr.indexOf("border"));
+        console.log(arr);
+        console.log(arr.length);
+        arr = arr.splice(arr.indexOf("border"), 1);
+
+        box.className = arr.join(" ");
+        console.log(box.className);
+      }
+    </script>
+  </body>
+</html>

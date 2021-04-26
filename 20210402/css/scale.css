@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100px;
+}
+
+img:hover {
+  width: 200px;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-image: url("/dog.jpg");
+  background-size: 100% 100%;
+  /* display: inline-block; */
+  float: left;
+}
+
+.s1 {
+  transform: scaleX(2);
+}
+.s2 {
+  transform: scaleY(2);
+}
+.s3 {
+  transform: scaleZ(2);
+}
+.s4 {
+  transform: scale(2, 2);
+}

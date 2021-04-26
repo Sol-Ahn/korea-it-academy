@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>befor/after</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#child").before("<li>추가 1-1</li>");
+        $("#child").before("<li>추가 1-2</li>");
+        $("#child").before("<li>추가 1-3</li>");
+        $("#child").after("<li>추가 2-1</li>");
+        $("#child").after("<li>추가 2-2</li>");
+        $("#child").after("<li>추가 2-3</li>");
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li id="child">내용</li>
+    </ul>
+  </body>
+</html>

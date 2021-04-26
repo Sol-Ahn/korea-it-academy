@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>글목록 페이지</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 1000px;
+      }
+
+      caption {
+        font-weight: bold;
+        padding: 10px 0;
+      }
+
+      tr {
+        border-top: 1px solid #bbb9b9;
+      }
+
+      td,
+      th {
+        padding: 10px;
+      }
+
+      th {
+        background-color: lightgrey;
+      }
+
+      .title {
+        width: 60%;
+      }
+
+      td {
+        text-align: center;
+      }
+
+      .label {
+        border-radius: 16px;
+        padding: 1px 3px;
+        background-color: #0bf4c2de;
+        color: white;
+        font-size: 1px;
+        font-weight: bold;
+      }
+
+      .pagging {
+        text-align: right;
+        padding-right: 100px;
+      }
+
+      .button {
+        width: 50px;
+        height: 50px;
+        background-color: lightgrey;
+        border: none;
+      }
+
+      .writer {
+        text-align: right;
+      }
+
+      .btn_writer {
+        width: 100px;
+        height: 50px;
+        background-color: blue;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        게시판
+      </caption>
+      <tr>
+        <th>No.</th>
+        <th class="title">title</th>
+        <th>count</th>
+        <th>date</th>
+        <th>좋아요</th>
+        <th>싫어요</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>제목 <span class="label">N</span></td>
+        <td>12</td>
+        <td>2021-01-01</td>
+        <td>34</td>
+        <td>56</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>제목</td>
+        <td>12</td>
+        <td>2021-01-01</td>
+        <td>34</td>
+        <td>56</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>제목</td>
+        <td>12</td>
+        <td>2021-01-01</td>
+        <td>34</td>
+        <td>56</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>제목</td>
+        <td>12</td>
+        <td>2021-01-01</td>
+        <td>34</td>
+        <td>56</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>제목</td>
+        <td>12</td>
+        <td>2021-01-01</td>
+        <td>34</td>
+        <td>56</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>제목</td>
+        <td>12</td>
+        <td>2021-01-01</td>
+        <td>34</td>
+        <td>56</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="paggging">
+          <button class="button"><</button>
+          <button class="button">1</button>
+          <button class="button">2</button>
+          <button class="button">3</button>
+          <button class="button">4</button>
+          <button class="button">></button>
+        </td>
+        <td colspan="3"><button class="btn_writer">글쓰기</button></td>
+      </tr>
+    </table>
+  </body>
+</html>

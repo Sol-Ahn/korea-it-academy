@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  width: 300px;
+  font-size: 0;
+  line-height: 0;
+}
+li > label {
+  /* width: 0;  label 태그는 inline이므로 width를 설정하지 않으면 영역이 잡히지 않음*/
+  font-size: 0;
+  line-height: 0;
+}
+input,
+button {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+input {
+  padding-left: 40px;
+  border-radius: 5px;
+}
+input::placeholder {
+  font-size: 20px;
+}
+
+button {
+  background-color: #18a318;
+  color: white;
+  border: 2px outset #0b500b;
+}
+button:active {
+  border: 2px inset #0b500b;
+}
+.icon {
+  background-size: 32px;
+  background-position: 4px center;
+  background-repeat: no-repeat;
+}
+.icon.icon_profile {
+  background-image: url(/20210331/img/profile.png);
+}
+.icon.icon_password {
+  background-image: url(/20210331/img/password.png);
+}

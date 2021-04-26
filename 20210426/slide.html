@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>slide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("button").click(function () {
+          var id = $(this).attr("id");
+          if (id === "up") $("#img").slideUp(1000);
+          else if (id === "down") $("#img").slideDown(1000);
+          else id === "toggle";
+          $("#img").slideToggle(1000);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="up">slideUp</button>
+    <button id="down">slideDown</button>
+    <button id="toggle">slideToggle</button>
+    <hr />
+    <img src="/resources/img/coffee-1572738_640.png" id="img" />
+    <img src="/resources/img/coffee-1572741_640.png" />
+  </body>
+</html>

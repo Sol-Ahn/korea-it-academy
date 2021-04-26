@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>텍스트 정렬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* 
+        text-align은 자식요소의 inline 태그와 텍스트를 정렬
+       */
+      .center {
+        text-align: center;
+      }
+      .right {
+        text-align: right;
+      }
+      .left {
+        text-align: left;
+      }
+      .justify {
+        text-align: justify;
+      }
+      th,
+      td {
+        border: 1px solid black;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th class="left">제목</th>
+          <th>작성자</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="center">
+            각급 선거관리위원회는 선거인명부의 작성등 선거사무와 국민투표사무에
+            관하여 관계 행정기관에 필요한 지시를 할 수 있다.
+          </td>
+          <td>장보고</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td class="right">
+            중앙선거관리위원회는 법령의 범위안에서 선거관리·국민투표관리 또는
+            정당사무에 관한 규칙을 제정할 수 있으며, 법률에 저촉되지 아니하는
+            범위안에서 내부규율에 관한 규칙을 제정할 수 있다.
+          </td>
+          <td>홍길동</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>
+            누구든지 병역의무의 이행으로 인하여 불이익한 처우를 받지 아니한다.
+          </td>
+          <td>관창</td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td class="justify">
+            대한민국의 국민이 되는 요건은 법률로 정한다. 언론·출판은 타인의
+            명예나 권리 또는 공중도덕이나 사회윤리를 침해하여서는 아니된다.
+            언론·출판이 타인의 명예나 권리를 침해한 때에는 피해자는 이에 대한
+            피해의 배상을 청구할 수 있다. 대한민국의 국민이 되는 요건은 법률로
+            정한다. 언론·출판은 타인의 명예나 권리 또는 공중도덕이나 사회윤리를
+            침해하여서는 아니된다. 언론·출판이 타인의 명예나 권리를 침해한
+            때에는 피해자는 이에 대한 피해의 배상을 청구할 수 있다.
+          </td>
+          <td>김유신</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td>
+            국가는 농지에 관하여 경자유전의 원칙이 달성될 수 있도록 노력하여야
+            하며, 농지의 소작제도는 금지된다.
+          </td>
+          <td>남효온</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

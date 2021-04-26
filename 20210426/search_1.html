@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Search Ex 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $.each($("#ul1 li"), function (index, obj) {
+          console.log(index + " - " + $(obj).html());
+        });
+        $("#ul1 li").each(function (index, obj) {
+          console.log(index + " - " + $(obj).html());
+        });
+        $.each($("#ul2 li"), function (index) {
+          console.log(index + " - " + $(this).html());
+        });
+        $("#ul2 li").each(function (index) {
+          console.log(index + " - " + $(this).html());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="ul1">
+      <li>메뉴 1-1</li>
+      <li>메뉴 1-2</li>
+      <li>메뉴 1-3</li>
+      <li>메뉴 1-4</li>
+    </ul>
+    <ul id="ul2">
+      <li>메뉴 2-1</li>
+      <li>메뉴 2-2</li>
+      <li>메뉴 2-3</li>
+      <li>메뉴 2-4</li>
+    </ul>
+  </body>
+</html>

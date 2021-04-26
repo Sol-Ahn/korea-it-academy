@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // 2021 4월 달력
+      var today = new Date("2021-04-12");
+      var tag = "<h2>" + (today.getMonth() + 1) + "월 달력</h2>";
+      tag +=
+        "<table><tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>";
+      // 달력 구성
+      // 현재 월 정보
+      var month = today.getMonth();
+      // 시작 날짜, 마지막 날짜
+      var start = new Date();
+      start.setHours(0);
+      start.setMinutes(0);
+      start.setSeconds(0);
+      start.setDate(1); // 1일로 세팅
+      var end = new Date();
+      end.setMonth(end.getMonth() + 1); // 다음 달로 변경
+      end.setHours(0);
+      end.setMinutes(0);
+      end.setSeconds(0);
+      end.setDate(0); // 전 달 마지막 일로 세팅
+
+      // 달력 첫 칸 날짜 계산
+      start.setDate(start.getDate() - start.getDay());
+
+      // 달력 마지막칸 날짜 계산
+      end.setDate(end.getDate() + 6 - end.getDay());
+      // console.log(end.getDay());
+      // console.log(end.getDate());
+      // console.log(end.getDate() + 6);
+      // console.log(end.getDate() + 6 - end.getDay());
+      console.log("달력 첫 칸 : " + start);
+      console.log("달력 마지막 칸 : " + end);
+
+      // 달력 줄 수 계산
+      var line = (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 7);
+      console.log("달력 줄 수:" + line);
+      for (var j = 0; j < line; j++) {
+        // 주차별 완성
+        tag += "<tr>";
+        for (var i = 0; i < 7; i++) {
+          if (start.getMonth() !== month) {
+            tag += "<td class='disable'>" + start.getDate() + "</td>";
+            start.setDate(start.getDate() + 1);
+          } else {
+            tag += "<td>" + start.getDate() + "</td>";
+            start.setDate(start.getDate() + 1);
+          }
+        }
+        tag += "</tr>";
+      }
+      // -----------------------
+      tag += "</table>";
+      document.write(tag);
+    </script>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      h2 {
+        text-align: center;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        width: 150px;
+      }
+      td {
+        height: 75px;
+        text-align: right;
+        vertical-align: top;
+        padding: 5px;
+      }
+      th:nth-child(7n + 1),
+      td:nth-child(7n + 1) {
+        color: red;
+      }
+      th:nth-child(7n),
+      td:nth-child(7n) {
+        color: blue;
+      }
+      .disable {
+        color: #d4cccc;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

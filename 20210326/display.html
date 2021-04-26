@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* 
+      - inline tag
+      a, img, span, u, b, i etc
+      글자단위
+        같은 줄에 출력
+        레이아웃 용도 X, 내용적인 부분
+        가로세로 길이 설정 불가능, 여백 설정 일부 가능
+      
+      
+      - block tag
+      h1~h6, p, div, hr etc
+      블럭단위
+      출력 후 줄바꿈
+      레이아웃 용도 O, 영역에 해당
+      가로세로 길이, 여백 설정 가능
+
+      태그는 inline, block으로 구분되는데, 태그를 inline, block 등 다른 형태로 변경할 때 사용하는 css
+      inline, block, inline-block, none      
+       */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .img {
+        /* display: none; */
+        visibility: hidden;
+      }
+      li {
+        border: 1px solid black;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        display: inline-block;
+      }
+      ul {
+        list-style-type: none;
+        font-size: 0;
+      }
+      .menu_a {
+        /* width: 100%; */
+        font-size: 16px;
+        color: black;
+        line-height: 16px;
+        padding: 17px 5px;
+        text-decoration: none;
+        display: inline-block;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#" class="menu_a">항목1항목1항목1</a></li>
+      <li><a href="#" class="menu_a">항목2</a></li>
+      <li><a href="#" class="menu_a">항목3</a></li>
+      <li><a href="#" class="menu_a">항목4</a></li>
+      <li><a href="#" class="menu_a">항목5</a></li>
+    </ul>
+    <hr />
+    <h2>display: none | visiblity : hidden 차이</h2>
+    <img src="/20210325/img/spring.jpg" class="img" />
+    <img src="/20210325/img/spring.jpg" />
+  </body>
+</html>

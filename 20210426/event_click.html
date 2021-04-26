@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>click event</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      #container {
+        width: 200px;
+        padding: 50px;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+
+      p {
+        border: 1px solid red;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        // $("p").click(function () {
+        // alert($("#container").html());
+        // alert($(this).parent().html());
+        // });
+        $("p").on("click", function () {
+          alert($("#container").html());
+        });
+        $("p").on("click mouseover", function () {
+          alert($("#container").html());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <p>클릭 이벤트</p>
+    </div>
+  </body>
+</html>
