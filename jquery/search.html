@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Search Ex</title>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(() => {
+        $.each($("#ul1 li"), (i, obj) => {
+          console.log(i + " : " + $(obj).html());
+        });
+        $("#ul1 li").each((i, obj) => {
+          console.log(i + " : " + $(obj).html());
+        });
+        $.each($("#ul2 li"), function (i) {
+          console.log(i + " : " + $(this).html());
+        });
+        $("#ul2 li").each(function (i) {
+          console.log(i + " : " + $(this).html());
+        });
+
+        const index = $("#ul1 li").index($("#select"));
+        console.log(index); // 2
+
+        $("form input:checked").each(function () {
+          console.log($(this).val());
+        });
+        $("input").each(function () {
+          console.log($(this).val() + " : " + $(this).is(":checked"));
+        });
+        $("p").each(function () {
+          console.log($(this).html() + " : " + $(this).is(":hidden"));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="ul1">
+      <li>menu 1-1</li>
+      <li>menu 1-2</li>
+      <li id="select">menu 1-3</li>
+      <li>menu 1-4</li>
+    </ul>
+    <ul id="ul2">
+      <li>menu 2-1</li>
+      <li>menu 2-2</li>
+      <li>menu 2-3</li>
+      <li>menu 2-4</li>
+    </ul>
+    <div class="pop">
+      <p>txt1</p>
+      <p style="display: none;">txt2-none</p>
+      <p>txt3</p>
+    </div>
+    <div class="pop">
+      <p>txt1</p>
+      <p style="display: hidden;">txt2-hidden</p>
+      <p>txt3</p>
+    </div>
+    <hr />
+    <form action="">
+      <input type="checkbox" value="check1" />check1 <br />
+      <input type="checkbox" value="check2" checked />check2 <br />
+      <input type="checkbox" value="check3" />check3 <br />
+      <input type="radio" name="radio" value="radio1" checked />radio1 <br />
+      <input type="radio" name="radio" value="radio2" />radio2 <br />
+      <input type="radio" name="radio" value="radio3" />radio3 <br />
+    </form>
+  </body>
+</html>
