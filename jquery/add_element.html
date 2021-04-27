@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Elements</title>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(() => {
+        $("ul").append("<li>last list - 1</li>");
+        $("ul").append("<li>last list - 2</li>");
+        $("ul").append("<li>last list - 3</li>");
+        $("<li>last list - 4</li>").appendTo("ul");
+
+        $("ul").prepend("<li>first list - 1</li>");
+        $("ul").prepend("<li>first list - 2</li>");
+        $("ul").prepend("<li>first list - 3</li>");
+        $("<li>first list - 4</li>").prependTo("ul");
+
+        $("#child").before("<li>add 1-1</li>");
+        $("#child").before("<li>add 1-2</li>");
+        $("#child").before("<li>add 1-3</li>");
+
+        $("#child").after("<li>add 2-1</li>");
+        $("#child").after("<li>add 2-2</li>");
+        $("#child").after("<li>add 2-3</li>");
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>list</li>
+      <li id="child">txt</li>
+    </ul>
+  </body>
+</html>
