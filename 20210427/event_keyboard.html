@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>event keyboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#txt").on("keydown keypress keyup", function (e) {
+          $("div").html(e.type + " : " + e.which);
+          console.log(e.type + " : " + e.which);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt" />
+    <div></div>
+  </body>
+</html>

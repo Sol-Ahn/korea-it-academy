@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>event scroll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        width: 3000px;
+        height: 10000px;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $(window).scroll(function () {
+          var left = $(this).scrollLeft();
+          var top = $(this).scrollTop();
+          console.log(left + " , " + top);
+        });
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

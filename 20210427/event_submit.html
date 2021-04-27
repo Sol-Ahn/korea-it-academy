@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>event submit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      function checkLogin(e) {
+        if ($("#id").val().length === 0) e.preventDefault();
+        if ($("#passwd").val().length === 0) e.preventDefault();
+      }
+
+      $(function () {
+        // $("#frm").submit(checkLogin);
+        $("button").click(checkLogin);
+        $("#sub").click(function () {
+          $("#frm").submit();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form id="frm">
+      <input type="text" name="id" id="id" placeholder="id" /> <br />
+      <input type="password" name="passwd" id="passwd" placeholder="password" />
+      <br />
+      <button>LOGIN</button><a href="#" id="sub">SUBMIT</a>
+    </form>
+  </body>
+</html>

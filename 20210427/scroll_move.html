@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>scroll move</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        height: 969px;
+        box-sizing: border-box;
+      }
+
+      button {
+        padding: 30px;
+        font-size: 60px;
+        position: fixed;
+        right: 40px;
+        border: none;
+        border-radius: 10px;
+        display: inline-block;
+      }
+
+      button:first-of-type {
+        top: 300px;
+      }
+
+      button:last-of-type {
+        top: 500px;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        var bgColor = ["red", "orange", "yellow", "green", "blue", "purple"];
+
+        var slideNo = 0;
+
+        // for (var i = 0; i < bgColor.length; i++) {
+        //   $(`.container:nth-child(${i + 1})`).css(
+        //     "background-color",
+        //     bgColor[i]
+        //   );
+        // }
+
+        $(".container").each(function (i) {
+          $(this).css({ "background-color": bgColor[i] });
+        });
+
+        $("#next").click(function () {
+          if (slideNo === bgColor.length - 1) return;
+          slideNo++;
+          $("html").scrollTop(slideNo * 969);
+        });
+
+        $("#back").click(function () {
+          if (slideNo === 0) return;
+          slideNo--;
+          $("html").scrollTop(slideNo * 969);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+    <button id="back">▲</button>
+    <button id="next">▼</button>
+  </body>
+</html>

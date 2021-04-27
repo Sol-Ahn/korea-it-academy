@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>add element event</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px;
+        color: white;
+        font-size: 120%;
+        font-weight: bold;
+        background-color: orangered;
+        border: none;
+        border-radius: 5px;
+        display: inline-block;
+        letter-spacing: 1px;
+      }
+
+      #result p {
+        font-size: 110%;
+        font-weight: bold;
+        margin-left: 10px;
+        margin-top: 15px;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      var count = 0;
+      $(function () {
+        $("button").on("click", function () {
+          count++;
+          $("#result").append(`<p>${count}th appended p tag</p>`);
+          $("p").nextAll().css({ color: "orangered" });
+
+          // event handling method 1
+          /*   
+          $("p").off("click"); // remove overlapped click event
+
+          // click event for appended p-tag
+          $("p").on("click", function () {
+            alert($(this).html());
+          }); 
+          */
+
+          // event handling method 2
+          $("p:last").on("click", function () {
+            alert($(this).html());
+          });
+        });
+
+        $("p").on("click", function () {
+          alert($(this).html());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>Add a p-tag</button>
+    <hr />
+    <div id="result">
+      <p>Already written p-tag</p>
+    </div>
+  </body>
+</html>

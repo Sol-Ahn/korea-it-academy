@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>event change</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#tel, #txt").change(function () {
+          console.log($(this).val());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <select id="tel">
+      <option value="0">010</option>
+      <option value="1">011</option>
+      <option value="2">016</option>
+      <option value="3">017</option>
+      <option value="4">019</option>
+    </select>
+    <input type="text" id="txt" />
+  </body>
+</html>

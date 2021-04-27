@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>event focus/blur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#txt").on("focusin focus focusout blur", function (e) {
+          console.log(e.type);
+          // if (e.type === "focusin" || e.type === "focus")
+          //   $("#txt").css({ "background-color": "skyblue" });
+          // else if (e.type === "focusout" || e.type === "blur")
+          //   $("#txt").css({ "background-color": "white" });
+          if ("focusin focus".indexOf(e.type) !== -1)
+            $(this).css({ "background-color": "skyblue" });
+          else $(this).css({ "background-color": "white" });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt" />
+  </body>
+</html>

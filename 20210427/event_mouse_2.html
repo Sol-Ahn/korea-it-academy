@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>event mouse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      #container {
+        width: 500px;
+        height: 300px;
+        border: 1px solid black;
+        margin: 0 auto;
+        font-weight: bold;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#container").mousemove(function (e) {
+          var xpos = e.pageX - $(this).offset().left;
+          var ypos = e.pageY - $(this).offset().top;
+          var result = "x좌표 : " + xpos + "<br>" + "y좌표 : " + ypos;
+          $(this).html(result);
+        });
+
+        $("#container").on("mousedown mouseup", function (e) {
+          // console.log(e.which + " " + e.button);
+          console.log(e.type + " : " + e.which);
+          if (e.which === 3) alert("오른쪽 클릭은 사용하실 수 없습니다.");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>
