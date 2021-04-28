@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>cookie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        var count = 0;
+        $("button").click(function () {
+          count++;
+          var name = escape("var" + count);
+          var val = escape($("#txt").val());
+          var date = new Date();
+          date.setDate(date.getDate() + 1); // tomorrow
+          document.cookie =
+            name + "=" + val + "; path=/; expires=" + date.toUTCString();
+          $("#result").html(document.cookie);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt" /><button>register a cookie</button>
+    <hr />
+    <div id="result"></div>
+  </body>
+</html>

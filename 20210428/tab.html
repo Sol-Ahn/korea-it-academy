@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>tab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #tab {
+        width: 1000px;
+        margin: 50px auto;
+      }
+
+      #bar {
+        width: 1000px;
+        font-size: 0;
+      }
+
+      a:link,
+      a:visited {
+        width: 200px;
+        background-color: olivedrab;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        display: inline-block;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+      }
+
+      p {
+        display: none;
+        font-size: 20px;
+        margin-top: 5px;
+      }
+
+      .select {
+        background-color: olive !important;
+        color: white !important;
+      }
+
+      .active {
+        display: block;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("a").on("click", function () {
+          $("a").removeClass("select");
+          $(this).addClass("select");
+          $("p").removeClass("active");
+          $("p:eq(" + $(this).index() + ")").addClass("active");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <nav id="tab">
+      <div id="bar">
+        <a href="#" class="select">TAB 1</a>
+        <a href="#">TAB 2</a>
+        <a href="#">TAB 3</a>
+        <a href="#">TAB 4</a>
+        <a href="#">TAB 5</a>
+      </div>
+      <p class="active">
+        언론·출판은 타인의 명예나 권리 또는 공중도덕이나 사회윤리를 침해하여서는
+        아니된다. 언론·출판이 타인의 명예나 권리를 침해한 때에는 피해자는 이에
+        대한 피해의 배상을 청구할 수 있다.
+      </p>
+
+      <p>
+        대통령은 조국의 평화적 통일을 위한 성실한 의무를 진다. 국무회의는
+        대통령·국무총리와 15인 이상 30인 이하의 국무위원으로 구성한다. 이 헌법은
+        1988년 2월 25일부터 시행한다. 다만, 이 헌법을 시행하기 위하여 필요한
+        법률의 제정·개정과 이 헌법에 의한 대통령 및 국회의원의 선거 기타 이
+        헌법시행에 관한 준비는 이 헌법시행 전에 할 수 있다.
+      </p>
+      <p>
+        국무회의는 정부의 권한에 속하는 중요한 정책을 심의한다. 모든 국민은
+        소급입법에 의하여 참정권의 제한을 받거나 재산권을 박탈당하지 아니한다.
+        위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지
+        아니한다.
+      </p>
+
+      <p>
+        대통령으로 선거될 수 있는 자는 국회의원의 피선거권이 있고 선거일 현재
+        40세에 달하여야 한다. 국가는 대외무역을 육성하며, 이를 규제·조정할 수
+        있다.
+      </p>
+
+      <p>
+        모든 국민은 거주·이전의 자유를 가진다. 정당은 법률이 정하는 바에 의하여
+        국가의 보호를 받으며, 국가는 법률이 정하는 바에 의하여 정당운영에 필요한
+        자금을 보조할 수 있다.
+      </p>
+    </nav>
+  </body>
+</html>
