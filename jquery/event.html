@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Events</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 2000px;
+        height: 5000px;
+      }
+
+      #click-event {
+        width: 200px;
+        padding: 30px;
+        border: 5px solid black;
+        margin: 50px auto;
+        display: inline-block;
+      }
+
+      .click {
+        border: 2px solid red;
+        text-align: center;
+        padding: 3px;
+      }
+
+      #mouse1,
+      #mouse2 {
+        width: 200px;
+        height: 200px;
+        margin: 100px;
+        border: 3px solid black;
+        display: inline-block;
+      }
+
+      #mouse-event {
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+        margin: 0 auto;
+        font-weight: bold;
+        text-align: center;
+        display: inline-block;
+      }
+
+      #txt {
+        margin-top: 20px;
+        font-size: 150%;
+        outline: none;
+        display: inline-block;
+      }
+
+      #keyboard {
+        margin-top: 10px;
+        font-size: 130%;
+      }
+
+      #telephone,
+      #tel {
+        font-size: 150%;
+        outline: none;
+        display: inline-block;
+      }
+
+      #focus-blur {
+        margin-top: 10px;
+        font-size: 150%;
+        outline: none;
+        display: block;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px;
+        color: white;
+        font-size: 140%;
+        font-weight: bold;
+        background-color: lightseagreen;
+        border: none;
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      #result p {
+        font-size: 120%;
+        margin-left: 10px;
+        margin-top: 5px;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        // click
+        $("#click").on("click", function () {
+          alert($("#click-event").html());
+        });
+
+        // mouse
+        $("#mouse1").on("mouseover", function () {
+          $(this).css({ "background-color": "skyblue" });
+        });
+        $("#mouse1").on("mouseout", function () {
+          $(this).css({ "background-color": "white" });
+        });
+
+        $("#mouse2").hover(
+          function () {
+            $(this).css({ "background-color": "yellowgreen" });
+          },
+          function () {
+            $(this).css({ "background-color": "white" });
+          }
+        );
+
+        $("#mouse-event").mousemove(function (e) {
+          var x = e.pageX - $(this).offset().left;
+          var y = e.pageY - $(this).offset().top;
+          var result = "x좌표 : " + x + "<br>" + "y좌표 : " + y;
+          $(this).html(result);
+        });
+
+        $("#mouse-event").on("mousedown mouseup", function (e) {
+          console.log(e.type + " : " + e.which);
+          if (e.which === 3) alert("오른쪽 클릭은 사용하실 수 없습니다.");
+        });
+
+        // keyboard
+        $("#txt").on("keydown keypress keyup", function (e) {
+          $("#keyboard").html(e.type + " : " + e.which);
+        });
+
+        // change
+        $("#telephone, #tel").change(function () {
+          console.log($(this).val());
+        });
+
+        // focus/blur
+        $("#focus-blur").on("focusin focus focusout blur", function (e) {
+          if ("focusin focus".indexOf(e.type) !== -1)
+            $(this).css({ "background-color": "tomato" });
+          else $(this).css({ "background-color": "white" });
+        });
+
+        // scroll
+        $(window).on("scroll", function () {
+          var left = $(this).scrollLeft();
+          var top = $(this).scrollTop();
+          console.log(left + " , " + top);
+        });
+
+        // add elements dynamically
+        var count = 0;
+        $("button").on("click", function () {
+          count++;
+          $("#result").append(`<p>${count}th added p tag</p>`);
+          $("#result p").nextAll().css({ color: "coral" });
+
+          $("#result p:last").on("click", function () {
+            alert($(this).html());
+          });
+        });
+
+        $("#result p").on("click", function () {
+          alert($(this).html());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="click-event">
+      <p class="click">Click Event</p>
+    </div>
+    <div id="mouse1"></div>
+    <div id="mouse2"></div>
+    <div id="mouse-event"></div>
+    <hr />
+    <input type="text" id="txt" />
+    <div id="keyboard"></div>
+    <select id="telephone">
+      <option value="0">010</option>
+      <option value="1">011</option>
+      <option value="2">016</option>
+      <option value="3">017</option>
+      <option value="4">019</option>
+    </select>
+    <input type="text" id="tel" />
+    <input type="text" id="focus-blur" />
+    <hr />
+    <button>Add p tag</button>
+    <div id="result">
+      <p>Already added p tag</p>
+    </div>
+  </body>
+</html>
