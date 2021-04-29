@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Multiple Dropdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        text-align: center;
+      }
+
+      #container {
+        margin-top: 30px;
+        width: 800px;
+        display: inline-block;
+        box-sizing: content-box;
+      }
+
+      .menu-bar {
+        float: left;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+      }
+
+      .main-menu,
+      .sub-menu li {
+        width: 200px;
+        height: 50px;
+        text-align: center;
+      }
+
+      .main-menu {
+        padding: 8px 0;
+        background-color: #fd7543;
+        border-bottom: 2px solid gray;
+      }
+
+      .main-menu a:link,
+      .main-menu a:visited {
+        font-size: 130%;
+        font-weight: bold;
+      }
+
+      .main-menu a:hover,
+      .main-menu a:active {
+        color: white;
+      }
+
+      .sub-menu li {
+        padding: 10px 0;
+        border-bottom: 1px solid gray;
+        background-color: #fbeee8;
+      }
+
+      .sub-menu a:link,
+      .sub-menu a:visited {
+        font-size: 120%;
+      }
+
+      .sub-menu a:hover,
+      .sub-menu a:active {
+        color: #fd7543;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        var flag = false;
+        $(".sub-menu").hide(0);
+        $("#container").on("mouseenter", function () {
+          if (flag) return;
+          $(".sub-menu").slideDown(500, function () {
+            flag = true;
+          });
+        });
+        $("#container").on("mouseleave", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+        $("#container, html").on("click", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MAIN MENU</a>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">sub menu 1</a></li>
+          <li><a href="#">sub menu 2</a></li>
+          <li><a href="#">sub menu 3</a></li>
+          <li><a href="#">sub menu 4</a></li>
+        </ul>
+      </div>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MAIN MENU</a>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">sub menu 1</a></li>
+          <li><a href="#">sub menu 2</a></li>
+          <li><a href="#">sub menu 3</a></li>
+          <li><a href="#">sub menu 4</a></li>
+        </ul>
+      </div>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MAIN MENU</a>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">sub menu 1</a></li>
+          <li><a href="#">sub menu 2</a></li>
+          <li><a href="#">sub menu 3</a></li>
+          <li><a href="#">sub menu 4</a></li>
+        </ul>
+      </div>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MAIN MENU</a>
+        </div>
+        <ul class="sub-menu">
+          <li><a href="#">sub menu 1</a></li>
+          <li><a href="#">sub menu 2</a></li>
+          <li><a href="#">sub menu 3</a></li>
+          <li><a href="#">sub menu 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

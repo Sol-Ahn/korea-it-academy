@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Dropdown Ex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #dropdown {
+        width: 200px;
+        margin: 50px auto;
+      }
+
+      #main,
+      #sub div {
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        padding: 7px 0;
+      }
+
+      #main {
+        background-color: lightgray;
+        border-bottom: 2px solid gray;
+        display: inline-block;
+      }
+
+      #main a {
+        font-size: 150%;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+      }
+
+      #sub div {
+        background-color: #f5f5f5;
+        border-bottom: 1px solid gray;
+      }
+
+      #sub a {
+        width: 100%;
+        font-size: 130%;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        /*
+        $("#sub div").hide(0);
+        $("#main").on("mouseover mouseout", function () {
+          $("#sub div").slideToggle(500);
+        });
+        */
+        var flag = false;
+        $("#dropdown").mouseenter(function () {
+          if (flag) return;
+          $("#sub").slideDown(500, function () {
+            flag = true;
+          });
+        });
+        $("#dropdown").mouseleave(function () {
+          if (!flag) return;
+          $("#sub").slideUp(500, function () {
+            flag = false;
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <nav id="dropdown">
+      <div id="main"><a href="#">MAIN MENU</a></div>
+      <div id="sub">
+        <div><a href="#">menu 1</a></div>
+        <div><a href="#">menu 2</a></div>
+        <div><a href="#">menu 3</a></div>
+        <div><a href="#">menu 4</a></div>
+      </div>
+    </nav>
+  </body>
+</html>

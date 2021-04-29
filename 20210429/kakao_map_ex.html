@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>kakao map marker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=318987487deb61a53f6196cf6635efcf&libraries=services"
+    ></script>
+    <script>
+      $(function () {
+        $("button").on("click", function () {
+          // 지도 생성
+          var mapContainer = $("#map")[0],
+            mapOption = {
+              center: new kakao.maps.LatLng(33.450701, 126.570667),
+              level: 3,
+            };
+
+          var map = new kakao.maps.Map(mapContainer, mapOption);
+
+          // 좌표 검색
+          var geocoder = new kakao.maps.services.Geocoder();
+          var search = $("#address").val();
+
+          geocoder.addressSearch(search, function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              // 지도 좌표 설정
+              var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+              $("coords").html(result[0].y + ", " + result[0].x);
+              // 마커 설정
+              var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords,
+              });
+              marker.setMap(map);
+              marker.setDraggable(true);
+
+              var iwContent = "<div style='padding:3px;'>이화여자대학교</div>";
+
+              var infowindow = new kakao.maps.InfoWindow({
+                content: iwContent,
+              });
+
+              kakao.maps.event.addListener(marker, "mouseover", function () {
+                infowindow.open(map, marker);
+              });
+
+              kakao.maps.event.addListener(marker, "mouseout", function () {
+                infowindow.close();
+              });
+            }
+
+            map.setCenter(coords);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="address" /><button>search</button>
+    <div id="coords"></div>
+    <div id="map" style="width: 100%; height: 350px"></div>
+  </body>
+</html>
