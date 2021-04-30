@@ -56,7 +56,7 @@
       $(function () {
         $("p").not("p.active").hide();
         $("h2").on("click", function () {
-          $(this).toggleClass("select");
+          $(this).addClass("select");
           $("h2").not(this).removeClass("select");
           $("p").removeClass("active");
           $($(this)).next("p").addClass("active");
