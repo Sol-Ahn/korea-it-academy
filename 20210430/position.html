@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Position</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 
+      position attribute
+      1. relative : based on own's position
+      2. absolute : based on parent's position
+      3. fixed : based on browser
+      4. static : not affected by coordinates
+    -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* header {
+        width: 300px;
+        height: 50px;
+        background-color: darkviolet;
+      } */
+
+      #dropdown {
+        width: 200px;
+        position: absolute;
+        top: 0;
+        z-index: 1000;
+      }
+
+      #main,
+      #sub div {
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        padding: 7px 0;
+      }
+
+      #main {
+        background-color: lightgray;
+        border-bottom: 2px solid gray;
+        display: inline-block;
+      }
+
+      #main a {
+        font-size: 150%;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+      }
+
+      #sub div {
+        background-color: #f5f5f5;
+        border-bottom: 1px solid gray;
+      }
+
+      #sub a {
+        width: 100%;
+        font-size: 130%;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+      }
+
+      #box1,
+      #box2 {
+        width: 300px;
+        border: 1px solid black;
+      }
+
+      #box1 {
+        height: 100px;
+        color: white;
+        background-color: darkblue;
+        text-align: right;
+        margin-top: 100px;
+      }
+
+      #box2 {
+        height: 400px;
+        background-color: darkgreen;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("button").on("click", function () {
+          $("#box1").slideToggle(500);
+        });
+
+        var flag = false;
+        $("#dropdown").mouseenter(function () {
+          if (flag) return;
+          $("#sub").slideDown(500, function () {
+            flag = true;
+          });
+        });
+        $("#dropdown").mouseleave(function () {
+          if (!flag) return;
+          $("#sub").slideUp(500, function () {
+            flag = false;
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- <header></header> -->
+    <nav id="dropdown">
+      <div id="main"><a href="#">MAIN MENU</a></div>
+      <div id="sub">
+        <div><a href="#">menu 1</a></div>
+        <div><a href="#">menu 2</a></div>
+        <div><a href="#">menu 3</a></div>
+        <div><a href="#">menu 4</a></div>
+      </div>
+    </nav>
+    <div id="box1">box1 content</div>
+    <div id="box2"></div>
+  </body>
+</html>

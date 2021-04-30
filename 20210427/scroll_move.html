@@ -11,9 +11,9 @@
         padding: 0;
       }
 
-      html {
+      /* html {
         scroll-behavior: smooth;
-      }
+      } */
 
       .container {
         height: 969px;
@@ -59,13 +59,15 @@
         $("#next").click(function () {
           if (slideNo === bgColor.length - 1) return;
           slideNo++;
-          $("html").scrollTop(slideNo * 969);
+          // $("html").scrollTop(slideNo * 969);
+          $("html").animate({ scrollTop: slideNo * 969 }, 500);
         });
 
         $("#back").click(function () {
           if (slideNo === 0) return;
           slideNo--;
-          $("html").scrollTop(slideNo * 969);
+          // $("html").scrollTop(slideNo * 969);
+          $("html").animate({ scrollTop: slideNo * 969 }, 500);
         });
       });
     </script>

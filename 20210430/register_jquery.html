@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>kakao signup convert to jQuery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 40px 0;
+      }
+
+      .container {
+        width: 700px;
+        padding: 30px;
+        margin: 40px auto;
+        border: 1px solid lightgray;
+      }
+
+      form ul {
+        list-style-type: none;
+      }
+
+      form li {
+        padding: 6px 0;
+      }
+
+      form > ul > ul {
+        padding-left: 40px;
+        list-style-type: disc;
+        color: gray;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input {
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 80%;
+        font-size: 20px;
+      }
+
+      button {
+        outline: none;
+        margin-top: 15px;
+      }
+
+      .sub_txt {
+        font-size: 20px;
+        font-weight: bold;
+        color: gray;
+        display: inline-block;
+        text-align: right;
+        width: 20%;
+        box-sizing: border-box;
+        padding-right: 20px;
+      }
+
+      .border_left {
+        margin-left: 10px;
+        padding-left: 10px;
+        border-left: 2px solid #b3b3b3;
+      }
+
+      .border_bottom {
+        border-bottom: 2px solid #b3b3b3;
+      }
+
+      select {
+        width: 100px;
+        font-size: 18px;
+        height: 50px;
+        padding: 10px;
+        box-sizing: border-box;
+        border: none;
+      }
+
+      .btn_send_no {
+        background-color: white;
+        width: 300px;
+        height: 50px;
+        border-radius: 25px;
+        border: 1px solid #b3b3b3;
+      }
+
+      .btn_send_no:hover {
+        background-color: #dbd4d4;
+        border-color: gray;
+      }
+
+      input[type="radio"] {
+        width: 0;
+        height: 0;
+      }
+
+      input[type="radio"] + label {
+        font-weight: normal;
+        padding: 30px;
+        background-image: url("/20210405/img/radio_none_check.png");
+        background-repeat: no-repeat;
+        background-position: 5px center;
+        background-size: 16px;
+      }
+
+      input[type="radio"]:checked + label {
+        background-image: url("/20210405/img/radio_check.png");
+      }
+
+      .btn_next {
+        width: 100%;
+        height: 50px;
+        background-color: #dbd4d4;
+        border-radius: 10px;
+        border: none;
+      }
+
+      .btn_next:hover {
+        background-color: #f1f107;
+      }
+
+      .true {
+        color: blue;
+        font-weight: bold;
+      }
+      .false {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      function checkID() {
+        if ($("#id").val().length < 6 || $("#id").val().length > 20) {
+          alert("아이디는 6글자 이상 20글자 이하로 작성해주세요.");
+          return false;
+        }
+        if (!isNaN($("#id").val())) {
+          alert("아이디는 숫자만 입력할 수 없습니다.");
+          return false;
+        }
+
+        if ($("#id").val().indexOf(" ") != -1) {
+          alert("아이디에는 공백을 입력할 수 없습니다.");
+          return false;
+        }
+        return true;
+      }
+
+      function checkPW() {
+        if ($("#passwd").val().length < 8 || $("#passwd").val().length > 32) {
+          $("#passwd").html(
+            "비밀번호는 8자리 이상 32자리 이하로 작성해주세요."
+          );
+          $("#passwd").addClass("false");
+          return false;
+        }
+
+        var pattern = /\d/;
+        var flag = pattern.test($("#passwd").val());
+
+        if (!flag) {
+          $("#passwd_result").html(
+            "비밀번호는 1개 이상의 숫자를 포함해야 합니다."
+          );
+          $("#passwd_result").addClass("false");
+
+          return false;
+        }
+
+        pattern = /[a-zA-Z]/;
+        flag = pattern.test($("#passwd").val());
+
+        if (!flag) {
+          $("#passwd_result").html("비밀번호는 알파벳으로 작성해주세요.");
+          $("#passwd_result").addClass("false");
+
+          return false;
+        }
+
+        pattern = /[!@#$%^&*()_\+\=\-\[\]\"\']/;
+        flag = pattern.test($("#passwd").val());
+
+        if (!flag) {
+          $("#passwd_result").html(
+            "비밀번호는 1개 이상의 특수문자를 포함해야 합니다."
+          );
+          $("#passwd_result").addClass("false");
+
+          return false;
+        }
+
+        if ($("#passwd").val().indexOf(" ") != -1) {
+          $("#passwd_result").html("비밀번호에는 공백을 입력할 수 없습니다.");
+          $("#passwd_result").addClass("false");
+
+          return false;
+        }
+
+        if ($("#passwd").val() !== passwd_chk.value) {
+          $("#passwd_result").html("비밀번호가 일치하지 않습니다.");
+          $("#passwd_result").addClass("false");
+
+          return false;
+        }
+
+        $("#passwd_result").html("비밀번호가 일치합니다.");
+        $("#passwd_result").addClass("true");
+
+        return true;
+      }
+
+      function checkTel() {
+        var pattern = /^[0-9]*$/;
+        var flag = pattern.test($("#tel").val());
+
+        if (!flag) {
+          alert("전화번호는 숫자만 입력할 수 있습니다.");
+          return false;
+        }
+
+        if ($("#tel").val().length > 11 || $("#tel").val().length < 9) {
+          alert("전화번호는 9~11자리까지 입력할 수 있습니다.");
+          return false;
+        }
+        return true;
+      }
+
+      $(function(){
+        var frm = document.frm;
+        frm.onsubmit = function (e) {
+          if (!checkID()) return false;
+          if (!checkPW()) return false;
+          // if (nickname.value.length > 0) return false;
+          if (!checkTel()) return false;
+
+          if (!$("#agree1").checked) {
+            alert("가입하시려면 약관 동의를 수락해주세요.");
+            return false;
+          }
+        };
+
+        $("#passwd").onkeyup = $("#passwd_chk").onkeyup = checkPW;
+
+        // NN check
+        $("#nickname").onkeyup = function () {
+          if ($(this).val().length > 20) {
+            $(this).val() = $(this).val().substring(0, 20);
+            alert("닉네임은 20글자를 넘길 수 없습니다.");
+          }
+
+          $(".sub_txt").html($(this).val().length + "/20"
+
+      })
+    </script>
+  </head>
+  <body>
+    <h1>kakao</h1>
+    <div class="container">
+      <h2>카카오 계정 정보를 입력해주세요.</h2>
+      <form action="" name="frm" method="POST">
+        <ul>
+          <li><label for="id">카카오계정 이메일</label></li>
+          <li class="border_bottom">
+            <input
+              type="text"
+              name="id"
+              id="id"
+              placeholder="아이디 입력"
+            /><span class="sub_txt">@kakao.com</span>
+          </li>
+          <ul>
+            <li>입력한 카카오메일로 카카오계정에 로그인할 수 있습니다.</li>
+            <li>
+              한 번 만든 카카오메일은 변경할 수 없으니, 오타가 없도록 신중히
+              확인해주세요.
+            </li>
+            <li>
+              생성한 카카오메일로 카카오계정과 관련한 알림을 받아볼 수 있습니다.
+            </li>
+          </ul>
+          <li><label for="passwd">비밀번호</label></li>
+          <li class="border_bottom">
+            <input
+              type="password"
+              name="password"
+              id="passwd"
+              maxlength="32"
+              placeholder="비밀번호(8~23자리)"
+            />
+          </li>
+          <li class="border_bottom">
+            <input
+              type="password"
+              id="passwd_chk"
+              maxlength="32"
+              placeholder="비밀번호 재입력"
+            />
+          </li>
+          <li><div id="passwd_result">테스트</div></li>
+          <li><label for="nickname">닉네임</label></li>
+          <li class="border_bottom">
+            <input
+              type="text"
+              name="nickname"
+              id="nickname"
+              placeholder="닉네임을 입력하세요"
+              required
+            /><span class="sub_txt">0/20</span>
+          </li>
+          <li><label for="tel">전화번호</label></li>
+          <li class="border_bottom">
+            <select name="gcode" id="gcode">
+              <option value="82">+82</option>
+              <option value="1">+1</option>
+              <option value="84">+84</option>
+              <option value="55">+55</option>
+            </select>
+            <input
+              class="border_left"
+              type="text"
+              name="tel"
+              id="tel"
+              placeholder="전화번호(-는 생략)"
+            />
+          </li>
+          <li>
+            <button type="button" class="btn_send_no">인증번호 전송</button>
+          </li>
+          <li><span>약관 동의</span></li>
+          <li>
+            <input type="radio" name="agree" id="agree1" value="yes" />
+            <label for="agree1">예</label>
+            <input type="radio" name="agree" id="agree2" value="no" checked />
+            <label for="agree2">아니오</label>
+          </li>
+          <li><button class="btn_next">다음</button></li>
+        </ul>
+      </form>
+    </div>
+  </body>
+</html>

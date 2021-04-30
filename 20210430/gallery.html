@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      #container {
+        width: 1200px;
+        border: 1px solid black;
+        margin: 0 auto;
+      }
+
+      #thumbnail {
+        width: 600px;
+        height: 600px;
+        margin: 0px auto;
+        margin-top: 20px;
+        font-size: 0;
+        border: 1px solid black;
+      }
+
+      #thumbnail img {
+        width: 100%;
+        height: 100%;
+      }
+
+      #thumbnail-bar {
+        width: 900px;
+        height: 100px;
+        position: relative;
+        font-size: 0;
+      }
+
+      #thumbnail-container {
+        width: 600px;
+        height: 100px;
+        margin: 0 auto;
+        border: 1px solid black;
+        font-size: 0;
+        overflow: hidden;
+      }
+
+      #thumbnail-container img {
+        width: 100px;
+        height: 100px;
+        border: 1px solid white;
+        box-sizing: border-box;
+      }
+
+      #slider {
+        width: 600px;
+        height: 40px;
+        margin: 0 auto;
+        border: 1px solid black;
+        text-align: center;
+        position: relative;
+      }
+
+      #slider img {
+        width: 24px;
+        padding: 8px 0;
+      }
+
+      #back {
+        position: absolute;
+        left: 200px;
+      }
+
+      #next {
+        position: absolute;
+        right: 200px;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      var toggle = true;
+      function roll() {
+        if (toggle) {
+          $("#next").click();
+        } else {
+          $("#back").click();
+        }
+      }
+
+      $(function () {
+        $("#thumbnail-bar img:first").css({ border: "3px solid orange" });
+
+        $("#thumbnail-bar img").on("click", function () {
+          $("#thumbnail-bar img")
+            .not($(this))
+            .css({ border: "3px solid white" });
+          $(this).css({ border: "3px solid orange" });
+          $("#thumbnail img").attr({ src: $(this).attr("src") });
+        });
+
+        var index = 0;
+        // actual thumbnail-bar width
+        var barWidth = $("#thumbnail-container").width();
+        // calculate whole-width by using thumbnail-bar img length
+        var thumbnailBarWidth = $("#thumbnail-bar img").length * 100;
+        // (thumbnail-bar whole-width) - (actual thumbnail-bar width)
+
+        $("#next").on("click", function () {
+          if (index < $("#thumbnail-bar img").length) index++;
+
+          if (thumbnailBarWidth - barWidth >= index * 100)
+            $("#thumbnail-bar")
+              .stop()
+              .animate({ left: -index * 100 + "px" });
+          else {
+            index--;
+            toggle = false;
+          }
+        });
+
+        $("#back").on("click", function () {
+          if (index > 0) index--;
+          else toggle = true;
+
+          $("#thumbnail-bar")
+            .stop()
+            .animate({ left: -index * 100 + "px" });
+        });
+        setInterval(roll, 1000);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="thumbnail">
+        <img src="/resources/img/gallery_img/1.jpg" alt="Gallery Image" />
+      </div>
+      <div id="thumbnail-container">
+        <div id="thumbnail-bar">
+          <img src="/resources/img/gallery_img/1.jpg" alt="" />
+          <img src="/resources/img/gallery_img/2.jpg" alt="" />
+          <img src="/resources/img/gallery_img/3.jpg" alt="" />
+          <img src="/resources/img/gallery_img/4.jpg" alt="" />
+          <img src="/resources/img/gallery_img/5.jpg" alt="" />
+          <img src="/resources/img/gallery_img/6.jpg" alt="" />
+          <img src="/resources/img/gallery_img/7.jpg" alt="" />
+          <img src="/resources/img/gallery_img/8.jpg" alt="" />
+          <img src="/resources/img/gallery_img/9.jpg" alt="" />
+        </div>
+      </div>
+      <div id="slider">
+        <a href="#" id="back">
+          <img src="/resources/img/gallery_img/back_icon.png" alt="" />
+        </a>
+        <a href="#" id="next">
+          <img src="/resources/img/gallery_img/next_icon.png" alt="" />
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

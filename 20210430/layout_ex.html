@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Layout Ex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        width: 1200px;
+        height: 50px;
+        background-color: firebrick;
+      }
+
+      nav {
+        width: 1200px;
+        position: absolute;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .menu-bar {
+        float: left;
+      }
+
+      .main-menu {
+        width: 200px;
+        height: 40px;
+        text-align: center;
+        padding: 6px 0;
+        background-color: cornflowerblue;
+        border: 1px solid black;
+      }
+
+      .sub-menu li {
+        width: 200px;
+        height: 40px;
+        padding: 6px 0;
+        background-color: #bac9e4;
+        border: 1px solid black;
+        text-align: center;
+      }
+
+      nav a {
+        width: 100%;
+        height: 100%;
+        font-size: 110%;
+        display: inline-block;
+      }
+
+      section {
+        width: 1200px;
+        height: 600px;
+      }
+
+      #sec-1 {
+        clear: both;
+        margin-top: 40px;
+        background-color: forestgreen;
+        font-size: 140%;
+        color: white;
+      }
+
+      #sec-2 {
+        background-color: olive;
+      }
+
+      #sec-3 {
+        background-color: cadetblue;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $(".sub-menu").hide();
+        var flag = false;
+        $("nav").on("mouseenter", function () {
+          $(".sub-menu").slideDown(500, function () {
+            flag = true;
+          });
+        });
+        $("nav").on("mouseleave", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header></header>
+    <nav>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MENU 1</a>
+        </div>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="#">sub menu 1</a></li>
+            <li><a href="#">sub menu 2</a></li>
+            <li><a href="#">sub menu 3</a></li>
+            <li><a href="#">sub menu 4</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MENU 2</a>
+        </div>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="#">sub menu 1</a></li>
+            <li><a href="#">sub menu 2</a></li>
+            <li><a href="#">sub menu 3</a></li>
+            <li><a href="#">sub menu 4</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MENU 3</a>
+        </div>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="#">sub menu 1</a></li>
+            <li><a href="#">sub menu 2</a></li>
+            <li><a href="#">sub menu 3</a></li>
+            <li><a href="#">sub menu 4</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MENU 4</a>
+        </div>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="#">sub menu 1</a></li>
+            <li><a href="#">sub menu 2</a></li>
+            <li><a href="#">sub menu 3</a></li>
+            <li><a href="#">sub menu 4</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MENU 5</a>
+        </div>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="#">sub menu 1</a></li>
+            <li><a href="#">sub menu 2</a></li>
+            <li><a href="#">sub menu 3</a></li>
+            <li><a href="#">sub menu 4</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-bar">
+        <div class="main-menu">
+          <a href="#">MENU 6</a>
+        </div>
+        <div class="sub-menu">
+          <ul>
+            <li><a href="#">sub menu 1</a></li>
+            <li><a href="#">sub menu 2</a></li>
+            <li><a href="#">sub menu 3</a></li>
+            <li><a href="#">sub menu 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section id="sec-1">content</section>
+    <section id="sec-2"></section>
+    <section id="sec-3"></section>
+  </body>
+</html>
