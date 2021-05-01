@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Practice</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        width: 100%;
+        height: 100px;
+        background-color: tomato;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+      }
+
+      .menu-bar {
+        flex-basis: 25%;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .main-menu,
+      .sub-menu li {
+        height: 45px;
+        text-align: center;
+        padding: 10px 0;
+        border: 1px solid black;
+      }
+
+      .main-menu {
+        background-color: cadetblue;
+      }
+
+      .main-menu a {
+        font-size: 140%;
+        font-weight: bold;
+      }
+
+      .sub-menu li {
+        background-color: aliceblue;
+      }
+
+      .sub-menu a {
+        font-size: 120%;
+      }
+
+      section {
+        width: 100%;
+        height: 500px;
+      }
+
+      #sec-1 {
+        background-color: lightsalmon;
+      }
+
+      #sec-2 {
+        background-color: lightskyblue;
+      }
+
+      #sec-3 {
+        background-color: lightgreen;
+      }
+
+      #sec-4 {
+        background-color: lightslategrey;
+      }
+
+      footer {
+        width: 100%;
+        height: 100px;
+        border: 1px solid black;
+        position: fixed;
+        bottom: 0;
+        background-color: midnightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header></header>
+      <nav>
+        <div class="menu-bar">
+          <div class="main-menu">
+            <a href="#">HOME</a>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub2</a></li>
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub4</a></li>
+            <li><a href="#">sub5</a></li>
+          </ul>
+        </div>
+        <div class="menu-bar">
+          <div class="main-menu">
+            <a href="#">PORTFOLIO</a>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub2</a></li>
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub4</a></li>
+            <li><a href="#">sub5</a></li>
+          </ul>
+        </div>
+        <div class="menu-bar">
+          <div class="main-menu">
+            <a href="#">ABOUT</a>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub2</a></li>
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub4</a></li>
+            <li><a href="#">sub5</a></li>
+          </ul>
+        </div>
+        <div class="menu-bar">
+          <div class="main-menu">
+            <a href="#">CONTACT</a>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub2</a></li>
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub4</a></li>
+            <li><a href="#">sub5</a></li>
+          </ul>
+        </div>
+      </nav>
+      <section id="sec-1">
+        <article><div id="popup"></div></article>
+        <article></article>
+      </section>
+      <section id="sec-2"><div id="gallery"></div></section>
+      <section id="sec-3"></section>
+      <section id="sec-4"></section>
+      <footer></footer>
+    </div>
+  </body>
+</html>
