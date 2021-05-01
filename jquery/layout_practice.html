@@ -69,6 +69,43 @@
 
       #sec-1 {
         background-color: lightsalmon;
+        position: relative;
+      }
+
+      #popup {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 100px;
+        left: 800px;
+        border: 2px solid black;
+        z-index: 1;
+      }
+
+      #popup a img {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 3px;
+        margin-right: 3px;
+      }
+
+      #popup > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      #popup-nav {
+        width: 100%;
+        background-color: rgb(185, 185, 185, 0.7);
+        position: absolute;
+        bottom: 0;
+      }
+
+      #popup-nav input {
+        margin: 4px;
       }
 
       #sec-2 {
@@ -77,21 +114,42 @@
 
       #sec-3 {
         background-color: lightgreen;
+        position: relative;
       }
 
-      #sec-4 {
-        background-color: lightslategrey;
+      #map {
+        width: 60%;
+        height: 300px;
+        border: 1px solid black;
+        position: absolute;
+        top: 80px;
+        left: 296px;
       }
 
       footer {
         width: 100%;
         height: 100px;
         border: 1px solid black;
-        position: fixed;
-        bottom: 0;
         background-color: midnightblue;
       }
     </style>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=318987487deb61a53f6196cf6635efcf&libraries=services"
+    ></script>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        // kakao map
+        var mapContainer = document.getElementById("map");
+        mapOption = {
+          center: new kakao.maps.LatLng(37.5625359, 126.947428),
+          level: 3,
+        };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+      });
+    </script>
   </head>
   <body>
     <div class="container">
@@ -147,12 +205,21 @@
         </div>
       </nav>
       <section id="sec-1">
-        <article><div id="popup"></div></article>
+        <article>
+          <div id="popup">
+            <a href="#"><img src="/resources/img/close_icon.png" alt="" /></a
+            ><img src="/resources/img/header_img.jpg" alt="" />
+            <div id="popup-nav">
+              <input type="checkbox" id="check" /> 다시보지 않기
+            </div>
+          </div>
+        </article>
         <article></article>
       </section>
       <section id="sec-2"><div id="gallery"></div></section>
-      <section id="sec-3"></section>
-      <section id="sec-4"></section>
+      <section id="sec-3">
+        <div id="map"></div>
+      </section>
       <footer></footer>
     </div>
   </body>
