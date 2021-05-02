@@ -223,7 +223,7 @@
         font-size: 110%;
       }
 
-      button {
+      #search {
         height: 30px;
         margin-left: 3px;
         padding: 3px;
@@ -259,6 +259,29 @@
         font-size: 90%;
         font-weight: bold;
         color: blue;
+      }
+
+      #remote {
+        width: 50px;
+        background-color: aliceblue;
+        position: fixed;
+        top: 400px;
+        right: 50px;
+        display: inline-block;
+        z-index: 1000;
+      }
+
+      #up,
+      #down {
+        width: 50px;
+        padding: 5px;
+        font-size: 150%;
+        border: none;
+        background-color: aliceblue;
+      }
+
+      #down {
+        margin-top: 10px;
       }
 
       footer {
@@ -303,6 +326,21 @@
       }
 
       $(function () {
+        // scroll move
+        var slideNo = 0;
+        var section = ["sec-1", "sec-2", "sec-3"];
+        $("#down").on("click", function () {
+          if (slideNo === section.length - 1) return;
+          slideNo++;
+          $("html").animate({ scrollTop: slideNo * 500 }, 500);
+        });
+
+        $("#up").on("click", function () {
+          if (slideNo === 0) return;
+          slideNo--;
+          $("html").animate({ scrollTop: slideNo * 500 }, 500);
+        });
+
         // dropdown menu
         var flag = false;
         $(".sub-menu").hide();
@@ -528,9 +566,13 @@
         </div>
       </section>
       <section id="sec-3">
-        <input type="text" id="address" /><button>Search</button>
+        <input type="text" id="address" /><button id="search">Search</button>
         <div id="map"></div>
       </section>
+      <div id="remote">
+        <button id="up">▲</button>
+        <button id="down">▼</button>
+      </div>
       <footer></footer>
     </div>
   </body>
