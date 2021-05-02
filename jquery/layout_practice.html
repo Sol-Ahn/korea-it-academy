@@ -87,6 +87,7 @@
       }
 
       #sec-1 {
+        margin-top: 45px;
         background-color: lightsalmon;
         position: relative;
         top: 0;
@@ -96,13 +97,13 @@
         width: 200px;
         height: 200px;
         position: absolute;
-        top: 100px;
-        left: 800px;
+        top: 150px;
+        left: 850px;
         border: 2px solid black;
         z-index: 1;
       }
 
-      #popup a img {
+      #popup a {
         width: 24px;
         height: 24px;
         position: absolute;
@@ -112,9 +113,15 @@
         margin-right: 3px;
       }
 
+      #popup a img {
+        width: 100%;
+        height: 100%;
+      }
+
       #popup > img {
         width: 100%;
         height: 100%;
+        cursor: pointer;
       }
 
       #popup-nav {
@@ -159,6 +166,28 @@
     ></script>
     <script src="/resources/lib/jquery-3.6.0.min.js"></script>
     <script>
+      function cookieInit(name, value, endDate) {
+        var date = new Date();
+        date.setDate(date.getDate() + endDate);
+        document.cookie =
+          escape(name) +
+          "=" +
+          escape(value) +
+          "; path=/; expires=" +
+          date.toUTCString();
+      }
+
+      function getCookie(name) {
+        var cookie = document.cookie;
+        if (document.cookie !== "") {
+          var cookieArray = cookie.split("; ");
+          for (var index in cookieArray) {
+            var cookieName = cookieArray[index].split("=");
+            if (cookieName[0] === "popup") return cookieName[1];
+          }
+        }
+      }
+
       $(function () {
         // dropdown menu
         var flag = false;
@@ -182,6 +211,24 @@
           $(".sub-menu").slideUp(500, function () {
             flag = false;
           });
+        });
+
+        // popup
+        // cookie
+        var cookieCheck = getCookie("popup");
+        if (cookieCheck === "N") $("#popup").hide();
+
+        $("#check").click(function () {
+          if ($(this).is(":checked")) cookieInit("popup", "Y", 1);
+          else cookieInit("popup", "N", 1);
+        });
+
+        $("#popup a").on("click", function () {
+          $(this).parent().css({ display: "none" });
+        });
+
+        $("#popup > img").click(function () {
+          location.href = "http://google.com";
         });
 
         // kakao map
