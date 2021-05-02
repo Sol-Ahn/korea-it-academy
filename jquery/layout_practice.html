@@ -11,6 +11,10 @@
         box-sizing: border-box;
       }
 
+      body {
+        position: relative;
+      }
+
       header {
         width: 100%;
         height: 100px;
@@ -22,6 +26,9 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
+        position: absolute;
+        top: 100px;
+        z-index: 100;
       }
 
       .menu-bar {
@@ -42,24 +49,36 @@
         height: 45px;
         text-align: center;
         padding: 10px 0;
-        border: 1px solid black;
+        border-bottom: 3px solid darkslategray;
       }
 
       .main-menu {
         background-color: cadetblue;
       }
 
-      .main-menu a {
-        font-size: 140%;
+      .main-menu a:link,
+      .main-menu a:visited {
         font-weight: bold;
+        font-size: 140%;
+      }
+
+      .main-menu a:hover,
+      .main-menu a:active {
+        color: aliceblue;
       }
 
       .sub-menu li {
         background-color: aliceblue;
       }
 
-      .sub-menu a {
-        font-size: 120%;
+      .sub-menu a:link,
+      .sub-menu a:visited {
+        font-size: 130%;
+      }
+
+      .sub-menu a:hover,
+      .sub-menu a:active {
+        color: cadetblue;
       }
 
       section {
@@ -70,6 +89,7 @@
       #sec-1 {
         background-color: lightsalmon;
         position: relative;
+        top: 0;
       }
 
       #popup {
@@ -140,6 +160,30 @@
     <script src="/resources/lib/jquery-3.6.0.min.js"></script>
     <script>
       $(function () {
+        // dropdown menu
+        var flag = false;
+        $(".sub-menu").hide();
+        $("nav").on("mouseenter", function () {
+          if (flag) return;
+          $(".sub-menu").slideDown(500, function () {
+            flag = true;
+          });
+        });
+
+        $("nav").on("mouseleave", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+
+        $("nav, html").on("click", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+
         // kakao map
         var mapContainer = document.getElementById("map");
         mapOption = {
