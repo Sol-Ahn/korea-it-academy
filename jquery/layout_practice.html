@@ -137,6 +137,74 @@
 
       #sec-2 {
         background-color: lightskyblue;
+        position: relative;
+      }
+
+      #gallery {
+        width: 600px;
+        border: 3px solid black;
+        position: absolute;
+        top: 15px;
+        left: 650px;
+      }
+
+      #thumbnail {
+        width: 300px;
+        height: 300px;
+        margin: 30px auto;
+        font-size: 0;
+        border: 2px solid black;
+      }
+
+      #thumbnail img {
+        width: 100%;
+        height: 100%;
+      }
+
+      #thumbnail-container {
+        width: 300px;
+        height: 50px;
+        margin: 0 auto;
+        font-size: 0;
+        overflow: hidden;
+      }
+
+      #thumbnail-container img {
+        width: 50px;
+        height: 50px;
+        border: 1px solid white;
+      }
+
+      #thumbnail-list {
+        width: 450px;
+        height: 50px;
+        position: relative;
+        font-size: 0;
+      }
+
+      #slider {
+        width: 300px;
+        height: 40px;
+        margin: 0 auto;
+        background-color: aliceblue;
+        text-align: center;
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      #slider img {
+        width: 24px;
+        padding: 8px 0;
+      }
+
+      #back {
+        position: absolute;
+        left: 60px;
+      }
+
+      #next {
+        position: absolute;
+        right: 60px;
       }
 
       #sec-3 {
@@ -228,6 +296,12 @@
         }
       }
 
+      var toggle = true;
+      function autoRoll() {
+        if (toggle) $("#next").click();
+        else $("#back").click();
+      }
+
       $(function () {
         // dropdown menu
         var flag = false;
@@ -270,6 +344,43 @@
         $("#popup > img").click(function () {
           location.href = "http://google.com";
         });
+
+        // gallery slide
+        $("#thumbnail-list img:first").css({ border: "2px solid orangered" });
+        $("#thumbnail-list img").on("click", function () {
+          $("#thumbnail-list img")
+            .not($(this))
+            .css({ border: "2px solid white" });
+          $(this).css({ border: "2px solid orangered" });
+          $("#thumbnail img").attr({ src: $(this).attr("src") });
+        });
+
+        var index = 0;
+        var barWidth = $("#thumbnail-container").width();
+        var thumbnailListWidth = $("#thumbnail-list img").length * 50;
+
+        $("#next").on("click", function () {
+          if (index < $("#thumbnail-list img").length) index++;
+          if (thumbnailListWidth - barWidth >= index * 50) {
+            $("#thumbnail-list")
+              .stop()
+              .animate({ left: -index * 50 + "px" });
+          } else {
+            index--;
+            toggle = false;
+          }
+        });
+
+        $("#back").on("click", function () {
+          if (index > 0) index--;
+          else toggle = true;
+
+          $("#thumbnail-list")
+            .stop()
+            .animate({ left: -index * 50 + "px" });
+        });
+
+        setInterval(autoRoll, 1000);
 
         // kakao map
         var mapContainer = document.getElementById("map");
@@ -384,7 +495,38 @@
         </article>
         <article></article>
       </section>
-      <section id="sec-2"><div id="gallery"></div></section>
+      <section id="sec-2">
+        <div id="gallery">
+          <div id="thumbnail">
+            <img src="/resources/img/gallery_img/1.jpg" alt="gallery image" />
+          </div>
+          <div id="thumbnail-container">
+            <div id="thumbnail-list">
+              <img src="/resources/img/gallery_img/1.jpg" alt="" />
+              <img src="/resources/img/gallery_img/2.jpg" alt="" />
+              <img src="/resources/img/gallery_img/3.jpg" alt="" />
+              <img src="/resources/img/gallery_img/4.jpg" alt="" />
+              <img src="/resources/img/gallery_img/5.jpg" alt="" />
+              <img src="/resources/img/gallery_img/6.jpg" alt="" />
+              <img src="/resources/img/gallery_img/7.jpg" alt="" />
+              <img src="/resources/img/gallery_img/8.jpg" alt="" />
+              <img src="/resources/img/gallery_img/9.jpg" alt="" />
+            </div>
+          </div>
+          <div id="slider">
+            <img
+              id="back"
+              src="/resources/img/gallery_img/back_icon.png"
+              alt=""
+            />
+            <img
+              id="next"
+              src="/resources/img/gallery_img/next_icon.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
       <section id="sec-3">
         <input type="text" id="address" /><button>Search</button>
         <div id="map"></div>
