@@ -234,7 +234,7 @@
         return true;
       }
 
-      $(function(){
+      $(function () {
         var frm = document.frm;
         frm.onsubmit = function (e) {
           if (!checkID()) return false;
@@ -257,9 +257,9 @@
             alert("닉네임은 20글자를 넘길 수 없습니다.");
           }
 
-          $(".sub_txt").html($(this).val().length + "/20"
-
-      })
+          $(".sub_txt").html($(this).val().length + "/20");
+        };
+      });
     </script>
   </head>
   <body>
