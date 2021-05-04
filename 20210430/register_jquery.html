@@ -131,6 +131,7 @@
         color: blue;
         font-weight: bold;
       }
+
       .false {
         color: red;
         font-weight: bold;
@@ -160,7 +161,7 @@
           $("#passwd").html(
             "비밀번호는 8자리 이상 32자리 이하로 작성해주세요."
           );
-          $("#passwd").addClass("false");
+          $("#passwd_result").addClass("false");
           return false;
         }
 
@@ -213,7 +214,8 @@
         }
 
         $("#passwd_result").html("비밀번호가 일치합니다.");
-        $("#passwd_result").addClass("true");
+
+        $("#passwd_result").removeClass("false").addClass("true");
 
         return true;
       }
@@ -241,18 +243,19 @@
           // if ($("#nickname").val().length > 0) return false;
           if (!checkTel()) return false;
 
-          if (!$("#agree1").checked) {
+          if ($("#agree2").is(":checked")) {
             alert("가입하시려면 약관 동의를 수락해주세요.");
             return false;
           }
         });
 
-        $("#passwd") = $("#passwd_chk").keyup = checkPW;
+        $("#passwd").keyup(checkPW);
+        $("#passwd_chk").keyup(checkPW);
 
         // NN check
         $("#nickname").keyup(function () {
           if ($(this).val().length > 20) {
-            $(this).val() = $(this).val().substring(0, 20);
+            $(this).val($(this)).substring(0, 20);
             alert("닉네임은 20글자를 넘길 수 없습니다.");
           }
           $("#nickname")

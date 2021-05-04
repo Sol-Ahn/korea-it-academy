@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Main Layout Ex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        width: 100%;
+        height: 70px;
+        background-color: #ff9380;
+      }
+
+      header figure {
+        width: 350px;
+        height: 70px;
+        padding: 5px 0;
+        float: right;
+      }
+
+      header figure img {
+        width: 70px;
+        height: 70px;
+        float: left;
+      }
+
+      header figcaption {
+        height: 70px;
+        padding-top: 10px;
+        padding-left: 10px;
+        float: left;
+      }
+
+      figure figcaption h3 {
+        font-size: 100%;
+        line-height: 24px;
+        color: black;
+      }
+
+      figure figcaption p {
+        font-size: 80%;
+        line-height: 24px;
+      }
+
+      figure a:link,
+      figure a:visited {
+        color: #363636;
+        text-decoration: none;
+      }
+
+      figure a:hover,
+      figure a:active {
+        color: white;
+      }
+
+      #slider {
+        width: 1200px;
+        height: 600px;
+        overflow: hidden;
+        border-top: 2px solid #5f5f5f;
+        border-bottom: 2px solid #5f5f5f;
+        position: relative;
+      }
+
+      #slide {
+        height: 600px;
+      }
+
+      #slide-container {
+        width: 3600px;
+        height: 600px;
+      }
+
+      #slide-container > div {
+        width: 1200px;
+        height: 600px;
+        float: left;
+      }
+
+      .slide-img1 {
+        background-image: url("/resources/img/slider_img/slider3.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+
+      .slide-img2 {
+        background-image: url("/resources/img/slider_img/slider4.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+
+      .slide-img3 {
+        background-image: url("/resources/img/slider_img/slider5.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+
+      #slider button {
+        width: 50px;
+        height: 100%;
+        background-image: url("/resources/img/arrow.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        border: none;
+        background-color: #b6b6b6a1;
+        position: absolute;
+      }
+
+      #pre {
+        top: 0;
+        left: 0;
+      }
+
+      #next {
+        top: 0;
+        right: 0;
+        transform: rotate(180deg);
+      }
+
+      nav {
+        width: 100%;
+        height: 50px;
+        background-color: mediumturquoise;
+        position: relative;
+      }
+
+      #menu-container {
+        display: inline-block;
+        position: absolute;
+        left: 400px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      .main-menu {
+        width: 400px;
+      }
+
+      .main-menu li {
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        padding: 13px 0;
+        background-color: mediumturquoise;
+        float: left;
+      }
+
+      .main-menu a:link,
+      .main-menu a:visited {
+        width: 100%;
+        height: 100%;
+        font-size: 110%;
+        font-weight: bold;
+        display: inline-block;
+      }
+
+      .main-menu a:hover,
+      .main-menu a:active {
+        color: white;
+      }
+
+      .sub-menu-bar {
+        width: 400px;
+      }
+
+      .sub-menu {
+        width: 100px;
+        float: left;
+      }
+
+      .sub-menu:first-child li {
+        background-color: white;
+      }
+
+      .sub-menu li {
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        padding: 13px 0;
+        background-color: #deeceb;
+      }
+
+      .sub-menu a:link,
+      .sub-menu a:visited {
+        width: 100%;
+        height: 100%;
+        font-size: 100%;
+        display: inline-block;
+      }
+
+      .sub-menu a:hover,
+      .sub-menu a:active {
+        color: white;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-top: 1px solid #8d8d8d;
+        width: 400px;
+      }
+
+      table caption {
+        font-weight: bold;
+        font-size: 150%;
+        padding-bottom: 10px;
+      }
+
+      tr,
+      th,
+      td {
+        height: 40px;
+        border-bottom: 1px solid black;
+      }
+
+      th,
+      td {
+        width: 100px;
+      }
+
+      th {
+        background-color: #cacaca;
+      }
+
+      section {
+        padding-top: 60px;
+        padding-bottom: 200px;
+        text-align: center;
+      }
+
+      #article-container {
+        width: 1000px;
+        display: inline-block;
+      }
+
+      .notice {
+        float: left;
+      }
+
+      .commu {
+        float: right;
+      }
+
+      footer {
+        clear: both;
+        height: 100px;
+        border: 1px solid black;
+        background-color: darkblue;
+      }
+
+      footer figcaption {
+        padding-top: 20px;
+        padding-left: 212px;
+      }
+
+      footer p {
+        font-size: 90%;
+        color: white;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      var max = 3;
+      var width;
+
+      function next() {
+        $("#slide-container>div:first-child").animate(
+          {
+            "margin-left": -width + "px",
+          },
+          2000,
+          function () {
+            $("#slide-container").append($(this));
+            $(this).css({ "margin-left": "0" });
+          }
+        );
+      }
+
+      function pre() {
+        $("#slide-container>div:last-child").css({
+          "margin-left": -width + "px",
+        });
+
+        $("#slide-container").prepend($("#slide-container>div:last-child"));
+        $("#slide-container>div:first-child").animate(
+          { "margin-left": "0" },
+          2000
+        );
+      }
+      $(function () {
+        // slider
+        width = $("#slider").width();
+        var autoplay = setInterval(next, 2000);
+
+        $("#next").on("click", function () {
+          clearInterval(autoplay);
+          next();
+        });
+
+        $("#pre").on("click", function () {
+          clearInterval(autoplay);
+          pre();
+        });
+
+        /* $("#slider")
+          .on("mouseenter", function () {
+            clearInterval(autoplay);
+          })
+          .on("mouseleave", autoplay); */
+
+        // dropdown menu
+        var flag = false;
+        $(".sub-menu").hide();
+        $("#menu-container").on("mouseenter", function () {
+          if (flag) return;
+          $(".sub-menu").slideDown(500, function () {
+            flag = true;
+          });
+        });
+
+        $("#menu-container").on("mouseleave", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+
+        $("#menu-container, html").on("click", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div id="profile">
+          <figure>
+            <img src="/resources/img/profile.png" alt="" />
+            <figcaption>
+              <h3>OOO 회원님 환영합니다!</h3>
+              <p><a href="#">로그아웃</a> | <a href="#">정보수정</a></p>
+            </figcaption>
+          </figure>
+        </div>
+      </header>
+      <div id="slider">
+        <div id="slide">
+          <div id="slide-container">
+            <div class="slide-img1"></div>
+            <div class="slide-img2"></div>
+            <div class="slide-img3"></div>
+          </div>
+        </div>
+        <button id="pre"></button>
+        <button id="next"></button>
+      </div>
+      <nav>
+        <div id="menu-container">
+          <div class="main-menu-bar">
+            <ul class="main-menu">
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">예약</a></li>
+              <li><a href="#">펜션스토리</a></li>
+              <li><a href="#">펜션소개</a></li>
+            </ul>
+          </div>
+          <div id="sub-menu-bar">
+            <ul class="sub-menu">
+              <li><a href=""></a></li>
+            </ul>
+            <ul class="sub-menu">
+              <li><a href="#">예약하기</a></li>
+              <li><a href="#">예약조회</a></li>
+            </ul>
+            <ul class="sub-menu">
+              <li><a href="#">커뮤니티</a></li>
+              <li><a href="#">갤러리</a></li>
+              <li><a href="#">QnA</a></li>
+            </ul>
+            <ul class="sub-menu">
+              <li><a href="#">오시는길</a></li>
+              <li><a href="#">시설안내</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section>
+        <div id="article-container">
+          <article class="notice">
+            <table>
+              <caption>
+                공지사항
+              </caption>
+              <tr>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>작성일</th>
+                <th>조회수</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </article>
+          <article class="commu">
+            <table>
+              <caption>
+                커뮤니티
+              </caption>
+              <tr>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>작성일</th>
+                <th>조회수</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </article>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <figcaption>
+        <p>사업자 정보: OOOOOOOO</p>
+        <p>연락처: 000-0000-0000</p>
+        <p>이메일: OOOOO@gmail.com</p>
+      </figcaption>
+    </footer>
+  </body>
+</html>
