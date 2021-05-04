@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Practice</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        position: relative;
+      }
+
+      header {
+        width: 100%;
+        height: 100px;
+        background-color: tomato;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        position: absolute;
+        top: 100px;
+        z-index: 100;
+      }
+
+      .menu-bar {
+        flex-basis: 25%;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .main-menu,
+      .sub-menu li {
+        height: 45px;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 3px solid darkslategray;
+      }
+
+      .main-menu {
+        background-color: cadetblue;
+      }
+
+      .main-menu a:link,
+      .main-menu a:visited {
+        font-weight: bold;
+        font-size: 140%;
+      }
+
+      .main-menu a:hover,
+      .main-menu a:active {
+        color: aliceblue;
+      }
+
+      .sub-menu li {
+        background-color: aliceblue;
+      }
+
+      .sub-menu a:link,
+      .sub-menu a:visited {
+        font-size: 130%;
+      }
+
+      .sub-menu a:hover,
+      .sub-menu a:active {
+        color: cadetblue;
+      }
+
+      section {
+        width: 100%;
+        height: 500px;
+      }
+
+      #sec-1 {
+        margin-top: 45px;
+        background-color: lightsalmon;
+        position: relative;
+        top: 0;
+      }
+
+      #popup {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 150px;
+        left: 850px;
+        border: 2px solid black;
+        z-index: 1;
+      }
+
+      #popup a {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 3px;
+        margin-right: 3px;
+      }
+
+      #popup a img {
+        width: 100%;
+        height: 100%;
+      }
+
+      #popup > img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      #popup-nav {
+        width: 100%;
+        background-color: rgb(185, 185, 185, 0.7);
+        position: absolute;
+        bottom: 0;
+      }
+
+      #popup-nav input {
+        margin: 4px;
+      }
+
+      #sec-2 {
+        background-color: lightskyblue;
+        position: relative;
+      }
+
+      #gallery {
+        width: 600px;
+        border: 3px solid black;
+        position: absolute;
+        top: 15px;
+        left: 650px;
+      }
+
+      #thumbnail {
+        width: 300px;
+        height: 300px;
+        margin: 30px auto;
+        font-size: 0;
+        border: 2px solid black;
+      }
+
+      #thumbnail img {
+        width: 100%;
+        height: 100%;
+      }
+
+      #thumbnail-container {
+        width: 300px;
+        height: 50px;
+        margin: 0 auto;
+        font-size: 0;
+        overflow: hidden;
+      }
+
+      #thumbnail-container img {
+        width: 50px;
+        height: 50px;
+        border: 1px solid white;
+      }
+
+      #thumbnail-list {
+        width: 450px;
+        height: 50px;
+        position: relative;
+        font-size: 0;
+      }
+
+      #slider {
+        width: 300px;
+        height: 40px;
+        margin: 0 auto;
+        background-color: aliceblue;
+        text-align: center;
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      #slider img {
+        width: 24px;
+        padding: 8px 0;
+      }
+
+      #back {
+        position: absolute;
+        left: 60px;
+      }
+
+      #next {
+        position: absolute;
+        right: 60px;
+      }
+
+      #sec-3 {
+        background-color: lightgreen;
+        position: relative;
+      }
+
+      #address {
+        width: 300px;
+        height: 30px;
+        margin-top: 60px;
+        margin-left: 770px;
+        outline: none;
+        border: 1px solid black;
+        border-radius: 2px;
+        font-size: 110%;
+      }
+
+      #search {
+        height: 30px;
+        margin-left: 3px;
+        padding: 3px;
+        font-size: 110%;
+        font-weight: bold;
+        border: 1px solid black;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+
+      #map {
+        width: 60%;
+        height: 300px;
+        border: 1px solid black;
+        position: absolute;
+        top: 120px;
+        left: 380px;
+      }
+
+      .custom-overlay {
+        width: 150px;
+        padding: 5px;
+        text-align: center;
+        background-color: white;
+        box-shadow: 2px 4px 6px #9e9e9e;
+        position: relative;
+        bottom: 70px;
+        border-radius: 4px;
+      }
+
+      .custom-overlay a {
+        text-decoration: none;
+        font-size: 90%;
+        font-weight: bold;
+        color: blue;
+      }
+
+      #remote {
+        width: 50px;
+        background-color: aliceblue;
+        position: fixed;
+        top: 400px;
+        right: 50px;
+        display: inline-block;
+        z-index: 1000;
+      }
+
+      #up,
+      #down {
+        width: 50px;
+        padding: 5px;
+        font-size: 150%;
+        border: none;
+        background-color: aliceblue;
+      }
+
+      #down {
+        margin-top: 10px;
+      }
+
+      footer {
+        width: 100%;
+        height: 100px;
+        border: 1px solid black;
+        background-color: midnightblue;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=318987487deb61a53f6196cf6635efcf&libraries=services"
+    ></script>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      function cookieInit(name, value, endDate) {
+        var date = new Date();
+        date.setDate(date.getDate() + endDate);
+        document.cookie =
+          escape(name) +
+          "=" +
+          escape(value) +
+          "; path=/; expires=" +
+          date.toUTCString();
+      }
+
+      function getCookie(name) {
+        var cookie = document.cookie;
+        if (document.cookie !== "") {
+          var cookieArray = cookie.split("; ");
+          for (var index in cookieArray) {
+            var cookieName = cookieArray[index].split("=");
+            if (cookieName[0] === "popup") return cookieName[1];
+          }
+        }
+      }
+
+      var toggle = true;
+      function autoRoll() {
+        if (toggle) $("#next").click();
+        else $("#back").click();
+      }
+
+      $(function () {
+        // scroll move
+        var slideNo = 0;
+        var section = ["sec-1", "sec-2", "sec-3"];
+        $("#down").on("click", function () {
+          if (slideNo === section.length - 1) return;
+          slideNo++;
+          $("html").animate({ scrollTop: slideNo * 500 }, 500);
+        });
+
+        $("#up").on("click", function () {
+          if (slideNo === 0) return;
+          slideNo--;
+          $("html").animate({ scrollTop: slideNo * 500 }, 500);
+        });
+
+        // dropdown menu
+        var flag = false;
+        $(".sub-menu").hide();
+        $("nav").on("mouseenter", function () {
+          if (flag) return;
+          $(".sub-menu").slideDown(500, function () {
+            flag = true;
+          });
+        });
+
+        $("nav").on("mouseleave", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+
+        $("nav, html").on("click", function () {
+          if (!flag) return;
+          $(".sub-menu").slideUp(500, function () {
+            flag = false;
+          });
+        });
+
+        // popup
+        // cookie
+        var cookieCheck = getCookie("popup");
+        if (cookieCheck === "N") $("#popup").hide();
+
+        $("#check").click(function () {
+          if ($(this).is(":checked")) cookieInit("popup", "Y", 1);
+          else cookieInit("popup", "N", 1);
+        });
+
+        $("#popup a").on("click", function () {
+          $(this).parent().css({ display: "none" });
+        });
+
+        $("#popup > img").click(function () {
+          location.href = "http://google.com";
+        });
+
+        // gallery slide
+        $("#thumbnail-list img:first").css({ border: "2px solid orangered" });
+        $("#thumbnail-list img").on("click", function () {
+          $("#thumbnail-list img")
+            .not($(this))
+            .css({ border: "2px solid white" });
+          $(this).css({ border: "2px solid orangered" });
+          $("#thumbnail img").attr({ src: $(this).attr("src") });
+        });
+
+        var index = 0;
+        var barWidth = $("#thumbnail-container").width();
+        var thumbnailListWidth = $("#thumbnail-list img").length * 50;
+
+        $("#next").on("click", function () {
+          if (index < $("#thumbnail-list img").length) index++;
+          if (thumbnailListWidth - barWidth >= index * 50) {
+            $("#thumbnail-list")
+              .stop()
+              .animate({ left: -index * 50 + "px" });
+          } else {
+            index--;
+            toggle = false;
+          }
+        });
+
+        $("#back").on("click", function () {
+          if (index > 0) index--;
+          else toggle = true;
+
+          $("#thumbnail-list")
+            .stop()
+            .animate({ left: -index * 50 + "px" });
+        });
+
+        setInterval(autoRoll, 1000);
+
+        // kakao map
+        var mapContainer = document.getElementById("map");
+        mapOption = {
+          center: new kakao.maps.LatLng(37.5625359, 126.947428),
+          level: 3,
+        };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        $("button").on("click", function () {
+          var geocoder = new kakao.maps.services.Geocoder();
+          var search = $("#address").val();
+
+          geocoder.addressSearch(search, function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+              var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+              var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords,
+              });
+
+              marker.setMap(map);
+              marker.setDraggable(true);
+
+              var content =
+                "<div class='custom-overlay'>" +
+                "<a href='https://map.kakao.com/link/map/일산호수공원, " +
+                result[0].y +
+                "," +
+                result[0].x +
+                "' target='_blank'>일산호수공원 길찾기</a></div>";
+
+              var customOverlay = new kakao.maps.CustomOverlay({
+                position: coords,
+                content: content,
+                yAnchor: 0.3,
+              });
+
+              customOverlay.setMap(map);
+
+              map.setCenter(coords);
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header></header>
+      <nav>
+        <div class="menu-bar">
+          <div class="main-menu">
+            <a href="#">HOME</a>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub2</a></li>
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub4</a></li>
+            <li><a href="#">sub5</a></li>
+          </ul>
+        </div>
+        <div class="menu-bar">
+          <div class="main-menu">
+            <a href="#">PORTFOLIO</a>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub2</a></li>
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub4</a></li>
+            <li><a href="#">sub5</a></li>
+          </ul>
+        </div>
+        <div class="menu-bar">
+          <div class="main-menu">
+            <a href="#">ABOUT</a>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub2</a></li>
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub4</a></li>
+            <li><a href="#">sub5</a></li>
+          </ul>
+        </div>
+        <div class="menu-bar">
+          <div class="main-menu">
+            <a href="#">CONTACT</a>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="#">sub1</a></li>
+            <li><a href="#">sub2</a></li>
+            <li><a href="#">sub3</a></li>
+            <li><a href="#">sub4</a></li>
+            <li><a href="#">sub5</a></li>
+          </ul>
+        </div>
+      </nav>
+      <section id="sec-1">
+        <article>
+          <div id="popup">
+            <a href="#"><img src="/resources/img/close_icon.png" alt="" /></a
+            ><img src="/resources/img/header_img.jpg" alt="" />
+            <div id="popup-nav">
+              <input type="checkbox" id="check" /> 오늘 하루 보지 않기
+            </div>
+          </div>
+        </article>
+        <article></article>
+      </section>
+      <section id="sec-2">
+        <div id="gallery">
+          <div id="thumbnail">
+            <img src="/resources/img/gallery_img/1.jpg" alt="gallery image" />
+          </div>
+          <div id="thumbnail-container">
+            <div id="thumbnail-list">
+              <img src="/resources/img/gallery_img/1.jpg" alt="" />
+              <img src="/resources/img/gallery_img/2.jpg" alt="" />
+              <img src="/resources/img/gallery_img/3.jpg" alt="" />
+              <img src="/resources/img/gallery_img/4.jpg" alt="" />
+              <img src="/resources/img/gallery_img/5.jpg" alt="" />
+              <img src="/resources/img/gallery_img/6.jpg" alt="" />
+              <img src="/resources/img/gallery_img/7.jpg" alt="" />
+              <img src="/resources/img/gallery_img/8.jpg" alt="" />
+              <img src="/resources/img/gallery_img/9.jpg" alt="" />
+            </div>
+          </div>
+          <div id="slider">
+            <img
+              id="back"
+              src="/resources/img/gallery_img/back_icon.png"
+              alt=""
+            />
+            <img
+              id="next"
+              src="/resources/img/gallery_img/next_icon.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+      <section id="sec-3">
+        <input type="text" id="address" /><button id="search">Search</button>
+        <div id="map"></div>
+      </section>
+      <div id="remote">
+        <button id="up">▲</button>
+        <button id="down">▼</button>
+      </div>
+      <footer></footer>
+    </div>
+  </body>
+</html>

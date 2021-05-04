@@ -235,30 +235,30 @@
       }
 
       $(function () {
-        var frm = document.frm;
-        frm.onsubmit = function (e) {
+        $("form").submit(function (e) {
           if (!checkID()) return false;
           if (!checkPW()) return false;
-          // if (nickname.value.length > 0) return false;
+          // if ($("#nickname").val().length > 0) return false;
           if (!checkTel()) return false;
 
           if (!$("#agree1").checked) {
             alert("가입하시려면 약관 동의를 수락해주세요.");
             return false;
           }
-        };
+        });
 
-        $("#passwd").onkeyup = $("#passwd_chk").onkeyup = checkPW;
+        $("#passwd") = $("#passwd_chk").keyup = checkPW;
 
         // NN check
-        $("#nickname").onkeyup = function () {
+        $("#nickname").keyup(function () {
           if ($(this).val().length > 20) {
             $(this).val() = $(this).val().substring(0, 20);
             alert("닉네임은 20글자를 넘길 수 없습니다.");
           }
-
-          $(".sub_txt").html($(this).val().length + "/20");
-        };
+          $("#nickname")
+            .next("span")
+            .html($(this).val().length + "/20");
+        });
       });
     </script>
   </head>
