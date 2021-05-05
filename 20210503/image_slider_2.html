@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider Part 2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #carousel {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        border: 3px solid orangered;
+        margin: 50px auto;
+      }
+
+      #slide {
+        height: 300px;
+      }
+
+      #image-container {
+        width: 2500px;
+        height: 300px;
+      }
+
+      #image-container > div {
+        width: 500px;
+        height: 300px;
+        float: left;
+      }
+
+      .slide-image1 {
+        background-image: url("/resources/img/slider_img/slider1.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+      .slide-image2 {
+        background-image: url("/resources/img/slider_img/slider2.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+      .slide-image3 {
+        background-image: url("/resources/img/slider_img/slider3.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+      .slide-image4 {
+        background-image: url("/resources/img/slider_img/slider4.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+      .slide-image5 {
+        background-image: url("/resources/img/slider_img/slider5.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        var max = 5;
+        var width = $("#carousel").width();
+        var flag = setInterval(function () {
+          $("#image-container > div:first-child").animate(
+            {
+              "margin-left": -width + "px",
+            },
+            1000,
+            function () {
+              $("#image-container").append($(this));
+              $(this).css({ "margin-left": "0" });
+            }
+          );
+        }, 2000);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="carousel">
+      <div id="slide">
+        <div id="image-container">
+          <div class="slide-image1"></div>
+          <div class="slide-image2"></div>
+          <div class="slide-image3"></div>
+          <div class="slide-image4"></div>
+          <div class="slide-image5"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

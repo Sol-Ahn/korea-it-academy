@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Image Slider Pre-Next</title>
+    <title>Image Slider Part 4</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       * {
@@ -24,39 +24,53 @@
         height: 300px;
       }
 
-      #slide_container {
-        width: 3600px;
+      #slide-container {
+        width: 6000px;
         height: 300px;
       }
 
-      #slide_container > div {
+      #slide-container > div {
         width: 1200px;
         height: 300px;
         float: left;
       }
 
-      .slide_image1 {
+      .slide-image1 {
         background-image: url("/resources/img/slider_img/slider1.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
       }
 
-      .slide_image2 {
+      .slide-image2 {
         background-image: url("/resources/img/slider_img/slider2.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
       }
 
-      .slide_image3 {
+      .slide-image3 {
         background-image: url("/resources/img/slider_img/slider3.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
       }
 
-      #slide_nav {
+      .slide-image4 {
+        background-image: url("/resources/img/slider_img/slider4.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+
+      .slide-image5 {
+        background-image: url("/resources/img/slider_img/slider5.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+      }
+
+      #slide-nav {
         width: 100%;
         height: 30px;
         position: absolute;
@@ -64,7 +78,7 @@
         text-align: center;
       }
 
-      #slide_nav input {
+      #slide-nav input {
         width: 20px;
         height: 20px;
         margin: 5px;
@@ -96,31 +110,27 @@
     </style>
     <script src="/resources/lib/jquery-3.6.0.min.js"></script>
     <script>
-      var max = 3;
-      var index = 1;
-      var width;
-
       function next() {
-        $("#slide_container>div:first-child").animate(
+        $("#slide-container > div:first-child").animate(
           { "margin-left": -width + "px" },
           1000,
           function () {
-            $("#slide_container").append($(this));
-            $(this).css("margin-left", "0px");
+            $("#slide-container").append($(this));
+            $(this).css({ "margin-left": "0px" });
             index++;
             if (index > max) index = 1;
 
-            $("input[type=radio]:nth-child(" + index + ")").click();
+            $(`input[type=radio]:nth-child(${index})`).click();
           }
         );
       }
 
       function pre() {
-        $("#slide_container>div:last-child").css({
+        $("#slide-container>div:last-child").css({
           "margin-left": -width + "px",
         });
-        $("#slide_container").prepend($("#slide_container>div:last-child"));
-        $("#slide_container>div:first-child").animate(
+        $("#slide-container").prepend($("#slide-container > div:last-child"));
+        $("#slide-container > div:first-child").animate(
           { "margin-left": "0px" },
           1000
         );
@@ -128,6 +138,10 @@
         if (index === 0) index = max;
         $("input[type=radio]:nth-child(" + index + ")").click();
       }
+
+      var max = 5;
+      var index = 1;
+      var width;
 
       $(function () {
         width = $("#slider").width();
@@ -148,16 +162,20 @@
   <body>
     <div id="slider">
       <div id="slide">
-        <div id="slide_container">
-          <div class="slide_image1"></div>
-          <div class="slide_image2"></div>
-          <div class="slide_image3"></div>
+        <div id="slide-container">
+          <div class="slide-image1"></div>
+          <div class="slide-image2"></div>
+          <div class="slide-image3"></div>
+          <div class="slide-image4"></div>
+          <div class="slide-image5"></div>
         </div>
       </div>
-      <div id="slide_nav">
+      <div id="slide-nav">
         <input type="radio" name="slide" id="r1" checked />
         <input type="radio" name="slide" id="r2" />
         <input type="radio" name="slide" id="r3" />
+        <input type="radio" name="slide" id="r4" />
+        <input type="radio" name="slide" id="r5" />
       </div>
       <button id="pre"></button>
       <button id="next"></button>
