@@ -90,21 +90,21 @@
       }
 
       .slide-img1 {
-        background-image: url("/resources/img/slider_img/slider3.jpg");
+        background-image: url("/resources/img/pension1.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
       }
 
       .slide-img2 {
-        background-image: url("/resources/img/slider_img/slider4.jpg");
+        background-image: url("/resources/img/pension2.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
       }
 
       .slide-img3 {
-        background-image: url("/resources/img/slider_img/slider5.jpg");
+        background-image: url("/resources/img/pension3.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
@@ -218,8 +218,7 @@
 
       table {
         border-collapse: collapse;
-        border-top: 1px solid #8d8d8d;
-        width: 400px;
+        display: inline-block;
       }
 
       table caption {
@@ -232,10 +231,17 @@
       th,
       td {
         height: 40px;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid #8d8d8d;
       }
 
-      th,
+      th {
+        border-top: 2px solid #8d8d8d;
+      }
+
+      tr:last-child {
+        border-bottom: 2px solid #8d8d8d;
+      }
+
       td {
         width: 100px;
       }
@@ -244,35 +250,42 @@
         background-color: #cacaca;
       }
 
+      th:nth-child(1) {
+        width: 80px;
+      }
+      th:nth-child(2) {
+        width: 200px;
+      }
+      th:nth-child(3) {
+        width: 100px;
+      }
+      th:nth-child(4) {
+        width: 120px;
+      }
+
       section {
+        display: inline-block;
         padding-top: 60px;
         padding-bottom: 200px;
-        text-align: center;
       }
 
-      #article-container {
-        width: 1000px;
-        display: inline-block;
-      }
-
-      .notice {
+      article {
+        width: 600px;
         float: left;
-      }
-
-      .commu {
-        float: right;
+        text-align: center;
       }
 
       footer {
         clear: both;
-        height: 100px;
+        height: 80px;
         border: 1px solid black;
         background-color: darkblue;
       }
 
       footer figcaption {
-        padding-top: 20px;
-        padding-left: 212px;
+        font-size: 90%;
+        padding-top: 5px;
+        padding-left: 340px;
       }
 
       footer p {
@@ -411,101 +424,112 @@
         </div>
       </nav>
       <section>
-        <div id="article-container">
-          <article class="notice">
-            <table>
-              <caption>
-                공지사항
-              </caption>
-              <tr>
-                <th>글번호</th>
-                <th>제목</th>
-                <th>작성일</th>
-                <th>조회수</th>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </article>
-          <article class="commu">
-            <table>
-              <caption>
-                커뮤니티
-              </caption>
-              <tr>
-                <th>글번호</th>
-                <th>제목</th>
-                <th>작성일</th>
-                <th>조회수</th>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </article>
-        </div>
+        <article>
+          <table>
+            <caption>
+              공지사항
+            </caption>
+            <tr>
+              <th>글번호</th>
+              <th>제목</th>
+              <th>작성일</th>
+              <th>작성자</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>공지사항 1</td>
+              <td>2021.01.06</td>
+              <td>운영자</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>공지사항 2</td>
+              <td>2021.02.06</td>
+              <td>운영자</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>공지사항 3</td>
+              <td>2021.03.06</td>
+              <td>운영자</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>공지사항 4</td>
+              <td>2021.04.06</td>
+              <td>운영자</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>공지사항 5</td>
+              <td>2021.05.06</td>
+              <td>운영자</td>
+            </tr>
+          </table>
+        </article>
+        <article>
+          <table>
+            <caption>
+              커뮤니티
+            </caption>
+            <tr>
+              <th>글번호</th>
+              <th>제목</th>
+              <th>작성일</th>
+              <th>운영자</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>이벤트 1</td>
+              <td>2021.01.06</td>
+              <td>운영자</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>이벤트 2</td>
+              <td>2021.02.06</td>
+              <td>운영자</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>이벤트 3</td>
+              <td>2021.03.06</td>
+              <td>운영자</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>이벤트 4</td>
+              <td>2021.04.06</td>
+              <td>운영자</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>이벤트 5</td>
+              <td>2021.05.06</td>
+              <td>운영자</td>
+            </tr>
+          </table>
+        </article>
       </section>
     </div>
     <footer>
       <figcaption>
-        <p>사업자 정보: OOOOOOOO</p>
-        <p>연락처: 000-0000-0000</p>
-        <p>이메일: OOOOO@gmail.com</p>
+        <p>사업자 번호: OOOOOOOO</p>
+        <p>
+          연락처:
+          <a
+            href="tel:000-0000-0000"
+            style="color: white; text-decoration: none"
+            >000-0000-0000</a
+          >
+        </p>
+        <p>
+          이메일:
+          <a href="mailto:OOOOO@gmail.com" style="color: white"
+            >OOOOO@gmail.com</a
+          >
+        </p>
+        <p>주소: 서울특별시 아무개구 아무개로 000</p>
       </figcaption>
     </footer>
   </body>
