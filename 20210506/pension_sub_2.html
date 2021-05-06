@@ -225,11 +225,13 @@
       }
 
       article {
+        width: 1200px;
         position: relative;
+        display: inline-block;
       }
 
-      article #cal_pre,
-      article #cal_next {
+      #cal_pre,
+      #cal_next {
         width: 50px;
         height: 100%;
         background-image: url("/resources/img/arrow.png");
@@ -252,49 +254,58 @@
         right: 0;
       }
 
-      #calender > table {
+      article h2 {
+        font-size: 180%;
+        text-align: center;
+        padding-bottom: 10px;
+      }
+
+      article table {
         width: 600px;
-        height: 400px;
         border-collapse: collapse;
-        border: 1px solid black;
+        border: 2px solid black;
         text-align: center;
         margin: 0 auto;
       }
 
-      #calender h2 {
-        font-size: 180%;
-        text-align: center;
-        padding-bottom: 15px;
-      }
-
-      #calender th,
-      td {
-        border: 1px solid black;
+      #calender td,
+      #calender th {
+        border: 1px solid gray;
       }
 
       #calender th {
-        padding: 5px 0;
+        font-size: 110%;
+        padding: 5px 0px;
       }
 
       #calender td {
+        width: 100px;
         height: 80px;
         text-align: right;
         vertical-align: top;
-        padding: 5px;
+        padding: 7px;
       }
 
-      #calender th:nth-child(7n + 1),
-      #calender td:nth-child(7n + 1) {
+      #calender td:hover {
+        background-color: #efefef;
+      }
+
+      #calender td:active {
+        background-color: transparent;
+      }
+
+      #calender td:first-child,
+      #calender th:first-child {
         color: red;
       }
 
-      #calender th:nth-child(7n),
-      #calender td:nth-child(7n) {
+      #calender td:last-child,
+      #calender th:last-child {
         color: blue;
       }
 
       .disable {
-        color: lightgray !important;
+        color: gray !important;
       }
 
       #booking {
@@ -365,11 +376,6 @@
         color: white;
       }
     </style>
-    <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=318987487deb61a53f6196cf6635efcf
-    "
-    ></script>
     <script src="/resources/lib/jquery-3.6.0.min.js"></script>
     <script>
       var max = 3;
@@ -399,6 +405,38 @@
           2000
         );
       }
+
+      function createCalender(year, month) {
+        var date = new Date(year + "-" + month + "-1"); // start date
+        var tag = "";
+        var end = new Date();
+        end.setFullYear(date.getFullYear());
+        end.setMonth(date.getMonth() + 1); // next month
+        end.setDate(0); // last month last day
+        end.setHours(0);
+        end.setMinutes(0);
+        end.setSeconds(0);
+
+        date.setDate(date.getDate() - date.getDay()); // first lilne sunday date
+        end.setDate(end.getDate() + 6 - end.getDay()); // last line saturday date
+
+        // calender lines
+        var line = (end.getTime() - date.getTime()) / (1000 * 60 * 60 * 24 * 7);
+        for (var i = 0; i < line; i++) {
+          tag += "<tr>";
+          for (var j = 0; j < 7; j++) {
+            if (date.getMonth() !== month - 1) {
+              tag += `<td class='disable'>${date.getDate()}</td>`;
+            } else {
+              tag += `<td>${date.getDate()}</td>`;
+            }
+            date.setDate(date.getDate() + 1);
+          }
+          tag += "</tr>";
+        }
+        return tag;
+      }
+
       $(function () {
         // slider
         width = $("#slider").width();
@@ -438,65 +476,44 @@
           });
         });
 
+        // Calender
         var today = new Date();
-        var tag = `<h2>${today.getMonth() + 1}월</h2>`;
-        tag +=
-          "<table><tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>";
-        var month = today.getMonth();
-        var start = new Date();
-        start.setHours(0);
-        start.setMinutes(0);
-        start.setSeconds(0);
-        start.setDate(1);
-
-        var end = new Date();
-        end.setMonth(end.getMonth() + 1);
-        end.setHours(0);
-        end.setMinutes(0);
-        end.setSeconds(0);
-        end.setDate(0);
-
-        start.setDate(start.getDate() - start.getDay());
-
-        end.setDate(end.getDate() + 6 - end.getDay());
-
-        var line =
-          (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 7);
-        for (var i = 0; i < line; i++) {
-          for (var j = 0; j < 7; j++) {
-            if (start.getMonth() !== month) {
-              tag += `<td class='disable'>${start.getDate()}</td>`;
-              start.setDate(start.getDate() + 1);
-            } else {
-              tag += `<td>${start.getDate()}</td>`;
-              start.setDate(start.getDate() + 1);
-            }
-          }
-          tag += "</tr>";
-        }
-
-        tag += "</table>";
-        $("#calender").html(tag);
+        today.setDate(1);
+        var tag = createCalender(today.getFullYear(), today.getMonth() + 1);
+        $("#calender tbody").html(tag);
+        $("article > h2").html(
+          `${today.getFullYear()}년 ${today.getMonth() + 1}월`
+        );
 
         $("#cal_pre").on("click", function () {
           let temp = new Date();
           temp.setDate(1);
+          temp.setHours(0);
+          temp.setMinutes(0);
+          temp.setSeconds(0);
           today.setMonth(today.getMonth() - 1);
           if (today.getTime() < temp.getTime()) {
             today.setMonth(today.getMonth() + 1);
             return;
-            $("#calender h2").html(today.getMonth());
           }
+
+          let tag = createCalender(today.getFullYear(), today.getMonth() + 1);
+          $("#calender tbody").html(tag);
+          $("article > h2").html(
+            `${today.getFullYear()}년 ${today.getMonth() + 1}월`
+          );
         });
 
         $("#cal_next").on("click", function () {
           today.setMonth(today.getMonth() + 1);
-          if (today.getTime() < temp.getTime()) {
-            today.setMonth(today.getMonth() + 1);
-            return;
-            $("#calender > h2").html(today.getMonth());
-          }
+          let tag = createCalender(today.getFullYear(), today.getMonth() + 1);
+          $("#calender tbody").html(tag);
+          $("article > h2").html(
+            `${today.getFullYear()}년 ${today.getMonth() + 1}월`
+          );
         });
+
+        // Booking
 
         var count = Number($("#count").val());
         $("#minus").on("click", function () {
@@ -573,8 +590,22 @@
       </nav>
       <section>
         <article>
+          <h2>2021년 5월</h2>
           <button id="cal_pre"></button>
-          <div id="calender"></div>
+          <table id="calender">
+            <thead>
+              <tr>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
           <button id="cal_next"></button>
           <form action="">
             <table id="booking">
@@ -611,13 +642,13 @@
           연락처:
           <a
             href="tel:000-0000-0000"
-            style="color: white; text-decoration: none"
+            style="color: white; text-decoration: none;"
             >000-0000-0000</a
           >
         </p>
         <p>
           이메일:
-          <a href="mailto:OOOOO@gmail.com" style="color: white"
+          <a href="mailto:OOOOO@gmail.com" style="color: white;"
             >OOOOO@gmail.com</a
           >
         </p>
