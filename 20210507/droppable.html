@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>jQuery UI Setting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/resources/ui/jquery-ui.css" />
+    <style>
+      #draggable {
+        width: 100px;
+        height: 100px;
+        padding: 0.5em;
+        float: left;
+        margin: 10px 10px 10px 0;
+      }
+      #droppable {
+        width: 150px;
+        height: 150px;
+        padding: 0.5em;
+        float: left;
+        margin: 10px;
+      }
+    </style>
+    <script src="/resources/ui/external/jquery/jquery.js"></script>
+    <script src="/resources/ui/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        $("#draggable").draggable();
+        $("#droppable").droppable({
+          drop: function (event, ui) {
+            $(this).addClass("ui-state-highlight").find("p").html("Dropped!");
+            location.href = "https://google.com";
+          },
+        });
+      });
+    </script>
+    <style>
+      #pop {
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        font-size: 130%;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="draggable" class="ui-widget-content">
+      <p>Drag me to my target</p>
+    </div>
+
+    <div id="droppable" class="ui-widget-header">
+      <p>Drop here</p>
+    </div>
+  </body>
+</html>
