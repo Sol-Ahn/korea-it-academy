@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>jQuery UI Setting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/resources/ui/jquery-ui.css" />
+    <script src="/resources/ui/external/jquery/jquery.js"></script>
+    <script src="/resources/ui/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        $("input").checkboxradio();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="widget">
+      <h1>Checkbox and radio button widgets</h1>
+
+      <h2>Radio Group</h2>
+      <fieldset>
+        <legend>Select a Location:</legend>
+        <label for="radio-1">Seoul</label>
+        <input type="radio" name="radio-1" id="radio-1" />
+        <label for="radio-2">Busan</label>
+        <input type="radio" name="radio-1" id="radio-2" />
+        <label for="radio-3">Jeju</label>
+        <input type="radio" name="radio-1" id="radio-3" />
+      </fieldset>
+
+      <h2>Checkbox</h2>
+      <fieldset>
+        <legend>Hotel Ratings:</legend>
+        <label for="checkbox-1">1 Star</label>
+        <input type="checkbox" name="checkbox-1" id="checkbox-1" />
+        <label for="checkbox-2">2 Star</label>
+        <input type="checkbox" name="checkbox-2" id="checkbox-2" />
+        <label for="checkbox-3">3 Star</label>
+        <input type="checkbox" name="checkbox-3" id="checkbox-3" />
+        <label for="checkbox-4">4 Star</label>
+        <input type="checkbox" name="checkbox-4" id="checkbox-4" />
+        <label for="checkbox-5">5 Star</label>
+        <input type="checkbox" name="checkbox-5" id="checkbox-5" />
+      </fieldset>
+
+      <h2>Checkbox nested in label</h2>
+      <fieldset>
+        <legend>Bed Type:</legend>
+        <label for="checkbox-nested-1"
+          >2 Double
+          <input
+            type="checkbox"
+            name="checkbox-nested-1"
+            id="checkbox-nested-1"
+          />
+        </label>
+        <label for="checkbox-nested-2"
+          >2 Queen
+          <input
+            type="checkbox"
+            name="checkbox-nested-2"
+            id="checkbox-nested-2"
+          />
+        </label>
+        <label for="checkbox-nested-3"
+          >1 Queen
+          <input
+            type="checkbox"
+            name="checkbox-nested-3"
+            id="checkbox-nested-3"
+          />
+        </label>
+        <label for="checkbox-nested-4"
+          >1 King
+          <input
+            type="checkbox"
+            name="checkbox-nested-4"
+            id="checkbox-nested-4"
+          />
+        </label>
+      </fieldset>
+    </div>
+  </body>
+</html>
