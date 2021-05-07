@@ -17,16 +17,11 @@
       $(function () {
         $("#datepicker").datepicker();
         $("#datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
-        $("#date").datepicker();
-        $("#date .ui-datepicker-calendar > tr > a").on("click", function () {
-          alert($(this).children(".ui-state-active").text());
-        });
       });
     </script>
   </head>
   <body>
     <p>Date: <input type="text" id="datepicker" /></p>
     Date:
-    <div id="date"></div>
   </body>
 </html>
