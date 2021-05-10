@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>jQuery UI Setting</title>
+    <title>jQuery UI Datepicker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/resources/ui/jquery-ui.css" />
     <style>
@@ -17,9 +17,13 @@
       $(function () {
         $("#datepicker").datepicker();
         $("#datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
-        $("#date").datepicker();
-        $("#date .ui-datepicker-calendar > tr > a").on("click", function () {
-          alert($(this).children(".ui-state-active").text());
+
+        $("#date").datepicker({
+          dateFormat: "yy-mm-dd",
+          onSelect: function () {
+            console.log($("#date").datepicker("getDate"));
+            console.log($(this).val());
+          },
         });
       });
     </script>
