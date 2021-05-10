@@ -325,7 +325,7 @@
 
       #booking #check-in,
       #booking #check-out {
-        width: 140px;
+        width: 150px;
         font-size: 100%;
         text-align: center;
       }
@@ -571,7 +571,6 @@
 
         // Booking
         // var month = today.getMonth() + 1;
-        // check-in
         // this event just applied to page loaded point in time
         /* $("#calender td").on("click", function () {
           if (sw === true) {
@@ -589,6 +588,7 @@
           }
           sw = !sw;
         }); */
+
         $("#calender td").on("click", function () {
           let cdate = new Date(today);
           // alert($(this).parent().index() + " " + $("#calender tr").length);
@@ -605,14 +605,14 @@
           cdate.setDate($(this).text());
 
           if (sw) {
+            // check-in
             $("#check-in").val(cdate.toISOString().substr(0, 10));
           } else {
+            // check-out
             $("#check-out").val(cdate.toISOString().substr(0, 10));
           }
           sw = !sw;
         });
-
-        // check-out
 
         // guest count
         var count = Number($("#count").val());
@@ -740,13 +740,13 @@
           연락처:
           <a
             href="tel:000-0000-0000"
-            style="color: white; text-decoration: none"
+            style="color: white; text-decoration: none;"
             >000-0000-0000</a
           >
         </p>
         <p>
           이메일:
-          <a href="mailto:OOOOO@gmail.com" style="color: white"
+          <a href="mailto:OOOOO@gmail.com" style="color: white;"
             >OOOOO@gmail.com</a
           >
         </p>
