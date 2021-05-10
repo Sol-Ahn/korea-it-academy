@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>jQuery UI Spinner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/resources/ui/jquery-ui.css" />
+    <script src="/resources/ui/external/jquery/jquery.js"></script>
+    <script src="/resources/ui/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        var spinner = $("#spinner").spinner({
+          step: 10,
+          max: 100,
+          min: -10,
+        });
+
+        $("#disable").on("click", function () {
+          if (spinner.spinner("option", "disabled")) {
+            spinner.spinner("enable");
+          } else {
+            spinner.spinner("disable");
+          }
+        });
+        $("#destroy").on("click", function () {
+          if (spinner.spinner("instance")) {
+            spinner.spinner("destroy");
+          } else {
+            spinner.spinner();
+          }
+        });
+        $("#getvalue").on("click", function () {
+          alert(spinner.spinner("value"));
+        });
+        $("#setvalue").on("click", function () {
+          spinner.spinner("value", 5);
+        });
+
+        $("button").button();
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+      <label for="spinner">Select a value:</label>
+      <input id="spinner" name="value" />
+    </p>
+
+    <p>
+      <button id="disable">Toggle disable/enable</button>
+      <button id="destroy">Toggle widget</button>
+    </p>
+
+    <p>
+      <button id="getvalue">Get value</button>
+      <button id="setvalue">Set value to 5</button>
+    </p>
+  </body>
+</html>
