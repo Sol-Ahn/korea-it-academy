@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Screen Width</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#result").append($(window).width() + "<br>");
+        $("#result").append($(window).innerWidth() + "<br>");
+        $("#result").append($(window).outerWidth()) + "<br>";
+      });
+    </script>
+  </head>
+  <body>
+    <div id="result"></div>
+  </body>
+</html>
