@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Bootstrap Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="/resources/bootstrap/css/bootstrap-theme.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      label {
+        margin-top: 20px;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resources/bootstrap/js/bootstrap.js"></script>
+    <script></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <form action="">
+            <div class="form-group">
+              <label for="txt">Text</label>
+              <input
+                type="text"
+                class="form-control"
+                id="txt"
+                placeholder="텍스트를 입력하세요."
+              />
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="암호를 입력하세요."
+              />
+              <label for="select">Select</label>
+              <select name="select" id="select" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <label for="">Datepicker</label>
+              <input type="date" class="form-control" />
+              <label for="textarea">Textarea</label>
+              <textarea class="form-control" id="textarea" rows="10"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="col-xs-6">
+          <form action="" class="form-inline">
+            <div class="form-group">
+              <label for="text">Text</label>
+              <input type="text" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="암호를 입력하세요."
+              />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="select">Select</label>
+              <select name="select" id="select" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="">Datepicker</label>
+              <input type="date" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+              <label for="textarea">Textarea</label>
+              <textarea class="form-control" id="textarea" rows="10"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

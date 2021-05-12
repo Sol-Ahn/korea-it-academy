@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Bootstrap Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="/resources/bootstrap/css/bootstrap-theme.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .header {
+        background-color: lightskyblue;
+      }
+
+      figure {
+        float: right;
+      }
+
+      figure img {
+        width: 70px;
+        float: left;
+      }
+
+      figcaption {
+        display: inline-block;
+      }
+
+      figcaption h3 {
+        font-size: 100%;
+        font-weight: bold;
+      }
+
+      figcaption p {
+        font-size: 80%;
+      }
+
+      figure a:link,
+      figure a:visited {
+        color: #17179e;
+        text-decoration: none;
+      }
+
+      figure a:hover,
+      figure a:active {
+        color: white;
+      }
+
+      .carousel-inner {
+        width: 100% !important;
+        height: 400px !important;
+      }
+
+      .carousel-inner img {
+        width: 100%;
+        height: 400px !important;
+      }
+
+      .nav {
+        height: 50px;
+        background-color: #d8d8d8;
+        text-align: center;
+        position: relative;
+        z-index: 100;
+      }
+
+      .nav-container {
+        height: 50px;
+        display: inline-block;
+      }
+
+      .nav ul {
+        list-style: none;
+        float: left;
+      }
+
+      .main-menu > li > a:link,
+      .main-menu > li > a:visited {
+        font-size: 120%;
+        font-weight: bold;
+        width: 200px;
+        padding: 16px 0px;
+        line-height: 18px;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+      }
+
+      .main-menu > li a:hover {
+        color: white;
+      }
+
+      .sub-menu > li a:link,
+      .sub-menu > li a:visited {
+        font-size: 100%;
+        color: black;
+        background-color: #d8d8d8;
+        width: 200px;
+        padding: 17px 0px;
+        line-height: 16px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .sub-menu > li a:hover {
+        color: white;
+      }
+
+      .section {
+        padding-top: 50px;
+      }
+
+      article {
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      table caption {
+        color: black;
+        font-weight: bold;
+        font-size: 150%;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+
+      th,
+      td {
+        text-align: center;
+      }
+
+      td {
+        width: 100px;
+      }
+
+      th:nth-child(1) {
+        width: 50px;
+      }
+
+      th:nth-child(2) {
+        width: 300px;
+      }
+
+      th:nth-child(3) {
+        width: 100px;
+      }
+
+      th:nth-child(4) {
+        width: 120px;
+      }
+
+      footer {
+        margin-top: 50px;
+        padding: 20px 375px;
+        background-color: darkslategray;
+      }
+
+      footer figcaption p {
+        font-size: 80%;
+        color: white;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resources/bootstrap/js/bootstrap.js"></script>
+    <script>
+      $(function () {
+        $(".sub-menu").hide();
+        $(".main-menu").mouseenter(function () {
+          $(this).children(".sub-menu").stop().slideDown(500);
+        });
+        $(".main-menu").mouseleave(function () {
+          $(this).children(".sub-menu").stop().slideUp(500);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row header">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+          <figure>
+            <img src="/resources/img/profile.png" />
+            <figcaption>
+              <h3>회원님 환영합니다!</h3>
+              <p><a href="#">로그아웃</a> | <a href="#">회원정보 수정</a></p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          id="carousel-example-generic"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carousel-example-generic"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="/resources/img/slider_img/slider1.jpg" alt="" />
+              <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+              <img src="/resources/img/slider_img/slider3.jpg" alt="" />
+              <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+              <img src="/resources/img/slider_img/slider5.jpg" alt="" />
+              <div class="carousel-caption"></div>
+            </div>
+          </div>
+          <a
+            class="left carousel-control"
+            href="#carousel-example-generic"
+            role="button"
+            data-slide="prev"
+          >
+            <span
+              class="glyphicon glyphicon-chevron-left"
+              aria-hidden="true"
+            ></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="right carousel-control"
+            href="#carousel-example-generic"
+            role="button"
+            data-slide="next"
+          >
+            <span
+              class="glyphicon glyphicon-chevron-right"
+              aria-hidden="true"
+            ></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="row nav">
+        <div class="nav-container">
+          <ul class="main-menu">
+            <li><a href="/20210512/bootstrap_layout_main.html">HOME</a></li>
+          </ul>
+          <ul class="main-menu">
+            <li><a href="#">예약</a></li>
+            <ul class="sub-menu">
+              <li>
+                <a href="/20210512/bootstrap_layout_sub_2.html">예약하기</a>
+              </li>
+              <li><a href="#">예약조회</a></li>
+            </ul>
+          </ul>
+          <ul class="main-menu">
+            <li><a href="#">펜션스토리</a></li>
+            <ul class="sub-menu">
+              <li><a href="#">커뮤니티</a></li>
+              <li><a href="#">갤러리</a></li>
+              <li><a href="#">QnA</a></li>
+            </ul>
+          </ul>
+          <ul class="main-menu">
+            <li><a href="#">펜션소개</a></li>
+            <ul class="sub-menu">
+              <li>
+                <a href="/20210512/bootstrap_layout_sub_1.html">오시는길</a>
+              </li>
+              <li><a href="#">시설안내</a></li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+      <div class="row section">
+        <div class="col-xs-6">
+          <article>
+            <table class="table table-striped">
+              <caption>
+                공지사항
+              </caption>
+              <thead>
+                <tr class="bg-primary">
+                  <th>글번호</th>
+                  <th>제목</th>
+                  <th>작성일</th>
+                  <th>작성자</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>공지사항 1</td>
+                  <td>2021.01.06</td>
+                  <td>운영자</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>공지사항 2</td>
+                  <td>2021.02.06</td>
+                  <td>운영자</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>공지사항 3</td>
+                  <td>2021.03.06</td>
+                  <td>운영자</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>공지사항 4</td>
+                  <td>2021.04.06</td>
+                  <td>운영자</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>공지사항 5</td>
+                  <td>2021.05.06</td>
+                  <td>운영자</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+        <div class="col-xs-6">
+          <article>
+            <table class="table table-striped">
+              <caption>
+                커뮤니티
+              </caption>
+              <thead>
+                <tr class="bg-primary">
+                  <th>글번호</th>
+                  <th>제목</th>
+                  <th>작성일</th>
+                  <th>운영자</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>이벤트 1</td>
+                  <td>2021.01.06</td>
+                  <td>운영자</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>이벤트 2</td>
+                  <td>2021.02.06</td>
+                  <td>운영자</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>이벤트 3</td>
+                  <td>2021.03.06</td>
+                  <td>운영자</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>이벤트 4</td>
+                  <td>2021.04.06</td>
+                  <td>운영자</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>이벤트 5</td>
+                  <td>2021.05.06</td>
+                  <td>운영자</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <figcaption>
+        <p>사업자 번호: OOOOOOOO</p>
+        <p>
+          연락처:
+          <a
+            href="tel:000-0000-0000"
+            style="color: white; text-decoration: none"
+            >000-0000-0000</a
+          >
+        </p>
+        <p>
+          이메일:
+          <a href="mailto:OOOOO@gmail.com" style="color: white"
+            >OOOOO@gmail.com</a
+          >
+        </p>
+        <p>주소: 서울특별시 아무개구 아무개로 000</p>
+      </figcaption>
+    </footer>
+  </body>
+</html>

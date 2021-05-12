@@ -114,46 +114,31 @@
         color: white;
       }
 
-      .section {
-        padding-top: 50px;
+      .kakaomap {
+        width: 100%;
+        padding: 20px;
       }
 
-      article {
-        width: 500px;
-        margin: 0 auto;
+      .roadto {
+        width: 100%;
+        padding: 20px;
       }
 
-      table caption {
-        color: black;
-        font-weight: bold;
-        font-size: 150%;
+      #map {
+        height: 400px;
+      }
+
+      .car h2,
+      .ktx h2 {
         padding-bottom: 10px;
-        text-align: center;
+        font-size: 150%;
+        font-weight: bold;
       }
 
-      th,
-      td {
-        text-align: center;
-      }
-
-      td {
-        width: 100px;
-      }
-
-      th:nth-child(1) {
-        width: 50px;
-      }
-
-      th:nth-child(2) {
-        width: 300px;
-      }
-
-      th:nth-child(3) {
-        width: 100px;
-      }
-
-      th:nth-child(4) {
-        width: 120px;
+      .car p,
+      .ktx p {
+        font-size: 120%;
+        padding-bottom: 30px;
       }
 
       footer {
@@ -169,30 +154,34 @@
     </style>
     <script src="/resources/lib/jquery-3.6.0.min.js"></script>
     <script src="/resources/bootstrap/js/bootstrap.js"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=318987487deb61a53f6196cf6635efcf
+    "
+    ></script>
     <script>
       $(function () {
-        var flag = false;
         $(".sub-menu").hide();
-        $(".nav").on("mouseenter", function () {
-          if (flag) return;
-          $(".sub-menu").slideDown(500, function () {
-            flag = true;
-          });
+        $(".main-menu").mouseenter(function () {
+          $(this).children(".sub-menu").stop().slideDown(500);
+        });
+        $(".main-menu").mouseleave(function () {
+          $(this).children(".sub-menu").stop().slideUp(500);
         });
 
-        $(".nav").on("mouseleave", function () {
-          if (!flag) return;
-          $(".sub-menu").slideUp(500, function () {
-            flag = false;
-          });
+        var mapContainer = document.querySelector(".kakaomap #map"),
+          mapOption = {
+            center: new kakao.maps.LatLng(37.5520371, 129.115159),
+            level: 3,
+          };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        var marker = new kakao.maps.Marker({
+          position: map.getCenter(),
         });
 
-        $(".nav, html").on("click", function () {
-          if (!flag) return;
-          $(".sub-menu").slideUp(500, function () {
-            flag = false;
-          });
-        });
+        marker.setMap(map);
       });
     </script>
   </head>
@@ -269,12 +258,12 @@
       <div class="row nav">
         <div class="nav-container">
           <ul class="main-menu">
-            <li><a href="">HOME</a></li>
+            <li><a href="/20210512/bootstrap_layout_main.html">HOME</a></li>
           </ul>
           <ul class="main-menu">
             <li><a href="#">예약</a></li>
             <ul class="sub-menu">
-              <li><a href="">예약하기</a></li>
+              <li><a href="/20210512/bootstrap_layout_sub_2.html">예약하기</a></li>
               <li><a href="#">예약조회</a></li>
             </ul>
           </ul>
@@ -289,109 +278,37 @@
           <ul class="main-menu">
             <li><a href="#">펜션소개</a></li>
             <ul class="sub-menu">
-              <li><a href="">오시는길</a></li>
+              <li><a href="/20210512/bootstrap_layout_sub_1.html">오시는길</a></li>
               <li><a href="#">시설안내</a></li>
             </ul>
           </ul>
         </div>
       </div>
       <div class="row section">
-        <div class="col-xs-6">
-          <article>
-            <table class="table table-striped">
-              <caption>
-                공지사항
-              </caption>
-              <thead>
-                <tr class="bg-primary">
-                  <th>글번호</th>
-                  <th>제목</th>
-                  <th>작성일</th>
-                  <th>작성자</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>공지사항 1</td>
-                  <td>2021.01.06</td>
-                  <td>운영자</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>공지사항 2</td>
-                  <td>2021.02.06</td>
-                  <td>운영자</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>공지사항 3</td>
-                  <td>2021.03.06</td>
-                  <td>운영자</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>공지사항 4</td>
-                  <td>2021.04.06</td>
-                  <td>운영자</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>공지사항 5</td>
-                  <td>2021.05.06</td>
-                  <td>운영자</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="col-xs-8">
+          <article class="kakaomap">
+            <div id="map"></div>
           </article>
         </div>
-        <div class="col-xs-6">
-          <article>
-            <table class="table table-striped">
-              <caption>
-                커뮤니티
-              </caption>
-              <thead>
-                <tr class="bg-primary">
-                  <th>글번호</th>
-                  <th>제목</th>
-                  <th>작성일</th>
-                  <th>운영자</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>이벤트 1</td>
-                  <td>2021.01.06</td>
-                  <td>운영자</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>이벤트 2</td>
-                  <td>2021.02.06</td>
-                  <td>운영자</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>이벤트 3</td>
-                  <td>2021.03.06</td>
-                  <td>운영자</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>이벤트 4</td>
-                  <td>2021.04.06</td>
-                  <td>운영자</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>이벤트 5</td>
-                  <td>2021.05.06</td>
-                  <td>운영자</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="col-xs-4">
+          <article class="roadto">
+            <div class="car">
+              <h2>자차로 오시는 경우</h2>
+              <p>
+                영동고속도로 강릉갈림목에서 동해고속도로를 이용하세요.<br />
+                영동고속도로 강릉갈림목에서 동해고속도로를 이용하세요.<br />
+                신림조합중앙회 동부목재센터 앞 삼거리에서 동해·묵호 방면으로
+                우회전해 7번 국도를 타고 사문삼거리를 지나 발한삼거리에서
+                좌회전하시면 됩니다.
+              </p>
+            </div>
+            <div class="ktx">
+              <h2>KTX로 오시는 경우</h2>
+              <p>
+                KTX 묵호역에서 시내버스나 택시를 타고 묵호항 입구에서 내리시면
+                됩니다.
+              </p>
+            </div>
           </article>
         </div>
       </div>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Bootstrap Bulletin Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="/resources/bootstrap/css/bootstrap-theme.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 40px 0;
+      }
+
+      form {
+        margin-top: 15px;
+      }
+
+      #title {
+        margin-left: 50px;
+      }
+
+      #writer {
+        margin-left: 38px;
+      }
+
+      #file {
+        margin-left: 20px;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resources/bootstrap/js/bootstrap.js"></script>
+    <script></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bulletin Board Writing</h1>
+      <div class="row">
+        <div class="col-xs-12">
+          <form action="" class="form-inline">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              placeholder="제목을 입력하세요."
+            />
+          </form>
+        </div>
+        <div class="col-xs-12">
+          <form action="" class="form-inline">
+            <label for="writer">Writer</label>
+            <input
+              type="text"
+              class="form-control"
+              id="writer"
+              placeholder="작성자를 입력하세요."
+            />
+          </form>
+        </div>
+        <div class="col-xs-12">
+          <form action="" class="form-group">
+            <label for="content">Content</label>
+            <textarea
+              class="form-control"
+              id="content"
+              rows="10"
+              placeholder="내용을 입력하세요."
+            ></textarea>
+          </form>
+        </div>
+        <div class="col-xs-12">
+          <form action="" class="form-inline">
+            <label for="file">Attached File</label>
+            <input type="file" class="form-control" id="file" />
+          </form>
+        </div>
+        <div class="col-xs-12">
+          <hr />
+        </div>
+        <div class="col-xs-1">
+          <button type="button" class="btn btn-primary">Write</button>
+        </div>
+        <div class="col-xs-10 col-xs-offset"></div>
+        <div class="col-xs-1">
+          <button type="button" class="btn btn-default">Close</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
