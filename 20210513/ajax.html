@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>jQuery ajax</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#btn").click(function () {
+          // jQuery ajax
+          var txt = "txt=안녕하세요"; // a data send to API server
+          // ajax handling => url, data, type, success
+          $.ajax({
+            url: "http://nam2626.dothome.co.kr/papago.php", // server page route
+            data: txt,
+            type: "get",
+            success: function (data) {
+              // if success, get the data server returned
+              alert(data);
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="btn">Papago API Execution</button>
+  </body>
+</html>

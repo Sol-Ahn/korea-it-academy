@@ -1,0 +1,82 @@
+<!DOCTYPE text>
+<text>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>City Weather Info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="/resources/bootstrap/css/bootstrap-theme.css"
+    />
+    <script src="/resources/bootstrap/js/bootstrap.js"></script>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#weather-info").click(function () {
+          var cities = ["Seoul", "Daejeon", "Daegu", "Busan", "Gwangju"];
+          $("tbody").html("");
+          for (var i = 0; i < cities.length; i++) {
+            var appKey = "13b71af7c53ed4e0222bba471491c382";
+            var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cities[i]}&appid=${appKey}`;
+
+            $.ajax({
+              url: apiUrl,
+              dataType: "json",
+              type: "get",
+              success: function (data) {
+                console.log(data);
+                var tag = "<tr>";
+                tag += `<td class="text-center">${data.name}</td>`;
+                tag += `<td class="text-center">${data.weather[0].main}</td>`;
+                tag += `<td class="text-center">${(
+                  Number(data.main.temp) - 273.15
+                ).toFixed(2)}℃</td>`;
+                tag += `<td class="text-center">${(
+                  Number(data.main.temp_min) - 273.15
+                ).toFixed(2)}℃</td>`;
+                tag += `<td class=
+                "text-center">${(Number(data.main.temp_max) - 273.15).toFixed(
+                  2
+                )}℃</td>`;
+                tag += `<td class="text-center">${data.wind.speed}m/s</td>`;
+                tag += `<td class="text-center">${data.main.humidity}%</td>`;
+                tag += "</tr>";
+                $("tbody").prepend(tag);
+              },
+            });
+          }
+        });
+        $("#weather-info").click();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table table-bordered">
+            <caption class="text-right">
+              <button class="btn btn-info" id="weather-info">
+                Weather Info
+              </button>
+            </caption>
+            <thead>
+              <tr class="bg-primary">
+                <th class="text-center">도시명</th>
+                <th class="text-center">현재날씨</th>
+                <th class="text-center">현재온도</th>
+                <th class="text-center">최저온도</th>
+                <th class="text-center">최고온도</th>
+                <th class="text-center">바람세기</th>
+                <th class="text-center">습도</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</text>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>weather API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      p {
+        float: left;
+        margin-right: 10px;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#request").click(function () {
+          var city = "seoul";
+          var appid = "13b71af7c53ed4e0222bba471491c382";
+          var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`;
+          $.ajax({
+            url: apiUrl,
+            dataType: "json",
+            type: "get",
+            success: function (data) {
+              $("#result").html(data);
+              // temp_min, temp_max, temp
+              // weather.main
+              // name
+              // wind.speed
+              console.log(data);
+              /* $("#result").html(
+                `
+                city name : ${data.name}<br>
+                current weather status: ${data.weather[0].main}<br>
+                temp_min : ${Math.round(data.main.temp_min - 273.15)}℃<br>
+                temp_max : ${Math.round(data.main.temp_max - 273.15)}℃<br>
+                wind speed : ${data.wind.speed}`
+              ); */
+              $("#result").html("");
+              $("#result").append(`<p>city name : ${data.name}</p>`);
+              $("#result").append(
+                `<p>current weather status : ${data.weather[0].main}</p>`
+              );
+              $("#result").append(
+                `<p>temp_min : ${Math.round(data.main.temp_min - 273.15)}℃</p>`
+              );
+              $("#result").append(
+                `<p>temp_max : ${Math.round(data.main.temp_max - 273.15)}℃</p>`
+              );
+              $("#result").append(
+                `<p>wind speed : ${data.wind.speed}m/sec</p>`
+              );
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="request">request weather info</button>
+    <div id="result"></div>
+  </body>
+</html>

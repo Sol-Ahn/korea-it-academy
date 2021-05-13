@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div id="openweathermap-widget-11"></div>
+    <script src="//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js"></script>
+    <script>
+      window.myWidgetParam ? window.myWidgetParam : (window.myWidgetParam = []);
+      window.myWidgetParam.push({
+        id: 11,
+        cityid: "1835848",
+        appid: "13b71af7c53ed4e0222bba471491c382",
+        units: "metric",
+        containerid: "openweathermap-widget-11",
+      });
+      (function () {
+        var script = document.createElement("script");
+        script.async = true;
+        script.charset = "utf-8";
+        script.src =
+          "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(script, s);
+      })();
+    </script>
+  </body>
+</html>
