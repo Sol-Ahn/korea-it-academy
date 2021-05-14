@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>bxSlider - Quick Media Ex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/resources/bxslider/src/css/jquery.bxslider.css"
+    />
+    <style>
+      /* reference url: http://nam2626.dothome.co.kr/4.html */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .bx-wrapper {
+        box-shadow: none;
+        border: none;
+      }
+
+      .bx-wrapper .bx-next,
+      .bx-wrapper .bx-prev {
+        background-image: url(/resources/bxslider/src/images/controls.png);
+      }
+
+      .main-slider img,
+      .hot-vod-slider img,
+      .recomm-vod-slider img {
+        border-right: 1px solid white;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resources/bxslider/src/js/jquery.bxslider.js"></script>
+    <script>
+      $(function () {
+        $(".main-slider").bxSlider({
+          slideWidth: 500,
+          maxSlides: 4,
+          minSlides: 2,
+          moveSlides: 1,
+        });
+        $(".hot-vod-slider").bxSlider({
+          slideWidth: 300,
+          maxSlides: 7,
+          minSlides: 2,
+          moveSlides: 7,
+        });
+        $(".recomm-vod-slider").bxSlider({
+          slideWidth: 300,
+          maxSlides: 7,
+          minSlides: 2,
+          moveSlides: 7,
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="logo">QuickMedia</div>
+        <ul>
+          <li>HOME</li>
+          <li>CATEGORY</li>
+          <li>LIVE</li>
+          <li>MY VOD</li>
+          <li>LOGIN</li>
+        </ul>
+      </nav>
+      <section>
+        <article>
+          <div class="main-slider">
+            <div>
+              <img src="/resources/img/slider_img/cinema.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/cinema.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/cinema.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/cinema.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/cinema.jpg" />
+            </div>
+          </div>
+        </article>
+        <article>
+          <h3>지금 HOT한 VOD</h3>
+          <div class="hot-vod-slider">
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/movie.jpg" />
+            </div>
+          </div>
+        </article>
+        <article>
+          <h3>사용자 추천 VOD</h3>
+          <div class="recomm-vod-slider">
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+            <div>
+              <img src="/resources/img/slider_img/ticket.jpg" />
+            </div>
+          </div>
+        </article>
+      </section>
+      <footer>
+        <div class="notice">
+          <p>공지사항: QuickMedia 접속 불량 현상 해결 공지</p>
+        </div>
+        <figcaption>
+          <p>회사명: QuickMedia</p>
+          <p>대표이사: 안솔</p>
+          <p>사업자번호: 000-000-0000</p>
+          <p>주소: 서울특별시 강남구</p>
+          <p>고객센터: 0000-0000</p>
+        </figcaption>
+      </footer>
+    </div>
+  </body>
+</html>

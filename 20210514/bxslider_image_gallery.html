@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>bxSlider - Image gallery with captions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/resources/bxslider/src/css/jquery.bxslider.css"
+    />
+    <style>
+      .bx-wrapper {
+        margin: 50px auto;
+      }
+
+      img {
+        width: 600px;
+        height: 400px;
+      }
+
+      .bx-caption > span {
+        font-weight: bold;
+      }
+
+      .bx-wrapper .bx-next,
+      .bx-wrapper .bx-prev {
+        background-image: url(/resources/bxslider/src/images/controls.png);
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resources/bxslider/src/js/jquery.bxslider.js"></script>
+    <script>
+      $(function () {
+        $(".bxslider").bxSlider({
+          mode: "horizontal",
+          speed: 1000,
+          captions: true,
+          slideWidth: 600,
+          auto: true,
+          stopAutoOnClick: true,
+          autoHover: true,
+          onSlideNext: function (d) {
+            console.log(d);
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="bxslider">
+      <div>
+        <img src="/resources/img/slider_img/slider1.jpg" title="Stream" />
+      </div>
+      <div>
+        <img src="/resources/img/slider_img/slider2.jpg" title="Field" />
+      </div>
+      <div>
+        <img src="/resources/img/slider_img/slider3.jpg" title="Sunrise" />
+      </div>
+      <div>
+        <img src="/resources/img/slider_img/slider4.jpg" title="Foggy wood" />
+      </div>
+      <div>
+        <img src="/resources/img/slider_img/slider5.jpg" title="Green wood" />
+      </div>
+    </div>
+  </body>
+</html>

@@ -16,7 +16,7 @@
       $(function () {
         $("#weather-info").click(function () {
           var cities = ["Seoul", "Daejeon", "Daegu", "Busan", "Gwangju"];
-          $("tbody").html("");
+          $("#data").html("");
           for (var i = 0; i < cities.length; i++) {
             var appKey = "13b71af7c53ed4e0222bba471491c382";
             var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cities[i]}&appid=${appKey}`;
@@ -26,7 +26,6 @@
               dataType: "json",
               type: "get",
               success: function (data) {
-                console.log(data);
                 var tag = "<tr>";
                 tag += `<td class="text-center">${data.name}</td>`;
                 tag += `<td class="text-center">${data.weather[0].main}</td>`;
@@ -43,7 +42,7 @@
                 tag += `<td class="text-center">${data.wind.speed}m/s</td>`;
                 tag += `<td class="text-center">${data.main.humidity}%</td>`;
                 tag += "</tr>";
-                $("tbody").prepend(tag);
+                $("#data").prepend(tag);
               },
             });
           }
@@ -73,7 +72,7 @@
                 <th class="text-center">습도</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody id="data"></tbody>
           </table>
         </div>
       </div>

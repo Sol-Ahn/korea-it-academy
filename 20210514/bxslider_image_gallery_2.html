@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>bxSlider - Image gallery with captions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/resources/bxslider/src/css/jquery.bxslider.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .bxslider img {
+        width: 100%;
+      }
+
+      .bx-pager {
+        bottom: 20px !important;
+      }
+
+      .bx-wrapper {
+        box-shadow: none;
+        border: none;
+      }
+
+      .bx-viewport {
+        height: 500px !important;
+      }
+
+      .bx-wrapper .bx-pager.bx-default-pager a {
+        width: 30px;
+        height: 10px;
+        border-radius: none;
+        background-color: azure;
+        transition-property: background;
+        transition-duration: 0.5s;
+      }
+
+      .bx-wrapper .bx-pager.bx-default-pager a.active {
+        background-color: #586d6d;
+      }
+
+      .bx-wrapper .bx-pager.bx-default-pager a:hover {
+        background-color: #586d6d;
+      }
+
+      .bx-wrapper .bx-next,
+      .bx-wrapper .bx-prev {
+        background-image: url(/resources/bxslider/src/images/controls.png);
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resources/bxslider/src/js/jquery.bxslider.js"></script>
+    <script>
+      $(function () {
+        $(".bxslider").bxSlider();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="bxslider">
+      <div>
+        <img src="/resources/img/slider_img/slider1.jpg" />
+      </div>
+      <div>
+        <img src="/resources/img/slider_img/slider2.jpg" />
+      </div>
+      <div>
+        <img src="/resources/img/slider_img/slider3.jpg" />
+      </div>
+      <div>
+        <img src="/resources/img/slider_img/slider4.jpg" />
+      </div>
+      <div>
+        <img src="/resources/img/slider_img/slider5.jpg" />
+      </div>
+    </div>
+  </body>
+</html>
