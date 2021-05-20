@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TV Remote Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        box-sizing: border-box;
+        padding: 2rem;
+      }
+
+      div {
+        margin-bottom: 0.6rem;
+      }
+
+      button {
+        height: 3rem;
+        font-size: 1.4rem;
+        font-weight: bold;
+        display: inline-block;
+        text-align: center;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 0.5rem;
+      }
+
+      input {
+        width: 4rem;
+        height: 3rem;
+        margin: 0 0.3rem;
+        font-size: 1.6rem;
+        font-weight: 900;
+        border: 0.2rem solid black;
+        border-radius: 0.5rem;
+        outline: none;
+        text-align: center;
+      }
+    </style>
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script>
+      /*
+        TV class
+        variables: channel, volume, power
+        functions: channel up/down, volume up/down, power on/off
+        constructor: channel-24, volume-5, power-true
+      */
+
+      class TV {
+        #ch; // private field
+        #vol;
+        #power;
+        constructor() {
+          this.#ch = 777;
+          this.#vol = 3;
+          this.#power = true;
+        }
+
+        chUp() {
+          // last channel is 777, if the channel is last one, go back to first channel
+          if (this.#ch < 777) {
+            this.#ch++;
+          } else {
+            this.#ch = 1;
+          }
+          // console.log(`This channel is ${this.#ch}`);
+        }
+
+        chDown() {
+          if (this.#ch === 1) {
+            this.#ch = 777;
+          } else {
+            this.#ch--;
+          }
+          // console.log(`This channel is ${this.#ch}`);
+        }
+
+        volUp() {
+          if (this.#vol < 50) {
+            this.#vol++;
+            // console.log(`This volume is ${this.#vol}`);
+          } else if (this.#vol === 50) {
+            alert(`Volume is already maximum`);
+          }
+        }
+
+        volDown() {
+          if (this.#vol > 0) {
+            this.#vol--;
+            // console.log(`This volume is ${this.#vol}`);
+          } else if (this.#vol === 0) {
+            alert(`This volume is already minimum!`);
+          }
+        }
+
+        powerSwitch() {
+          this.#power = !this.#power;
+          this.#power === true
+            ? console.log("TV power on")
+            : console.log("TV power off");
+          return this.#power;
+        }
+
+        // export the field value to outside
+        getCh() {
+          return this.#ch;
+        }
+
+        // import the field value from outside
+        setCh(ch) {
+          if (ch > 0 && ch < 778) this.#ch = ch;
+        }
+
+        getVol() {
+          return this.#vol;
+        }
+
+        setVol(vol) {
+          if (vol >= 0 && col <= 50) this.#vol = vol;
+        }
+
+        getPower() {
+          return this.#power;
+        }
+
+        setPower(power) {
+          if (typeof power === Boolean) this.#power = power;
+        }
+      }
+
+      $(function () {
+        var tv = new TV();
+        // tv.#ch = 200; // SyntaxError
+        // for (var i = 0; i < 100; i++) {
+        //   tv.chDown();
+        // }
+
+        $("#btn-ch-down").on("click keypress", function () {
+          tv.chDown();
+          $("#ch").val(tv.getCh());
+        });
+
+        $("#btn-ch-up").on("click keypress", function () {
+          tv.chUp();
+          $("#ch").val(tv.getCh());
+        });
+
+        $("#btn-vol-down").on("click", function () {
+          tv.volDown();
+          $("#vol").val(tv.getVol());
+        });
+
+        $("#btn-vol-up").on("click", function () {
+          tv.volUp();
+          $("#vol").val(tv.getVol());
+        });
+
+        $("#btn-power").on("click keyup", function () {
+          var status = tv.powerSwitch();
+          if (status) {
+            $("button").not(this).removeAttr("disabled");
+            $(this).css({ "background-color": "lightgreen" });
+          } else {
+            $("button").not(this).attr({
+              disabled: "",
+            });
+            $(this).css({ "background-color": "orangered" });
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <button id="btn-ch-down">CHANNEL DOWN</button
+      ><input type="text" id="ch" readonly /><button id="btn-ch-up">
+        CHANNEL UP
+      </button>
+    </div>
+    <div>
+      <button id="btn-vol-down">VOLUME DOWN</button
+      ><input type="text" id="vol" readonly /><button id="btn-vol-up">
+        VOLUME UP
+      </button>
+    </div>
+    <div>
+      <button id="btn-power">POWER</button> <span id="powerStatus"></span>
+    </div>
+  </body>
+</html>
