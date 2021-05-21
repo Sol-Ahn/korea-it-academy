@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Subway Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var arr = [1, 2, 3, 4, 5];
+      var line = ["1호선", "2호선", "3호선", "4호선", "5호선"];
+
+      /*
+        <h2>1</h2>
+        <h2>2</h2>
+        <h2>3</h2>
+        <h2>4</h2>
+        <h2>5</h2>
+      */
+      var str = arr.map((data) => `<h2>${data}</h2>`);
+      console.log(str);
+      str = line.map((data, index) => `<h2>${data} - ${index}</h2>`);
+      console.log(str);
+    </script>
+  </head>
+  <body></body>
+</html>
