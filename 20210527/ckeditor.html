@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CKEditor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resources/ckeditor/ckeditor.js"></script>
+    <style>
+      .ck-editor__editable_inline {
+        height: 500px;
+      }
+    </style>
+    <script>
+      $(function () {
+        ClassicEditor.create(document.querySelector("#editor")).catch(
+          (error) => {
+            console.error(error);
+          }
+        );
+        $("form").on("submit", function (e) {
+          e.preventDefault();
+          console.log($("#editor").val());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <textarea name="content" id="editor"></textarea>
+      <button>Write</button>
+    </form>
+  </body>
+</html>
