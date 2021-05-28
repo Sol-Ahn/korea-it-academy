@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CKEditor Image Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/resources/lib/jquery-3.6.0.min.js"></script>
+    <script src="/resources/ckeditor/ckeditor.js"></script>
+    <script src="./js/UploadAdapter.js"></script>
+    <style>
+      .ck-editor__editable_inline {
+        height: 500px;
+      }
+    </style>
+    <script>
+      function MyCustomUploadAdapterPlugin(editor) {
+        editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+          return new UploadAdapter(loader);
+        };
+      }
+      $(function () {
+        ClassicEditor.create(document.querySelector("#editor"), {
+          extraPlugins: [MyCustomUploadAdapterPlugin],
+        }).catch((error) => {
+          console.error(error);
+        });
+        $("form").submit(function (e) {
+          e.preventDefault();
+          console.log($("#editor").val());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <textarea name="content" id="editor"></textarea>
+      <button>글쓰기</button>
+    </form>
+  </body>
+</html>
