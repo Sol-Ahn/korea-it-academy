@@ -1,8 +1,8 @@
-const { request, response } = require("express");
+const { req, res } = require("express");
 const express = require("express");
 const session = require("express-session");
 const fileStore = require("session-file-store")(session);
-let mysql = require("mysql");
+const mysql = require("mysql");
 const app = express();
 const port = 3000;
 
@@ -10,7 +10,7 @@ let connection = mysql.createConnection({
   host: "15.164.245.8",
   port: "57495",
   user: "root",
-  password: "mysql",
+  password: "123456",
   database: "web_db",
 });
 connection.connect();
@@ -34,42 +34,63 @@ app.all("/*", function (req, res, next) {
   next();
 });
 
-app.all("/", (request, response) => {
+app.all("/", (req, res) => {
   response.send("express server enter");
 });
 
-app.get("/get.do", (request, response) => {
+app.get("/get.do", (req, res) => {
   const data = { key1: "data1", key2: "data2" };
-  console.log(request.query);
-  for (const key in request.query) {
-    const element = request.query[key];
+  console.log(req.query);
+  for (const key in req.query) {
+    const element = req.query[key];
     console.log(element);
   }
-  response.send(JSON.stringify(data));
+  res.send(JSON.stringify(data));
 });
 
 // Login
-app.get("/login.do", (request, response) => {
-  const sess = request.session;
+app.get("/login.do", (req, res) => {
+  const sess = req.session;
   if (sess.is_logined) {
     console.log("이미 로그인 되어 있습니다.");
     return;
   }
 
-  const id = request.query.id;
-  const pass = request.query.pass;
-  const result = {};
-  if (!request.session.num) request.session.num = 1;
-  else request.session.num += 1;
-  sess.is_logined = true;
-  result["flag"] = 0;
-  result["token"] = sess.id;
-  sess.name = id;
-  console.log(sess.name + "로그인 성공");
-  response.send(result);
+  const id = req.query.id;
+  const pass = req.query.pass;
+
+  // DB data
+  if (!req.session.num) req.session.num = 1;
+  else req.session.num += 1;
+
+  connection.query(
+    `select * from member where id like ${id} and pass like ${pass}`,
+    function (error, result, fields) {
+      if (error) {
+        console.log(error);
+        throw error;
+      }
+      console.log(result);
+
+      const r = {};
+
+      if (result.length == 0) {
+        sess.is_logined = false;
+        r["flag"] = 1;
+        r["msg"] = "로그인실패 아이디와 비밀번호를 확인하세요";
+      } else {
+        r["flag"] = 0;
+        r["tokken"] = sess.id;
+        sess.name = id;
+        console.log(sess.name + " 로그인 성공");
+        console.log(sess.cookie);
+      }
+      response.send(r);
+    }
+  );
 });
 
-app.get("/profile.do", (request, response) => {
+app.get("/profile.do", (req, res) => {
   const token = request.query.token;
   const fs = require("fs");
   const result = {};
@@ -77,7 +98,7 @@ app.get("/profile.do", (request, response) => {
     console.log(data);
     const d = JSON.parse(data);
     result["name"] = d.name;
-    response.send(result);
+    res.send(result);
   });
 });
 
